@@ -68,6 +68,9 @@
     </div>
     <!-- Footer End -->
 
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary border-inner py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
     <!-- my script -->
     <script src="<?php echo base_url() ?>assets/javascript/script.js"></script>
 </body>
