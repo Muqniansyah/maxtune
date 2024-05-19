@@ -43,7 +43,7 @@
                             <form action="">
                                 <div class="input-group">
                                     <input type="text" class="form-control border-white p-1" placeholder="Your Email">
-                                    <button class="btn btn-info">Sign Up</button>
+                                    <button class="btn btn-info">Subscribe</button>
                                 </div>
                             </form>
                         </div>
@@ -69,7 +69,7 @@
     <!-- Footer End -->
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary border-inner py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-primary border-inner py-3 fs-4 scroll-to-top" id="scrollToTopBtn"><i class="bi bi-arrow-up"></i></a>
 
     <!-- my script -->
     <script src="<?php echo base_url() ?>assets/javascript/script.js"></script>

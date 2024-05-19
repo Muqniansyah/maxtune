@@ -30,14 +30,25 @@ function muncul() {
 }
 
 // Back to top button
-$(window).scroll(function () {
-	if ($(this).scrollTop() > 100) {
-		$(".back-to-top").fadeIn("slow");
+window.addEventListener("scroll", function () {
+	var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+	if (window.scrollY > 100) {
+		scrollToTopBtn.style.display = "block";
 	} else {
-		$(".back-to-top").fadeOut("slow");
+		scrollToTopBtn.style.display = "none";
 	}
 });
-$(".back-to-top").click(function () {
-	$("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
-	return false;
-});
+
+document
+	.querySelector(".scroll-to-top")
+	.addEventListener("click", function (event) {
+		event.preventDefault();
+		var scrollStep = -window.scrollY / (1500 / 15),
+			scrollInterval = setInterval(function () {
+				if (window.scrollY !== 0) {
+					window.scrollBy(0, scrollStep);
+				} else {
+					clearInterval(scrollInterval);
+				}
+			}, 15);
+	});
