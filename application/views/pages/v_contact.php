@@ -1,6 +1,6 @@
 <!-- Contact -->
 <section id="contact" class="contact">
-    <h2>Form Kontak Untuk Pertanyaan</h2>
+    <h2>Form Kontak</h2>
     <div class="container">
         <div class="contact-wrapper">
             <div class="form-container">
