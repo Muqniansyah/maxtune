@@ -79,7 +79,7 @@
                         </div>
                         <div class="bg-dark border-inner text-center p-4">
                             <h4 class="text-uppercase text-white">Calvin Altra Alfrando</h4>
-                            <p class="text-light m-0">Montir</p>
+                            <p class="text-light m-0">Sales</p>
                         </div>
                     </div>
                 </div>
