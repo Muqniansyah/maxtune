@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="bg-dark border-inner text-center p-4">
-                            <h4 class="text-uppercase text-white">Sano Manjirou</h4>
+                            <h4 class="text-uppercase text-white">Rahman Nurhadi</h4>
                             <p class="text-light m-0">Montir</p>
                         </div>
                     </div>
