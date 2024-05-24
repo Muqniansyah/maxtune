@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <div class="bg-dark border-inner text-center p-4">
-                            <h4 class="text-uppercase text-white">Rois</h4>
+                            <h4 class="text-uppercase text-white">Mohamad Rois Alfariji</h4>
                             <p class="text-light m-0">Montir</p>
                         </div>
                     </div>
