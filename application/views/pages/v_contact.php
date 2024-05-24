@@ -6,7 +6,7 @@
             <div class="form-container">
                 <form action="/submit_form" method="post">
                     <label for="nama">Nama:</label>
-                    <input type="text" id="nama" name="nama" placeholder="masukkan nama"  required>
+                    <input type="text" id="nama" name="nama" placeholder="masukkan nama" required>
                     
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="masukkan email" required>
@@ -24,3 +24,49 @@
     </div>
 </section>
 <!-- Akhir contact -->
+
+<!-- WhatsApp CTA Floating -->
+<a href="https://wa.me/6281220893249?" class="whatsapp-float" target="_blank">
+    <img src="<?php echo base_url() ?>assets/img/whatsapp.png" alt="whatsapp-logo">
+</a>
+
+<style>
+    .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        left: 40px;
+        background-color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .whatsapp-float img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .whatsapp-float:hover {
+        background-color: #128C7E;
+    }
+
+    @media (max-width: 576px) {
+        .whatsapp-float {
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            left: 10px;
+        }
+
+        .whatsapp-float img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+</style>
