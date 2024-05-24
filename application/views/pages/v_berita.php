@@ -106,7 +106,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="team-item">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="<?php echo base_url() ?>assets/img/revanda.jpg" alt="Montir-6">
+                            <img class="img-fluid w-100" src="<?php echo base_url() ?>assets/img/rois2.jpg" alt="Montir-6">
                             <div class="team-overlay w-100 h-100 position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center">
                                 <div class="d-flex align-items-center justify-content-start">
                                     <a class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 mx-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
