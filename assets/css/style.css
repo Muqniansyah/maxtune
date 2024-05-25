@@ -644,3 +644,102 @@ input[type="submit"]:hover:after {
 		height: 30px;
 	}
 }
+
+/* start faq */
+
+body.faq {
+	font-family: "Arial", sans-serif;
+	background-color: #dee3e6;
+	margin: 0;
+	padding: 0;
+}
+
+.box {
+	width: 90%;
+	max-width: 600px;
+	margin: 50px auto;
+	background-color: #dee3e6;
+	border-radius: 10px;
+}
+
+.heading {
+	color: black;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transition: background-color 0.3s; /* Transisi warna latar belakang */
+	cursor: pointer; /* Menjadikan heading menjadi kursor pointer */
+}
+
+.details-content:hover,
+.details-content:focus {
+	/* Saat diklik */
+	background-color: #c8c8c8; /* Warna latar belakang saat kursor menyetuh */
+}
+
+.faqs {
+	padding: 20px;
+}
+
+.details-content {
+	padding-top: 10px;
+	font-size: 16px;
+}
+
+details {
+	background-color: #fefaf6;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+details[open] {
+	background-color: #ececec;
+}
+
+summary {
+	cursor: pointer;
+	padding: 15px;
+	font-weight: bold;
+}
+
+summary:focus {
+	outline: none;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+/* Icon Arrow */
+summary::after {
+	content: "▼";
+	float: right;
+	transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+	transform: rotate(-180deg);
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 768px) {
+	.box {
+		width: 95%; /* Menyesuaikan lebar kotak untuk layar yang lebih kecil */
+		margin: 30px auto;
+	}
+
+	.heading {
+		font-size: 20px;
+		padding: 15px;
+	}
+
+	.details-content {
+		font-size: 14px;
+	}
+}
+
+/* end faq */

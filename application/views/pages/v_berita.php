@@ -126,7 +126,56 @@
     </div>
     <!-- Team End -->
 
-    <!-- Faq Start -->
+ <!-- Faq Start -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Bengkel Maxtune</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+</head>
+<body class="faq">
+  <div class="box">
+    <div class="heading">FAQ Bengkel Maxtune</div>
+    <div class="faqs">
+      <details>
+        <summary>Jam operasional Bengkel Maxtune?</summary>
+        <div class="details-content">
+          <p>Bengkel Maxtune buka dari Senin hingga Sabtu, pukul 08.00 pagi hingga 17.00 sore. Kami tutup pada hari Minggu dan hari libur nasional.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Apakah saya perlu membuat janji sebelum datang ke bengkel?</summary>
+        <div class="details-content">
+          <p>Anda tidak perlu membuat janji terlebih dahulu untuk layanan reguler. Namun, untuk layanan khusus seperti tuning mesin, kami sarankan Anda membuat janji agar kami dapat melayani Anda dengan lebih baik.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Layanan apa saja yang ditawarkan Bengkel Maxtune?</summary>
+        <div class="details-content">
+          <p>Bengkel Maxtune menawarkan berbagai layanan, termasuk servis rutin, perbaikan mesin, tuning mesin, modifikasi kendaraan, dan pemasangan aksesori.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Berapa lama waktu yang dibutuhkan untuk servis rutin?</summary>
+        <div class="details-content">
+          <p>Servis rutin biasanya memakan waktu sekitar 1 hingga 2 jam, tergantung pada jenis kendaraan dan kondisi kendaraan Anda.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Apakah Bengkel Maxtune menyediakan garansi untuk layanan yang diberikan?</summary>
+        <div class="details-content">
+          <p>Ya, kami menyediakan garansi untuk semua layanan yang kami berikan. Garansi kami mencakup kualitas pekerjaan dan suku cadang yang digunakan.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</body>
+</html>
+
     
     <!-- Faq end -->
+    
 </section>
