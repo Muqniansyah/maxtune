@@ -58,6 +58,18 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
+    //contact yang ada di dasboard bukan di front
+    public function contacts() {
+        //$data['judul'] = "~ Daftar Contact ~";
+
+        // Ambil semua data formulir kontak dari model M_account
+        $data['list_formkontak'] = $this->M_account->alldata3();
+
+        // Render halaman view
+        $this->load->view('v_contacts', $data);
+}
+
+
     public function subscribee() {
         // Memuat library session
         $this->load->library('session');
@@ -146,11 +158,24 @@ class Maxtune extends CI_Controller {
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
+
+    public function cetak_kontak()
+    {
+        $this->load->library('form_validation');
+
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'email' => $this->input->post('email'),
+            'pesan' => $this->input->post('pesan')
+        ];
+
+        $insert_id= $this->M_account->formkontak($data);
+
+        $dtkontak = $this->M_account->alldata3();
+            $this->load->view('v_contacts',['dtkontak' => $dtkontak]);
+    }
     
     
 }
-
-
-
 
 ?>

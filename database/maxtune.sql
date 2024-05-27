@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Bulan Mei 2024 pada 01.04
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.1.25
+-- Generation Time: May 27, 2024 at 08:03 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `form`
+-- Table structure for table `form`
 --
 
 CREATE TABLE `form` (
@@ -42,7 +42,7 @@ CREATE TABLE `form` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `form`
+-- Dumping data for table `form`
 --
 
 INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
@@ -52,7 +52,29 @@ INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subscribe`
+-- Table structure for table `formkontak`
+--
+
+CREATE TABLE `formkontak` (
+  `id_kontak` int(11) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `email` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `pesan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `formkontak`
+--
+
+INSERT INTO `formkontak` (`id_kontak`, `nama`, `email`, `pesan`) VALUES
+(1, 'Rangga', 'Rangga99@gmail.com', 'Hallo Admin maxtune, websitenya sangat bagus dan memudahkan pelanggan untuk mengetahui informasi seputar bengkel maxtune'),
+(3, 'chiko', 'chiko@gmail.com', 'Bagus Websitenya, Mantapss'),
+(4, 'Matthew', 'Matt@gmail.com', 'Mantaps slurrr');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscribe`
 --
 
 CREATE TABLE `subscribe` (
@@ -61,7 +83,7 @@ CREATE TABLE `subscribe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `subscribe`
+-- Dumping data for table `subscribe`
 --
 
 INSERT INTO `subscribe` (`id`, `email`) VALUES
@@ -86,7 +108,7 @@ INSERT INTO `subscribe` (`id`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -98,57 +120,70 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
 (1, 'muni', 'muni@gmail.com', 'muni', '827ccb0eea8a706c4c34a16891f84e7b'),
-(2, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(2, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(3, 'Rangga', 'Rangga99@gmail.com', 'rangga', '12345');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `form`
+-- Indexes for table `form`
 --
 ALTER TABLE `form`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `subscribe`
+-- Indexes for table `formkontak`
+--
+ALTER TABLE `formkontak`
+  ADD PRIMARY KEY (`id_kontak`);
+
+--
+-- Indexes for table `subscribe`
 --
 ALTER TABLE `subscribe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `form`
+-- AUTO_INCREMENT for table `form`
 --
 ALTER TABLE `form`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `subscribe`
+-- AUTO_INCREMENT for table `formkontak`
+--
+ALTER TABLE `formkontak`
+  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `subscribe`
 --
 ALTER TABLE `subscribe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

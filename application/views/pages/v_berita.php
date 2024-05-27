@@ -12,7 +12,7 @@
                     <div class="team-overlay">
                         <div class="social-icons">
                             <a href="#" class="simbol"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="simbol"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/muqniansyah-a-a15b20244/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <img src="<?php echo base_url() ?>assets/img/montir/muni.jpg" alt="Montir-1" width="380" height="400">
@@ -28,7 +28,7 @@
                     <div class="team-overlay">
                         <div class="social-icons">
                             <a href="#" class="simbol"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="simbol"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/rahman-nurhadi-1419001a7/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <img src="<?php echo base_url() ?>assets/img/montir/rahman.jpg" alt="Montir-2" width="380" height="400">
@@ -44,7 +44,7 @@
                     <div class="team-overlay">
                         <div class="social-icons">
                             <a href="#" class="simbol"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="simbol"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/rangga-ryantico19/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <img src="<?php echo base_url() ?>assets/img/montir/rangga.jpg" alt="Montir-3" width="380" height="400">
@@ -60,7 +60,7 @@
                     <div class="team-overlay">
                         <div class="social-icons">
                             <a href="#" class="simbol"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="simbol"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/evin-altra-11a61b30a/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <img src="<?php echo base_url() ?>assets/img/montir/calvin.jpg" alt="Montir-4" width="380" height="400">
@@ -76,7 +76,7 @@
                     <div class="team-overlay">
                         <div class="social-icons">
                             <a href="#" class="simbol"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="simbol"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/revanda-ghofar-pratama-08236a30a/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <img src="<?php echo base_url() ?>assets/img/montir/revanda.jpg" alt="Montir-5" width="380" height="400">
