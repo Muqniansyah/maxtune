@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Bulan Mei 2024 pada 05.48
+-- Waktu pembuatan: 27 Bulan Mei 2024 pada 01.04
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.25
 
@@ -20,6 +20,68 @@ SET time_zone = "+00:00";
 --
 -- Database: `maxtune`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `form`
+--
+
+CREATE TABLE `form` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `nohp` int(12) NOT NULL,
+  `alamat` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `provinsi` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kota` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `motor` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `jenis_servis` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `jadwal` date NOT NULL,
+  `jam` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `form`
+--
+
+INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
+(1, 'carlo', 'your@gmail.com', 2147483647, 'taman indah', 'Kalimantan Timur', 'Tangerang', 'Honda Vario', 'oli bocor', '2024-05-08', '19:28:00'),
+(2, 'muni', 'your@gmail.com', 2147483647, 'taman kota', 'Kepulauan Bangka Belitung', 'Batam', 'Kawasaki Ninja', 'ban ilang', '2024-05-23', '17:28:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `subscribe`
+--
+
+CREATE TABLE `subscribe` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `subscribe`
+--
+
+INSERT INTO `subscribe` (`id`, `email`) VALUES
+(1, 'muni@gmail.com'),
+(2, 'admin@gmail.com'),
+(3, 'anjai@gmail.com'),
+(4, 'rangga@gmail.com'),
+(5, 'init@gmail.com'),
+(6, 'aku@gmail.com'),
+(7, 'your@gmail.com'),
+(8, 'aray@gmail.com'),
+(9, 'coba@gmail.com'),
+(10, 'www@gmail.co'),
+(11, 'sasa@gmail.co'),
+(12, 'asem@gmial.co'),
+(13, 'aisyah@gmail.com'),
+(14, 'asxasx@gmail.co'),
+(15, 'your@gmail.com'),
+(16, 'su@gmail.com'),
+(17, 'asik@gmial.com');
 
 -- --------------------------------------------------------
 
@@ -48,6 +110,18 @@ INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
 --
 
 --
+-- Indeks untuk tabel `form`
+--
+ALTER TABLE `form`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `subscribe`
+--
+ALTER TABLE `subscribe`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -57,6 +131,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `form`
+--
+ALTER TABLE `form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `subscribe`
+--
+ALTER TABLE `subscribe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

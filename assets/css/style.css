@@ -126,7 +126,7 @@ nav.sticky .nav-links li a:before {
 
 /* start jumbotron */
 .jumbotron {
-	background-image: url(../img/poto2.jpg);
+	background-image: url(../img/jumbotron/jumbotron.jpg);
 	background-size: cover;
 	height: 540px;
 	text-align: center;
@@ -418,22 +418,174 @@ input[type="submit"]:hover:after {
 /* end services */
 
 /* start berita */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 50px 20px;
+}
+
+.section-title {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.team-item {
+	position: relative;
+	margin-bottom: 30px;
+	overflow: hidden;
+	border-radius: 8px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	transition: transform 0.3s ease;
+}
+
+.team-item:hover {
+	transform: translateY(-5px);
+}
+
 .team-item img {
-	transition: 0.5s;
+	border-radius: 8px 8px 0 0;
 }
 
-.team-item:hover img {
-	transform: scale(1.1);
-	filter: blur(5px);
-}
-
-.team-item .team-overlay {
-	transition: 0.5s;
+.team-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
 	opacity: 0;
+	transition: opacity 0.3s ease;
 }
 
 .team-item:hover .team-overlay {
 	opacity: 1;
+}
+
+.social-icons {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.team-item:hover .social-icons {
+	opacity: 1;
+}
+
+.social-icons a {
+	color: #fff;
+	font-size: 20px;
+	margin: 0 5px;
+	transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+	transform: scale(1.2);
+}
+
+.social-icons .simbol:hover {
+	color: rgb(201, 183, 183);
+}
+
+.team-info {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	color: #fff;
+	z-index: 1;
+}
+
+.team-info h4 {
+	margin: 0;
+	font-size: 24px;
+}
+
+.team-info p {
+	margin: 5px 0 0;
+	font-size: 16px;
+	opacity: 0.8;
+}
+
+/* faq */
+.faq {
+	font-family: "Arial", sans-serif;
+	background-color: #dee3e6;
+	margin: 0;
+	padding: 0;
+}
+
+.faq .box {
+	width: 90%;
+	max-width: 600px;
+	margin: 50px auto;
+	background-color: #dee3e6;
+	border-radius: 10px;
+}
+
+.faq .heading {
+	color: black;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transition: background-color 0.3s; /* Transisi warna latar belakang */
+	cursor: pointer; /* Menjadikan heading menjadi kursor pointer */
+}
+
+.details-content:hover,
+.details-content:focus {
+	/* Saat diklik */
+	background-color: #c8c8c8; /* Warna latar belakang saat kursor menyetuh */
+}
+
+.faqs {
+	padding: 20px;
+}
+
+.details-content {
+	padding-top: 10px;
+	font-size: 16px;
+}
+
+details {
+	background-color: #fefaf6;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+details[open] {
+	background-color: #ececec;
+}
+
+summary {
+	cursor: pointer;
+	padding: 15px;
+	font-weight: bold;
+}
+
+summary:focus {
+	outline: none;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+/* Icon Arrow */
+summary::after {
+	content: "▼";
+	float: right;
+	transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+	transform: rotate(-180deg);
 }
 /* end berita */
 
@@ -617,116 +769,7 @@ input[type="submit"]:hover:after {
 	.nav-links li a:before {
 		background: #17a2b8;
 	}
-}
 
-/* DEKSTOP VERSION */
-@media (min-width: 992px) {
-	.jumbotron {
-		margin-top: -75px;
-		height: 640px;
-	}
-
-	.jumbotron .display-4 {
-		font-size: 62px;
-	}
-}
-
-@media (max-width: 576px) {
-	.whatsapp-float {
-		width: 50px;
-		height: 50px;
-		bottom: 20px;
-		left: 10px;
-	}
-
-	.whatsapp-float img {
-		width: 30px;
-		height: 30px;
-	}
-}
-
-/* start faq */
-
-body.faq {
-	font-family: "Arial", sans-serif;
-	background-color: #dee3e6;
-	margin: 0;
-	padding: 0;
-}
-
-.box {
-	width: 90%;
-	max-width: 600px;
-	margin: 50px auto;
-	background-color: #dee3e6;
-	border-radius: 10px;
-}
-
-.heading {
-	color: black;
-	font-size: 24px;
-	font-weight: bold;
-	text-align: center;
-	padding: 20px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	transition: background-color 0.3s; /* Transisi warna latar belakang */
-	cursor: pointer; /* Menjadikan heading menjadi kursor pointer */
-}
-
-.details-content:hover,
-.details-content:focus {
-	/* Saat diklik */
-	background-color: #c8c8c8; /* Warna latar belakang saat kursor menyetuh */
-}
-
-.faqs {
-	padding: 20px;
-}
-
-.details-content {
-	padding-top: 10px;
-	font-size: 16px;
-}
-
-details {
-	background-color: #fefaf6;
-	border-radius: 5px;
-	margin-bottom: 15px;
-	transition: background-color 0.3s; /* Transisi warna latar belakang */
-}
-
-details[open] {
-	background-color: #ececec;
-}
-
-summary {
-	cursor: pointer;
-	padding: 15px;
-	font-weight: bold;
-}
-
-summary:focus {
-	outline: none;
-}
-
-summary::-webkit-details-marker {
-	display: none;
-}
-
-/* Icon Arrow */
-summary::after {
-	content: "▼";
-	float: right;
-	transition: transform 0.3s ease;
-}
-
-details[open] summary::after {
-	transform: rotate(-180deg);
-}
-
-/* Responsiveness */
-@media only screen and (max-width: 768px) {
 	.box {
 		width: 95%; /* Menyesuaikan lebar kotak untuk layar yang lebih kecil */
 		margin: 30px auto;
@@ -742,4 +785,33 @@ details[open] summary::after {
 	}
 }
 
-/* end faq */
+/* Dekstop */
+@media (min-width: 992px) {
+	.jumbotron {
+		margin-top: -75px;
+		height: 640px;
+	}
+
+	.jumbotron .display-4 {
+		font-size: 62px;
+	}
+}
+
+/* Mobile Phone */
+@media (max-width: 576px) {
+	.whatsapp-float {
+		width: 50px;
+		height: 50px;
+		bottom: 20px;
+		left: 10px;
+	}
+
+	.whatsapp-float img {
+		width: 30px;
+		height: 30px;
+	}
+
+	.team-item img {
+		width: 450px;
+	}
+}

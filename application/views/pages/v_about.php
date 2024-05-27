@@ -1,4 +1,4 @@
-<section id="about">
+<section id="about" class="about">
     <div class="main">
         <div class="text">
             <h2>Tentang <span>Kami</span></h2>
@@ -10,7 +10,7 @@
             </p>
         </div>
         <div class="img">
-            <img src="<?php echo base_url() ?>assets/img/poto.jpg" alt="maxtune-about">
+            <img src="<?php echo base_url() ?>assets/img/about/about.jpg" alt="maxtune-about">
         </div>
     </div>
 </section>

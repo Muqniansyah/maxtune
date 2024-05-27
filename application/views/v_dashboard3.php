@@ -10,8 +10,8 @@
             <div id="content">
                 <div class="container-fluid mt-5">
                     <?php
-                        if (!empty('content/v_dashboards')): 
-                            $this->load->view('content/v_dashboards'); 
+                        if (!empty('content/v_contacts')): 
+                            $this->load->view('content/v_contacts'); 
                         else: 
                             echo ('Halaman tidak ditemukan'); 
                         endif; 

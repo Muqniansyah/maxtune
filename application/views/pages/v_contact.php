@@ -27,5 +27,5 @@
 
 <!-- WhatsApp CTA Floating -->
 <a href="https://wa.me/6281220893249?" class="whatsapp-float" target="_blank">
-    <img src="<?php echo base_url() ?>assets/img/whatsapp.png" alt="whatsapp-logo">
+    <img src="<?php echo base_url() ?>assets/img/cta/whatsapp.png" alt="whatsapp-logo">
 </a>

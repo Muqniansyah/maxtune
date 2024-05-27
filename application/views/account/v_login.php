@@ -19,7 +19,7 @@
             justify-content: center;
             background: #7d2ae8;
             padding: 30px;
-            background-image: url("assets/img/beranda.jpg");
+            background-image: url("assets/img/login/login.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;

@@ -53,12 +53,5 @@ document
 	.querySelector(".scroll-to-top")
 	.addEventListener("click", function (event) {
 		event.preventDefault();
-		var scrollStep = -window.scrollY / (1500 / 15),
-			scrollInterval = setInterval(function () {
-				if (window.scrollY !== 0) {
-					window.scrollBy(0, scrollStep);
-				} else {
-					clearInterval(scrollInterval);
-				}
-			}, 15);
+		window.scrollTo(0, 0);
 	});

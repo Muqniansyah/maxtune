@@ -1,6 +1,6 @@
 <section id="services" class="services">
     <h2>Layanan Booking Service</h2>
-    <form action="<?= base_url('admin/cetak'); ?>" method="post" class="form-container">
+    <form action="<?= base_url('maxtune/cetak'); ?>" method="post" class="form-container">
         <div class="form-group">
             <label for="nama">Nama:</label>
             <input type="text" name="nama" id="nama">

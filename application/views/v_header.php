@@ -17,7 +17,7 @@
   <nav>
     <div class="nav-content">
       <div class="logo">
-        <img src="<?php echo base_url() ?>assets/img/mylogo.png" alt="maxtune-logo">
+        <img src="<?php echo base_url() ?>assets/img/logo/mylogo.png" alt="maxtune-logo">
       </div>
       <!-- Tambahkan tombol hamburger menu -->
       <div class="menu-toggle">
