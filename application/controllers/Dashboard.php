@@ -28,8 +28,4 @@ class Dashboard extends CI_Controller {
     public function subscribe() {
         $this->load->view('v_dashboard4');
     }
-
-    public function subscribe() {
-        $this->load->view('v_dashboard5');
-    }
 }
