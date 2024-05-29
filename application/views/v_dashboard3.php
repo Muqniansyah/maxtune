@@ -11,7 +11,11 @@
                 <div class="container-fluid mt-5">
                     <?php
                         if (!empty('content/v_contacts')): 
-                            $this->load->view('content/v_contacts'); 
+                            $this->load->database();
+                            // Ambil data form dari tabel sementara
+                            $query = $this->db->get('temporary_formkontak');
+                            $data['dtkontak'] = $query->result_array();
+                            $this->load->view('content/v_contacts', $data);
                         else: 
                             echo ('Halaman tidak ditemukan'); 
                         endif; 

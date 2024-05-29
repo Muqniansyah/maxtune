@@ -4,7 +4,7 @@
     <div class="container">
         <div class="contact-wrapper">
             <div class="form-container">
-                <form action="/submit_form" method="post">
+                <form action="<?= base_url('maxtune/cetak_kontak');?>" method="post">
                     <label for="nama">Nama:</label>
                     <input type="text" id="nama" name="nama" placeholder="masukkan nama" required>
                     
