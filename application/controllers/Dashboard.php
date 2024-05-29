@@ -10,7 +10,11 @@ class Dashboard extends CI_Controller {
 
     //Load Halaman dashboard
     public function index() {
-        $this->load->view('v_dashboard');
+        $this->load->model('M_account'); // Memuat model M_account
+        $data['form_count'] = $this->M_account->getFormCount();
+        $data['formkontak_count'] = $this->M_account->getFormKontakCount();
+        $data['subscribe_count'] = $this->M_account->getSubscribeCount();
+        $this->load->view('v_dashboard', $data); // Load view with data
     }
 
     public function form() {

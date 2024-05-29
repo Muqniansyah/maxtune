@@ -58,22 +58,7 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
-    //contact yang ada di dasboard bukan di front
-    public function contacts() {
-        //$data['judul'] = "~ Daftar Contact ~";
-
-        // Ambil semua data formulir kontak dari model M_account
-        $data['list_formkontak'] = $this->M_account->alldata3();
-
-        // Render halaman view
-        $this->load->view('v_contacts', $data);
-}
-
-
     public function subscribee() {
-        // Memuat library session
-        $this->load->library('session');
-
         // Validasi Data
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         
@@ -86,24 +71,17 @@ class Maxtune extends CI_Controller {
                 'email' => $this->input->post('email'),
             ];
         
-            // Simpan data ke database
-            $insert_id = $this->M_account->langganan($data);
-            if ($insert_id) {
-                // Jika penyimpanan berhasil, simpan pesan dalam session
-                $this->session->set_flashdata('message', 'Berhasil subscribe!');
+            // Simpan data ke dalam tabel sementara
+            $this->db->insert('temporary_subscribe', $data);
 
-                // Jika penyimpanan berhasil, ambil semua data siswa
-                $subs_list = $this->M_account->alldata();
-
-                // Tampilkan file v_subscribes dengan data siswa yang baru saja ditambahkan
-                $this->load->view('content/v_subscribes',['subs_list' => $subs_list]);
-            } else {
-                // Jika penyimpanan gagal, simpan pesan error dalam session
-                $this->session->set_flashdata('message', 'Gagal subscribe.');
-            }
+            // Salin data dari tabel sementara ke tabel 
+            $this->db->query('REPLACE INTO subscribe (id, email) SELECT id, email FROM temporary_subscribe');
     
             // Redirect kembali ke halaman sebelumnya
             redirect($_SERVER['HTTP_REFERER']);
+
+            // Redirect kembali ke halaman form
+            // redirect('FormController');
         }
     }
 
@@ -138,44 +116,45 @@ class Maxtune extends CI_Controller {
                 'jam' => $this->input->post('jam')
             ];
     
-            // Simpan data ke database
-            $insert_id = $this->M_account->formsSave($data);
-            if ($insert_id) {
-                // Jika penyimpanan berhasil, simpan pesan dalam session
-                $this->session->set_flashdata('message', 'Berhasil !');
+            // Simpan data ke dalam tabel sementara
+            $this->db->insert('temporary_form', $data);
 
-                // Jika penyimpanan berhasil, ambil semua data siswa
-                $list_form = $this->M_account->alldata2();
+            // Salin data dari tabel sementara ke tabel 
+            $this->db->query('REPLACE INTO form (id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam) SELECT id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam FROM temporary_form');
 
-                // Tampilkan file v_forms dengan data siswa yang baru saja ditambahkan
-                $this->load->view('content/v_forms',['list_form' => $list_form]);
-            } else {
-                // Jika penyimpanan gagal, simpan pesan error dalam session
-                $this->session->set_flashdata('message', 'Gagal.');
-            }
+            // Redirect kembali ke halaman sebelumnya
+            redirect($_SERVER['HTTP_REFERER']);
+            
+        }
+    }
+
+    public function cetak_kontak() {
+        // Validasi Data
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('pesan', 'Pesan', 'required');
+        
+        if ($this->form_validation->run() == false) {
+            // Jika validasi gagal, tampilkan kembali form
+            $this->load->view('v_contact');
+        } else {
+            // Ambil data dari form
+            $data = [
+                'nama' => $this->input->post('nama'),
+                'email' => $this->input->post('email'),
+                'pesan' => $this->input->post('pesan')
+            ];
+            // Simpan data ke dalam tabel sementara
+            $this->db->insert('temporary_formkontak', $data);
+
+            // Salin data dari tabel sementara ke tabel 
+            $this->db->query('REPLACE INTO formkontak (id_kontak, nama, email, pesan) SELECT id_kontak, nama, email, pesan FROM temporary_formkontak');
     
             // Redirect kembali ke halaman sebelumnya
             redirect($_SERVER['HTTP_REFERER']);
         }
-    }
-
-    public function cetak_kontak()
-    {
-        $this->load->library('form_validation');
-
-        $data = [
-            'nama' => $this->input->post('nama'),
-            'email' => $this->input->post('email'),
-            'pesan' => $this->input->post('pesan')
-        ];
-
-        $insert_id= $this->M_account->formkontak($data);
-
-        $dtkontak = $this->M_account->alldata3();
-            $this->load->view('v_contacts',['dtkontak' => $dtkontak]);
-    }
     
     
+    }
 }
-
 ?>

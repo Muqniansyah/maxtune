@@ -10,45 +10,36 @@ class M_account extends CI_Model{
         $this->load->database();
     }
 
+    // masukkan data
     function daftar($data) {
         $this->db->insert('users',$data);
     }
 
     function langganan($data) {
         $this->db->insert('subscribe',$data);
-
         return $this->db->insert_id();
     }
 
     function formsSave($data) {
         $this->db->insert('form',$data);
-
         return $this->db->insert_id();
     }
 
-    //untuk memasukan data form kontak dari pelanggan kedalam database
-    function formkontak($data)
-    {
+    function formkontak($data) {
         $this->db->insert('formkontak', $data);
-
         return $this->db->insert_id();
     }
 
-    // method yang digunakan untuk mengambil semua data subscribe dari tabel 'subscribe' dalam database.
-    public function alldata(){
-        //  mengembalikan semua data subscribe dari tabel 'subscribe' dalam bentuk array asosiatif.
-        return $this->db->get('subscribe')->result_array();
+    // untuk menghitung jumlah baris dalam sebuah tabel
+    public function getFormCount() {
+        return $this->db->count_all('form');
     }
 
-    // method yang digunakan untuk mengambil semua data form dari tabel 'form' dalam database.
-    public function alldata2(){
-        //  mengembalikan semua data form dari tabel 'form' dalam bentuk array asosiatif.
-        return $this->db->get('form')->result_array();
+    public function getFormKontakCount() {
+        return $this->db->count_all('formkontak');
     }
 
-    //method untuk mengambil semua data formkontak dari tabel 'formkontak' didalam database :)
-    public function alldata3(){
-        
-        return $this->db->get('formkontak')->result_array();
+    public function getSubscribeCount() {
+        return $this->db->count_all('subscribe');
     }
 }

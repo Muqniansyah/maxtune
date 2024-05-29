@@ -10,7 +10,7 @@
         <?php if(isset($dtkontak) && is_array($dtkontak)): ?>
             <?php foreach ($dtkontak as $contact) : ?>
                 <tr>
-                    <td><?= $contact['id']; ?></td>
+                    <td><?= $contact['id_kontak']; ?></td>
                     <td><?= $contact['nama']; ?></td>
                     <td><?= $contact['email']; ?></td>
                     <td><?= $contact['pesan']; ?></td>

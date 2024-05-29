@@ -11,7 +11,11 @@
                 <div class="container-fluid mt-5">
                     <?php
                         if (!empty('content/v_subscribes')): 
-                            $this->load->view('content/v_subscribes'); 
+                            $this->load->database();
+                            // Ambil data form dari tabel sementara
+                            $query = $this->db->get('temporary_subscribe');
+                            $data['subs_list'] = $query->result_array();
+                            $this->load->view('content/v_subscribes', $data);
                         else: 
                             echo ('Halaman tidak ditemukan'); 
                         endif; 

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2024 at 08:03 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- Waktu pembuatan: 29 Bulan Mei 2024 pada 05.57
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `form`
+-- Struktur dari tabel `form`
 --
 
 CREATE TABLE `form` (
@@ -42,7 +42,7 @@ CREATE TABLE `form` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `form`
+-- Dumping data untuk tabel `form`
 --
 
 INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `formkontak`
+-- Struktur dari tabel `formkontak`
 --
 
 CREATE TABLE `formkontak` (
@@ -63,18 +63,19 @@ CREATE TABLE `formkontak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `formkontak`
+-- Dumping data untuk tabel `formkontak`
 --
 
 INSERT INTO `formkontak` (`id_kontak`, `nama`, `email`, `pesan`) VALUES
 (1, 'Rangga', 'Rangga99@gmail.com', 'Hallo Admin maxtune, websitenya sangat bagus dan memudahkan pelanggan untuk mengetahui informasi seputar bengkel maxtune'),
-(3, 'chiko', 'chiko@gmail.com', 'Bagus Websitenya, Mantapss'),
-(4, 'Matthew', 'Matt@gmail.com', 'Mantaps slurrr');
+(2, 'chiko', 'chiko@gmail.com', 'Bagus Websitenya, Mantapss'),
+(3, 'Matthew', 'Matt@gmail.com', 'Mantaps slurrr'),
+(4, 'sanji', 'sanji@gmail.com', 'sukakkkkkkk');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subscribe`
+-- Struktur dari tabel `subscribe`
 --
 
 CREATE TABLE `subscribe` (
@@ -83,32 +84,95 @@ CREATE TABLE `subscribe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `subscribe`
+-- Dumping data untuk tabel `subscribe`
 --
 
 INSERT INTO `subscribe` (`id`, `email`) VALUES
 (1, 'muni@gmail.com'),
 (2, 'admin@gmail.com'),
-(3, 'anjai@gmail.com'),
-(4, 'rangga@gmail.com'),
-(5, 'init@gmail.com'),
-(6, 'aku@gmail.com'),
-(7, 'your@gmail.com'),
-(8, 'aray@gmail.com'),
-(9, 'coba@gmail.com'),
-(10, 'www@gmail.co'),
-(11, 'sasa@gmail.co'),
-(12, 'asem@gmial.co'),
-(13, 'aisyah@gmail.com'),
-(14, 'asxasx@gmail.co'),
-(15, 'your@gmail.com'),
-(16, 'su@gmail.com'),
-(17, 'asik@gmial.com');
+(3, 'monster@gmail.com'),
+(4, 'monster@gmail.com'),
+(5, 'anda@gmail.com'),
+(6, 'sisca@gmail.co');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `temporary_form`
+--
+
+CREATE TABLE `temporary_form` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `nohp` int(12) NOT NULL,
+  `alamat` varchar(128) NOT NULL,
+  `provinsi` varchar(128) NOT NULL,
+  `kota` varchar(128) NOT NULL,
+  `motor` varchar(128) NOT NULL,
+  `jenis_servis` varchar(128) NOT NULL,
+  `jadwal` date NOT NULL,
+  `jam` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `temporary_form`
+--
+
+INSERT INTO `temporary_form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
+(1, 'carlo', 'your@gmail.com', 2147483647, 'taman indah', 'Kalimantan Timur', 'Tangerang', 'Honda Vario', 'oli bocor', '2024-05-08', '19:28:00'),
+(2, 'muni', 'your@gmail.com', 2147483647, 'taman kota', 'Kepulauan Bangka Belitung', 'Batam', 'Kawasaki Ninja', 'ban ilang', '2024-05-23', '17:28:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `temporary_formkontak`
+--
+
+CREATE TABLE `temporary_formkontak` (
+  `id_kontak` int(11) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `pesan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `temporary_formkontak`
+--
+
+INSERT INTO `temporary_formkontak` (`id_kontak`, `nama`, `email`, `pesan`) VALUES
+(1, 'Rangga', 'Rangga99@gmail.com', 'Hallo Admin maxtune, websitenya sangat bagus dan memudahkan pelanggan untuk mengetahui informasi seputar bengkel maxtune'),
+(2, 'chiko', 'chiko@gmail.com', 'Bagus Websitenya, Mantapss'),
+(3, 'Matthew', 'Matt@gmail.com', 'Mantaps slurrr'),
+(4, 'sanji', 'sanji@gmail.com', 'sukakkkkkkk');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `temporary_subscribe`
+--
+
+CREATE TABLE `temporary_subscribe` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `temporary_subscribe`
+--
+
+INSERT INTO `temporary_subscribe` (`id`, `email`) VALUES
+(1, 'muni@gmail.com'),
+(2, 'admin@gmail.com'),
+(3, 'monster@gmail.com'),
+(4, 'monster@gmail.com'),
+(5, 'anda@gmail.com'),
+(6, 'sisca@gmail.co');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -120,7 +184,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
@@ -133,54 +197,90 @@ INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
 --
 
 --
--- Indexes for table `form`
+-- Indeks untuk tabel `form`
 --
 ALTER TABLE `form`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `formkontak`
+-- Indeks untuk tabel `formkontak`
 --
 ALTER TABLE `formkontak`
   ADD PRIMARY KEY (`id_kontak`);
 
 --
--- Indexes for table `subscribe`
+-- Indeks untuk tabel `subscribe`
 --
 ALTER TABLE `subscribe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `temporary_form`
+--
+ALTER TABLE `temporary_form`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `temporary_formkontak`
+--
+ALTER TABLE `temporary_formkontak`
+  ADD PRIMARY KEY (`id_kontak`);
+
+--
+-- Indeks untuk tabel `temporary_subscribe`
+--
+ALTER TABLE `temporary_subscribe`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `form`
+-- AUTO_INCREMENT untuk tabel `form`
 --
 ALTER TABLE `form`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `formkontak`
+-- AUTO_INCREMENT untuk tabel `formkontak`
 --
 ALTER TABLE `formkontak`
-  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `subscribe`
+-- AUTO_INCREMENT untuk tabel `subscribe`
 --
 ALTER TABLE `subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `temporary_form`
+--
+ALTER TABLE `temporary_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `temporary_formkontak`
+--
+ALTER TABLE `temporary_formkontak`
+  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `temporary_subscribe`
+--
+ALTER TABLE `temporary_subscribe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
