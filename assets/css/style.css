@@ -589,6 +589,97 @@ details[open] summary::after {
 }
 /* end berita */
 
+/* start review */
+.review {
+	padding: 30px 0;
+	background: #f1f1f1;
+	color: #434343;
+	max-width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 8px;
+}
+
+.review .container {
+	max-width: auto;
+	margin: auto;
+	overflow: hidden;
+	padding: 0 20px;
+}
+
+.review .border {
+	width: 160px;
+	height: 5px;
+	background: #0026ff;
+	margin: 26px auto;
+}
+
+.review .row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center; /* Changed to space-around for desktop */
+}
+
+.review .col {
+	flex: 0 0 calc(33.33% - 30px);
+	box-sizing: border-box;
+	padding: 15px;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s ease,
+		transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.review .col.fadeIn {
+	opacity: 1 !important;
+	transform: translateY(0) !important;
+}
+
+.review .testimonial {
+	background: #fff;
+	padding: 30px;
+}
+
+.review .testimonial img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.review .testimonial .name {
+	font-size: 20px;
+	text-transform: uppercase;
+	margin: 20px 0;
+}
+
+.review .testimonial .stars {
+	color: #e5ff00;
+	margin-bottom: 25px;
+}
+
+@media screen and (max-width: 960px) {
+	.review .col {
+		flex: 0 0 calc(50% - 30px); /* Adjusted width calculation */
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.review .col {
+		flex: 100%;
+		max-width: 100%;
+	}
+
+	.review .row {
+		flex-direction: column; /* Changed direction to vertical stacking */
+	}
+}
+
+.review .col.fadeIn {
+	opacity: 1 !important;
+	transform: translateY(0) !important;
+}
+/* end review */
+
 /* start footer */
 .scroll-to-top {
 	position: fixed;

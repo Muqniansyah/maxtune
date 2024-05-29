@@ -29,6 +29,7 @@
         <li class="center"><a href="<?php echo base_url().'maxtune/services' ?>">Services</a></li>
         <li class="center"><a href="<?php echo base_url().'maxtune/berita' ?>">Berita</a></li>
         <li class="center"><a href="<?php echo base_url().'maxtune/contact' ?>">Contact</a></li>
+        <li class="center"><a href="<?php echo base_url().'maxtune/review' ?>">Review</a></li>
       </ul>
     </div>
   </nav>
