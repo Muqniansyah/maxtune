@@ -1,5 +1,6 @@
 <section id="services" class="services">
     <h2>Layanan Booking Service</h2>
+    <h3>Pesan layanan anda dengan mudah melalui platform pemesanan online Maxtune untuk kenyamanan anda.</h3>
     <form action="<?= base_url('maxtune/cetak'); ?>" method="post" class="form-container">
         <div class="form-group">
             <label for="nama">Nama:</label>

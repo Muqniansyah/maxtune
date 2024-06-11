@@ -55,3 +55,24 @@ document
 		event.preventDefault();
 		window.scrollTo(0, 0);
 	});
+
+// review
+document.addEventListener("DOMContentLoaded", function () {
+	const cols = document.querySelectorAll(".col");
+	const observerOptions = {
+		threshold: 0.5,
+	};
+
+	const observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("fadeIn");
+				observer.unobserve(entry.target);
+			}
+		});
+	}, observerOptions);
+
+	cols.forEach((col) => {
+		observer.observe(col);
+	});
+});

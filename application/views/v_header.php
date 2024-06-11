@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- seting base_url( ) untuk memudahkan dalam menghubungkan file view dengan file css nya. -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/landing-style.css">
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -29,7 +29,6 @@
         <li class="center"><a href="<?php echo base_url().'maxtune/services' ?>">Services</a></li>
         <li class="center"><a href="<?php echo base_url().'maxtune/berita' ?>">Berita</a></li>
         <li class="center"><a href="<?php echo base_url().'maxtune/contact' ?>">Contact</a></li>
-        <li class="center"><a href="<?php echo base_url().'maxtune/review' ?>">Review</a></li>
       </ul>
     </div>
   </nav>

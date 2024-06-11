@@ -1,6 +1,7 @@
 <!-- Contact -->
 <section id="contact" class="contact">
     <h2>Form Kontak</h2>
+    <h3>Jika ada pertanyaan, saran atau kritik anda bisa menghubungi kami dengan cara mengisi form dibawah ini.</h3>
     <div class="container">
         <div class="contact-wrapper">
             <div class="form-container">
