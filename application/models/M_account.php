@@ -30,7 +30,7 @@ class M_account extends CI_Model{
         return $this->db->insert_id();
     }
 
-    // untuk menghitung jumlah baris dalam sebuah tabel
+    // untuk menghitung jumlah baris dalam sebuah tabel atau menghitung total baris pada tabel 
     public function getFormCount() {
         return $this->db->count_all('form');
     }
@@ -42,4 +42,29 @@ class M_account extends CI_Model{
     public function getSubscribeCount() {
         return $this->db->count_all('subscribe');
     }
+
+    // hapus data
+    function hapus_data($where,$table){
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
+
+    // reset auto increment
+    function reset_auto_increment($table) {
+        // Atur ulang id dan auto increment
+        $this->db->query("SET @num := 0;");
+        $this->db->query("UPDATE $table SET id = @num := (@num+1);");
+        $this->db->query("ALTER TABLE $table AUTO_INCREMENT = 1;");
+    }
+
+    // edit data
+    function edit_data($where,$table){		
+        return $this->db->get_where($table,$where);
+    }
+
+    // update data
+    function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 }

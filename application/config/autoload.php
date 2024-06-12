@@ -59,7 +59,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 // menggunakan beberapa library yang disediakan CodeIgniter (form_validation, session, database) dan library yang nanti kita buat sendiri (nanti kita kasih nama library simple_login).
-$autoload['libraries'] = array('form_validation','session','database','simple_login');
+$autoload['libraries'] = array('form_validation','session','database','simple_login', 'pagination');
 
 /*
 | -------------------------------------------------------------------

@@ -18,14 +18,183 @@ class Dashboard extends CI_Controller {
     }
 
     public function form() {
-        $this->load->view('v_dashboard2');
+        $data['judul'] = "Detail Form";
+        $this->load->view('v_dashboard2', $data);
     }
 
     public function contact() {
-        $this->load->view('v_dashboard3');
+        $data['judul'] = "Detail Contact";
+        $this->load->view('v_dashboard3', $data);
     }
 
     public function subscribe() {
-        $this->load->view('v_dashboard4');
+        $data['judul'] = "Detail Subscriber";
+        $this->load->view('v_dashboard4', $data);
+    }
+
+    // fungsi hapus
+    function hapussubscribe($id) {
+        $this->load->model('M_account'); // Memuat model M_account
+    
+        $where = array('id' => $id); // mencari berdasarkan id
+        $this->M_account->hapus_data($where, 'subscribe'); // hapus table subscribe
+        $this->M_account->hapus_data($where, 'temporary_subscribe'); // hapus table temporary_subscribe
+    
+        // Atur ulang id dan auto increment
+        $this->M_account->reset_auto_increment('subscribe');
+        $this->M_account->reset_auto_increment('temporary_subscribe');
+
+        $this->session->set_flashdata('message', 'Data berhasil dihapus'); // set flash data
+    
+        redirect('dashboard/subscribe');
+    }
+
+    function hapuskontak($id) {
+        $this->load->model('M_account'); // Memuat model M_account
+    
+        $where = array('id' => $id); // mencari berdasarkan id
+        $this->M_account->hapus_data($where, 'formkontak'); // hapus table formkontak
+        $this->M_account->hapus_data($where, 'temporary_formkontak'); // hapus table temporary_formkontak
+    
+        // Atur ulang id dan auto increment
+        $this->M_account->reset_auto_increment('formkontak');
+        $this->M_account->reset_auto_increment('temporary_formkontak');
+
+        $this->session->set_flashdata('message', 'Data berhasil dihapus'); // set flash data
+    
+        redirect('dashboard/contact');
+    }
+    
+    function hapusform($id) {
+        $this->load->model('M_account'); // Memuat model M_account
+    
+        $where = array('id' => $id); // mencari berdasarkan id
+        $this->M_account->hapus_data($where, 'form'); // hapus table form
+        $this->M_account->hapus_data($where, 'temporary_form'); // hapus table temporary_form
+    
+        // Atur ulang id dan auto increment
+        $this->M_account->reset_auto_increment('form');
+        $this->M_account->reset_auto_increment('temporary_form');
+
+        $this->session->set_flashdata('message', 'Data berhasil dihapus'); // set flash data
+    
+        redirect('dashboard/form');
+    }
+
+    // fungsi edit
+    function editsubscribe($id){
+        $this->load->model('M_account'); // Memuat model M_account
+
+        $where = array('id' => $id); // mencari berdasarkan id
+        $data['subscribe'] = $this->M_account->edit_data($where, 'subscribe')->row(); // Ambil satu baris data sebagai objek
+        $data['temporary_subscribe'] = $this->M_account->edit_data($where, 'temporary_subscribe')->row(); // Ambil satu baris data sebagai objek
+        $this->load->view('content/v_subscribes', $data);
+    }
+
+    function editkontak($id){
+        $this->load->model('M_account'); // Memuat model M_account
+
+        $where = array('id' => $id); // mencari berdasarkan id
+        $data['formkontak'] = $this->M_account->edit_data($where, 'formkontak')->row(); // Ambil satu baris data sebagai objek
+        $data['temporary_formkontak'] = $this->M_account->edit_data($where, 'temporary_formkontak')->row(); // Ambil satu baris data sebagai objek
+        $this->load->view('content/v_contacts', $data);
+    }
+
+    function editform($id){
+        $this->load->model('M_account'); // Memuat model M_account
+
+        $where = array('id' => $id); // mencari berdasarkan id
+        $data['form'] = $this->M_account->edit_data($where, 'form')->row(); // Ambil satu baris data sebagai objek
+        $data['temporary_form'] = $this->M_account->edit_data($where, 'temporary_form')->row(); // Ambil satu baris data sebagai objek
+        $this->load->view('content/v_forms', $data);
+    }
+
+    // membuat aksi yang menghandle update data 
+    function updatesubscribe(){
+        $this->load->model('M_account'); // Memuat model M_account
+        
+        $id = $this->input->post('id');
+        $email = $this->input->post('email');
+
+        $data = array(
+            'email' => $email,
+        );
+
+        $where = array(
+            'id' => $id
+        );
+
+        $this->M_account->update_data($where,$data,'subscribe');
+        $this->M_account->update_data($where,$data,'temporary_subscribe');
+        
+        $this->session->set_flashdata('message', 'Data berhasil diupdate'); // set flash data
+
+        redirect('dashboard/subscribe');
+    }
+
+    function updatekontak() {
+        $this->load->model('M_account'); // Memuat model M_account
+
+        $id = $this->input->post('id');
+        $nama = $this->input->post('nama');
+        $email = $this->input->post('email');
+        $pesan = $this->input->post('pesan');
+
+        $data = array(
+            'nama' => $nama,
+            'email' => $email,
+            'pesan' => $pesan,
+        );
+
+        $where = array(
+            'id' => $id
+        );
+
+        $this->M_account->update_data($where, $data, 'formkontak');
+        $this->M_account->update_data($where, $data, 'temporary_formkontak');
+
+        $this->session->set_flashdata('message', 'Data berhasil diupdate'); // set flash data
+
+        redirect('dashboard/contact');
+    }
+
+    function updateform(){
+        $this->load->model('M_account'); // Memuat model M_account
+
+        $id = $this->input->post('id');
+        $nama = $this->input->post('nama');
+        $email = $this->input->post('email');
+        $nohp = $this->input->post('nohp');
+        $alamat = $this->input->post('alamat');
+        $provinsi = $this->input->post('provinsi');
+        $kota = $this->input->post('kota');
+        $motor = $this->input->post('motor');
+        $jenis_servis = $this->input->post('jenis_servis');
+        $jadwal = $this->input->post('jadwal');
+        $jam = $this->input->post('jam');
+
+        $data = array(
+            'nama' => $nama,
+            'email' => $email,
+            'nohp' => $nohp,
+            'alamat' => $alamat,
+            'provinsi' => $provinsi,
+            'kota' => $kota,
+            'motor' => $motor,
+            'jenis_servis' => $jenis_servis,
+            'jadwal' => $jadwal,
+            'jam' => $jam
+        );
+
+        $where = array(
+            'id' => $id
+        );
+
+        $this->M_account->update_data($where, $data, 'form');
+        $this->M_account->update_data($where, $data, 'temporary_form');
+
+        $this->session->set_flashdata('message', 'Data berhasil diupdate'); // set flash data
+
+        redirect('dashboard/form');
     }
 }

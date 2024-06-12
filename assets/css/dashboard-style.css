@@ -83,7 +83,7 @@ html {
 	background-color: #aba1ff;
 }
 
-/* subscribe */
+/* form, contact, subscribe */
 table {
 	width: 80%;
 	margin: 20px auto;
@@ -99,6 +99,8 @@ th {
 
 td {
 	padding: 8px;
+	font-size: 14px;
+	color: #333333;
 }
 
 tr:nth-child(even) {
@@ -109,12 +111,7 @@ tr:nth-child(odd) {
 	background-color: #ffffff;
 }
 
-td {
-	font-size: 14px;
-	color: #333333;
-}
-
-.back-button {
+/* .back-button {
 	display: block;
 	width: 100px;
 	padding: 10px;
@@ -128,4 +125,82 @@ td {
 
 .back-button:hover {
 	background-color: #45a049;
+} */
+
+.action-dash {
+	display: flex;
+	align-items: center;
+	gap: 10px; /* Jarak antar elemen */
+	border: 1px solid #ddd;
+}
+
+.action-dash-form {
+	border: none;
+	display: flex;
+	align-items: center;
+	gap: 10px; /* Jarak antar elemen */
+	margin-top: 5%;
+}
+
+.modal-body p {
+	text-align: left;
+}
+
+.label-edit {
+	text-align: left;
+	margin-right: 80%;
+	/* color: black; */
+}
+
+/* cta */
+.hapus-button {
+	background-color: #ff6347;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+.hapus-button:hover {
+	background-color: #ff3e3e;
+	transform: scale(1.1);
+}
+
+.print-button {
+	background-color: #29d153;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+.print-button:hover {
+	background-color: #7eee9a;
+	transform: scale(1.1);
+}
+
+.edit-button {
+	background-color: #29bdd1;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+.edit-button:hover {
+	background-color: #77ddeb;
+	transform: scale(1.1);
+}
+
+/* Mobile Phone */
+@media (max-width: 576px) {
+	.action-dash {
+		flex-direction: column;
+	}
 }

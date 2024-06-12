@@ -148,7 +148,7 @@ class Maxtune extends CI_Controller {
             $this->db->insert('temporary_formkontak', $data);
 
             // Salin data dari tabel sementara ke tabel 
-            $this->db->query('REPLACE INTO formkontak (id_kontak, nama, email, pesan) SELECT id_kontak, nama, email, pesan FROM temporary_formkontak');
+            $this->db->query('REPLACE INTO formkontak (id, nama, email, pesan) SELECT id, nama, email, pesan FROM temporary_formkontak');
     
             // Redirect kembali ke halaman sebelumnya
             redirect($_SERVER['HTTP_REFERER']);
