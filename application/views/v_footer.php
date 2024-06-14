@@ -41,17 +41,22 @@
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <h4 class="text-white text-uppercase mb-4">Newsletter</h4>
                             <p class="text-light">Yuk jadi orang pertama yang mengetahui info.</p>
-                            <form action="<?= base_url('maxtune/subscribee'); ?>" method="post">
+                            <form action="<?= base_url('maxtune/cetaksubscribe'); ?>" method="post">
                                 <div class="input-group">
                                     <input type="email" name="email" class="form-control border-white p-1" placeholder="Your Email">
                                     <button class="btn btn-secondary">Subscribe</button>
                                 </div>
-                                <?php echo form_error('email', '<div class="text-danger">', '</div>'); ?>
+                                <div class="error-text" style="color: white;">
+                                    <?php echo form_error('email'); ?>
+                                </div>
                             </form>
-                            <!-- Message display -->
-                            <?php if (isset($message)): ?>
-                                <p style="color: white;"><?= $message ?></p>
+                            <!-- Start flash data -->
+                            <?php if($this->session->flashdata('pesan')): ?>
+                                <div class="alert alert-success">
+                                    <?= $this->session->flashdata('pesan'); ?>
+                                </div>
                             <?php endif; ?>
+                            <!-- End flash data -->
                         </div>
                     </div>
                 </div>

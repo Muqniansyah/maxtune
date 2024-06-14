@@ -9,6 +9,8 @@
     <?php endif; ?>
     <!-- End flash data -->
     
+    <?php $this->load->view("partial/v_newdata.php") ?>
+
     <table border="1">
         <tr>
             <th>ID</th>
@@ -38,17 +40,23 @@
                     <td><?= $user['jenis_servis']; ?></td>
                     <td><?= $user['jadwal']; ?></td>
                     <td><?= $user['jam']; ?></td>
-                    <td class="action-dash-form">
+                    <td class="action-dash">
                         <form method="post">
-                            <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit" data-id="<?= $user['id']; ?>" data-nama="<?= $user['nama']; ?>" data-email="<?= $user['email']; ?>" data-nohp="<?= $user['nohp']; ?>" data-alamat="<?= $user['alamat']; ?>" data-provinsi="<?= $user['provinsi']; ?>" data-kota="<?= $user['kota']; ?>" data-motor="<?= $user['motor']; ?>" data-jenis_servis="<?= $user['jenis_servis']; ?>" data-jadwal="<?= $user['jadwal']; ?>" data-jam="<?= $user['jam']; ?>">Edit</button>
+                            <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit" data-id="<?= $user['id']; ?>" data-nama="<?= $user['nama']; ?>" data-email="<?= $user['email']; ?>" data-nohp="<?= $user['nohp']; ?>" data-alamat="<?= $user['alamat']; ?>" data-provinsi="<?= $user['provinsi']; ?>" data-kota="<?= $user['kota']; ?>" data-motor="<?= $user['motor']; ?>" data-jenis_servis="<?= $user['jenis_servis']; ?>" data-jadwal="<?= $user['jadwal']; ?>" data-jam="<?= $user['jam']; ?>">
+                                <i class="fas fa-edit"></i>
+                            </button>
                         </form>
 
                         <form method="post" action="<?php echo base_url('dashboard/hapusform/'.$user['id']); ?>">
-                            <input type="submit" value="Hapus" class="hapus-button" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                            <button type="submit" class="hapus-button" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </form>
                         
                         <form method="post">
-                            <button type="button" class="print-button" data-id="<?= $user['id']; ?>" data-nama="<?= $user['nama']; ?>" data-email="<?= $user['email']; ?>" data-nohp="<?= $user['nohp']; ?>" data-alamat="<?= $user['alamat']; ?>" data-provinsi="<?= $user['provinsi']; ?>" data-kota="<?= $user['kota']; ?>" data-motor="<?= $user['motor']; ?>" data-jenis_servis="<?= $user['jenis_servis']; ?>" data-jadwal="<?= $user['jadwal']; ?>" data-jam="<?= $user['jam']; ?>" data-toggle="modal" data-target="#exampleModal">Cetak</button>
+                            <button type="button" class="print-button" data-id="<?= $user['id']; ?>" data-nama="<?= $user['nama']; ?>" data-email="<?= $user['email']; ?>" data-nohp="<?= $user['nohp']; ?>" data-alamat="<?= $user['alamat']; ?>" data-provinsi="<?= $user['provinsi']; ?>" data-kota="<?= $user['kota']; ?>" data-motor="<?= $user['motor']; ?>" data-jenis_servis="<?= $user['jenis_servis']; ?>" data-jadwal="<?= $user['jadwal']; ?>" data-jam="<?= $user['jam']; ?>" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-print"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -111,47 +119,47 @@
                 <div class="modal-body">
                     <form action="<?php echo base_url(). 'dashboard/updateform'; ?>" method="post">
                         <div class="form-group">
-                            <label for="recipient-id" class="col-form-label">ID :</label>
+                            <label for="recipient-id" class="col-form-label label-edit">ID :</label>
                             <input type="text" class="form-control" id="recipient-id" name="id" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="recipient-nama" class="col-form-label">Nama :</label>
+                            <label for="recipient-nama" class="col-form-label label-edit">Nama :</label>
                             <input type="text" class="form-control" id="recipient-nama" name="nama">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-email" class="col-form-label">Email :</label>
+                            <label for="recipient-email" class="col-form-label label-edit">Email :</label>
                             <input type="email" class="form-control" id="recipient-email" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-nohp" class="col-form-label">No HP :</label>
+                            <label for="recipient-nohp" class="col-form-label label-edit">No HP :</label>
                             <input type="text" class="form-control" id="recipient-nohp" name="nohp">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-alamat" class="col-form-label">Alamat :</label>
+                            <label for="recipient-alamat" class="col-form-label label-edit">Alamat :</label>
                             <input type="text" class="form-control" id="recipient-alamat" name="alamat">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-provinsi" class="col-form-label">Provinsi :</label>
+                            <label for="recipient-provinsi" class="col-form-label label-edit">Provinsi :</label>
                             <input type="text" class="form-control" id="recipient-provinsi" name="provinsi">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-kota" class="col-form-label">Kota :</label>
+                            <label for="recipient-kota" class="col-form-label label-edit">Kota :</label>
                             <input type="text" class="form-control" id="recipient-kota" name="kota">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-motor" class="col-form-label">Motor :</label>
+                            <label for="recipient-motor" class="col-form-label label-edit">Motor :</label>
                             <input type="text" class="form-control" id="recipient-motor" name="motor">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-jenis_servis" class="col-form-label">Jenis Servis :</label>
+                            <label for="recipient-jenis_servis" class="col-form-label label-edit">Jenis Servis :</label>
                             <input type="text" class="form-control" id="recipient-jenis_servis" name="jenis_servis">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-jadwal" class="col-form-label">Jadwal :</label>
+                            <label for="recipient-jadwal" class="col-form-label label-edit">Jadwal :</label>
                             <input type="date" class="form-control" id="recipient-jadwal" name="jadwal">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-jam" class="col-form-label">Jam :</label>
+                            <label for="recipient-jam" class="col-form-label label-edit">Jam :</label>
                             <input type="time" class="form-control" id="recipient-jam" name="jam">
                         </div>
                 </div>

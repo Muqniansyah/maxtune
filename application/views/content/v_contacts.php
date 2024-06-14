@@ -26,15 +26,21 @@
                     <td><?= $contact['pesan']; ?></td>
                     <td class="action-dash">
                         <form method="post">
-                            <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit" data-id="<?= $contact['id']; ?>" data-nama="<?= $contact['nama']; ?>" data-email="<?= $contact['email']; ?>" data-pesan="<?= $contact['pesan']; ?>">Edit</button>
+                            <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit" data-id="<?= $contact['id']; ?>" data-nama="<?= $contact['nama']; ?>" data-email="<?= $contact['email']; ?>" data-pesan="<?= $contact['pesan']; ?>">
+                                <i class="fas fa-edit"></i>
+                            </button>
                         </form>
 
                         <form method="post" action="<?php echo base_url('dashboard/hapuskontak/'.$contact['id']); ?>">
-                            <input type="submit" value="Hapus" class="hapus-button" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                            <button type="submit" class="hapus-button" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </form>
 
                         <form method="post">
-                            <button type="button" class="print-button" data-id="<?= $contact['id']; ?>" data-nama="<?= $contact['nama']; ?>" data-email="<?= $contact['email']; ?>" data-pesan="<?= $contact['pesan']; ?>" data-toggle="modal" data-target="#exampleModal">Cetak</button>
+                            <button type="button" class="print-button" data-id="<?= $contact['id']; ?>" data-nama="<?= $contact['nama']; ?>" data-email="<?= $contact['email']; ?>" data-pesan="<?= $contact['pesan']; ?>" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-print"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>

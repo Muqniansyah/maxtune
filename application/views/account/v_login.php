@@ -117,12 +117,10 @@
             color: #fff;
         }
 
-        .warning {
-            color: whitesmoke;
-        }
-
-        .error-text {
+        .error{
             color: white;
+            font-size: 15px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -131,25 +129,23 @@
         <div class="forms">
             <div class="form-content">
                 <div class="title">Login</div>
-                <?php
-                // Cetak jika ada notifikasi
-                if($this->session->flashdata('sukses')) {
-                    echo '<p class="warning" style="margin: 10px 20px;">'.$this->session->flashdata('sukses').'</p>';
-                }
-                ?>
                 <?php echo form_open('login');?>
                 <div class="input-boxes">
                     <div class="input-box">
                         <i class="fas fa-user"></i>
                         <input type="text" name="username" placeholder="Username" value="<?php echo set_value('username'); ?>"/>
                     </div>
-                    <?php echo "<p class='error-text'>" . form_error('username') . "</p>"; ?>
+                    <div class="error">
+                        <?php echo form_error('username'); ?>
+                    </div>
                     
                     <div class="input-box">
                         <i class="fas fa-lock"></i>
                         <input type="password" name="password" placeholder="Password" value="<?php echo set_value('password'); ?>"/>
                     </div>
-                    <p class="error-text"> <?php echo form_error('password'); ?> </p>
+                    <div class="error">
+                        <?php echo form_error('password'); ?>
+                    </div>
                     
                     <div class="button">
                         <input type="submit" name="btnSubmit" value="Login" />

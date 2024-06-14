@@ -5,15 +5,24 @@
     <div class="container">
         <div class="contact-wrapper">
             <div class="form-container">
-                <form action="<?= base_url('maxtune/cetak_kontak');?>" method="post">
+                <form action="<?= base_url('maxtune/cetakkontak');?>" method="post">
                     <label for="nama">Nama:</label>
-                    <input type="text" id="nama" name="nama" placeholder="masukkan nama" required>
+                    <input type="text" id="nama" name="nama" placeholder="masukkan nama">
+                    <div class="error-text">
+                        <?php echo form_error('nama'); ?>
+                    </div>
                     
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="masukkan email" required>
+                    <input type="email" id="email" name="email" placeholder="masukkan email">
+                    <div class="error-text">
+                        <?php echo form_error('email'); ?>
+                    </div>
                     
                     <label for="pesan">Pesan:</label>
-                    <textarea id="pesan" name="pesan" rows="4" cols="50" placeholder="isi pesan" required></textarea>
+                    <textarea id="pesan" name="pesan" rows="4" cols="50" placeholder="isi pesan"></textarea>
+                    <div class="error-text">
+                        <?php echo form_error('pesan'); ?>
+                    </div>
                     
                     <input type="submit" value="Kirim">
                 </form>

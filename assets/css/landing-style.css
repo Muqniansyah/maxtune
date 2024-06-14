@@ -674,6 +674,13 @@ details[open] summary::after {
 }
 /* end footer */
 
+/* form error messages */
+.error-text {
+	color: red;
+	font-size: 12px;
+	margin-top: 2px;
+}
+
 /* media queries */
 @media screen and (max-width: 600px) {
 	.testimonial img {

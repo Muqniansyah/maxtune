@@ -108,8 +108,10 @@
             color: #fff;
         }
 
-        .warning {
-            color: whitesmoke;
+        .error{
+            color: white;
+            font-size: 15px;
+            margin-bottom: 8px;
         }
 
     </style>
@@ -124,23 +126,38 @@
                     <div class="input-box">
                         <input type="text" name="name" placeholder="Nama" value="<?php echo set_value('name'); ?>"/>
                     </div>
-                    <p> <?php echo form_error('name'); ?> </p>
+                    <div class="error">
+                        <?php echo form_error('name'); ?>
+                    </div>
+
                     <div class="input-box">
                         <input type="text" name="username" placeholder="Username" value="<?php echo set_value('username'); ?>"/>
                     </div>
-                    <p> <?php echo form_error('username'); ?> </p>
+                    <div class="error">
+                        <?php echo form_error('username'); ?>
+                    </div>
+
                     <div class="input-box">
                         <input type="text" name="email" placeholder="Email" value="<?php echo set_value('email'); ?>"/>
                     </div>
-                    <p> <?php echo form_error('email'); ?> </p>
+                    <div class="error">
+                        <?php echo form_error('email'); ?>
+                    </div>
+
                     <div class="input-box">
                         <input type="password" name="password" placeholder="Password" value="<?php echo set_value('password'); ?>"/>
                     </div>
-                    <p> <?php echo form_error('password'); ?> </p>
+                    <div class="error">
+                        <?php echo form_error('password'); ?>
+                    </div>
+
                     <div class="input-box">
                         <input type="password" name="password_conf" placeholder="Password Confirm" value="<?php echo set_value('password_conf'); ?>"/>
                     </div>
-                    <p> <?php echo form_error('password_conf'); ?> </p>
+                    <div class="error">
+                        <?php echo form_error('password_conf'); ?>
+                    </div>
+
                     <div class="button">
                         <input type="submit" name="btnSubmit" value="Daftar" />
                     </div>

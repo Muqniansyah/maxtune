@@ -8,43 +8,52 @@
         </div>
     <?php endif; ?>
     <!-- End flash data -->
-
     <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Action</th>
-        </tr>
-        <?php if (isset($subs_list) && is_array($subs_list) && count($subs_list) > 0): ?>
-            <?php foreach ($subs_list as $subs) : ?>
-                <tr>
-                    <td><?= $subs['id']; ?></td>
-                    <td><?= $subs['email']; ?></td>
-                    <td class="action-dash">
-                        <form method="post">
-                            <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit" data-id="<?= $subs['id']; ?>" data-email="<?= $subs['email']; ?>">Edit</button>
-                        </form>
-
-                        <form method="post" action="<?php echo base_url('dashboard/hapussubscribe/'.$subs['id']); ?>">
-                            <input type="submit" value="Hapus" class="hapus-button" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
-                        </form>
-
-                        <form method="post">
-                            <button type="button" class="print-button" data-id="<?= $subs['id']; ?>" data-email="<?= $subs['email']; ?>" data-toggle="modal" data-target="#exampleModal">Cetak</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
+        <thead>
             <tr>
-                <td colspan="3">Tidak ada data subscriber.</td>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Action</th>
             </tr>
-        <?php endif; ?>
-        <tr>
-            <td colspan="3" align="center">
-                <a href="<?= base_url('dashboard'); ?>">Kembali</a>
-            </td>
-        </tr>
+        </thead>
+        <tbody>
+            <?php if (isset($subs_list) && is_array($subs_list) && count($subs_list) > 0): ?>
+                <?php foreach ($subs_list as $subs) : ?>
+                    <tr>
+                        <td><?= $subs['id']; ?></td>
+                        <td><?= $subs['email']; ?></td>
+                        <td class="action-dash">
+                            <form method="post">
+                                <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit" data-id="<?= $subs['id']; ?>" data-email="<?= $subs['email']; ?>">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </form>
+
+                            <form method="post" action="<?php echo base_url('dashboard/hapussubscribe/'.$subs['id']); ?>">
+                                <button type="submit" class="hapus-button" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+
+                            <form method="post">
+                                <button type="button" class="print-button" data-id="<?= $subs['id']; ?>" data-email="<?= $subs['email']; ?>" data-toggle="modal" data-target="#exampleModal">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="3">Tidak ada data subscriber.</td>
+                </tr>
+            <?php endif; ?>
+            <tr>
+                <td colspan="3" align="center">
+                    <a href="<?= base_url('dashboard'); ?>">Kembali</a>
+                </td>
+            </tr>
+        </tbody>
     </table>
 
     <!-- Modal Print Start -->

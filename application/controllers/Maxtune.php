@@ -58,13 +58,22 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
-    public function subscribee() {
+    // fungsi cetak
+    public function cetaksubscribe() {
         // Validasi Data
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         
         if ($this->form_validation->run() == false) {
             // Jika validasi gagal, tampilkan kembali form
-            $this->load->view('v_footer');
+            $data['judul'] = "~ Home ~";
+
+            // render halaman view
+            $this->load->view("v_header", $data);
+            $this->load->view('pages/v_about', $data);
+            $this->load->view('pages/v_services', $data);
+            $this->load->view('pages/v_berita', $data);
+            $this->load->view('pages/v_contact', $data);
+            $this->load->view("v_footer", $data);
         } else {
             // Ambil data dari form
             $data = [
@@ -80,12 +89,11 @@ class Maxtune extends CI_Controller {
             // Redirect kembali ke halaman sebelumnya
             redirect($_SERVER['HTTP_REFERER']);
 
-            // Redirect kembali ke halaman form
-            // redirect('FormController');
+            $this->session->set_flashdata('pesan', 'Data berhasil ditambah'); // set flash data
         }
     }
 
-    public function cetak() {
+    public function cetakform() {
         // Validasi Data
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -100,7 +108,15 @@ class Maxtune extends CI_Controller {
     
         if ($this->form_validation->run() == false) {
             // Jika validasi gagal, tampilkan kembali form
-            $this->load->view('v_services');
+            $data['judul'] = "~ Home ~";
+
+            // render halaman view
+            $this->load->view("v_header", $data);
+            $this->load->view('pages/v_about', $data);
+            $this->load->view('pages/v_services', $data);
+            $this->load->view('pages/v_berita', $data);
+            $this->load->view('pages/v_contact', $data);
+            $this->load->view("v_footer", $data);
         } else {
             // Ambil data dari form
             $data = [
@@ -124,11 +140,10 @@ class Maxtune extends CI_Controller {
 
             // Redirect kembali ke halaman sebelumnya
             redirect($_SERVER['HTTP_REFERER']);
-            
         }
     }
 
-    public function cetak_kontak() {
+    public function cetakkontak() {
         // Validasi Data
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -136,7 +151,15 @@ class Maxtune extends CI_Controller {
         
         if ($this->form_validation->run() == false) {
             // Jika validasi gagal, tampilkan kembali form
-            $this->load->view('v_contact');
+            $data['judul'] = "~ Home ~";
+
+            // render halaman view
+            $this->load->view("v_header", $data);
+            $this->load->view('pages/v_about', $data);
+            $this->load->view('pages/v_services', $data);
+            $this->load->view('pages/v_berita', $data);
+            $this->load->view('pages/v_contact', $data);
+            $this->load->view("v_footer", $data);
         } else {
             // Ambil data dari form
             $data = [

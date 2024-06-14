@@ -197,4 +197,49 @@ class Dashboard extends CI_Controller {
 
         redirect('dashboard/form');
     }
+
+    // new add data
+    public function cetak() {
+        // Validasi Data
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('nohp', 'No. HP', 'required|min_length[10]|numeric');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
+        $this->form_validation->set_rules('kota', 'Kota', 'required');
+        $this->form_validation->set_rules('motor', 'Motor', 'required');
+        $this->form_validation->set_rules('jenis_servis', 'Jenis Servis', 'required');
+        $this->form_validation->set_rules('jadwal', 'Jadwal', 'required');
+        $this->form_validation->set_rules('jam', 'Jam', 'required');
+    
+        if ($this->form_validation->run() == false) {
+            // Jika validasi gagal, tampilkan kembali form
+            $this->load->view('v_dashboard2');
+            $this->session->set_flashdata('message', 'Data error'); // set flash data
+        } else {
+            // Ambil data dari form
+            $data = [
+                'nama' => $this->input->post('nama'),
+                'email' => $this->input->post('email'),
+                'nohp' => $this->input->post('nohp'),
+                'alamat' => $this->input->post('alamat'),
+                'provinsi' => $this->input->post('provinsi'),
+                'kota' => $this->input->post('kota'),
+                'motor' => $this->input->post('motor'),
+                'jenis_servis' => $this->input->post('jenis_servis'),
+                'jadwal' => $this->input->post('jadwal'),
+                'jam' => $this->input->post('jam')
+            ];
+    
+            // Simpan data ke dalam tabel sementara
+            $this->db->insert('temporary_form', $data);
+
+            // Salin data dari tabel sementara ke tabel 
+            $this->db->query('REPLACE INTO form (id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam) SELECT id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam FROM temporary_form');
+
+            $this->session->set_flashdata('message', 'Data berhasil ditambahkan'); // set flash data
+            // Redirect kembali ke halaman sebelumnya
+            redirect('dashboard/form');   
+        }
+    } 
 }
