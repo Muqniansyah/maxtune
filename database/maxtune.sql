@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Bulan Mei 2024 pada 05.57
+-- Waktu pembuatan: 15 Jun 2024 pada 09.05
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.25
 
@@ -46,8 +46,7 @@ CREATE TABLE `form` (
 --
 
 INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'carlo', 'your@gmail.com', 2147483647, 'taman indah', 'Kalimantan Timur', 'Tangerang', 'Honda Vario', 'oli bocor', '2024-05-08', '19:28:00'),
-(2, 'muni', 'your@gmail.com', 2147483647, 'taman kota', 'Kepulauan Bangka Belitung', 'Batam', 'Kawasaki Ninja', 'ban ilang', '2024-05-23', '17:28:00');
+(1, 'remon', 'admin@gmail.com', 2147483647, 'kiw', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Aerox', 'Ganti oli gardan', '2024-06-19', '15:03:00');
 
 -- --------------------------------------------------------
 
@@ -56,7 +55,7 @@ INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`,
 --
 
 CREATE TABLE `formkontak` (
-  `id_kontak` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `email` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `pesan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
@@ -66,11 +65,10 @@ CREATE TABLE `formkontak` (
 -- Dumping data untuk tabel `formkontak`
 --
 
-INSERT INTO `formkontak` (`id_kontak`, `nama`, `email`, `pesan`) VALUES
-(1, 'Rangga', 'Rangga99@gmail.com', 'Hallo Admin maxtune, websitenya sangat bagus dan memudahkan pelanggan untuk mengetahui informasi seputar bengkel maxtune'),
-(2, 'chiko', 'chiko@gmail.com', 'Bagus Websitenya, Mantapss'),
-(3, 'Matthew', 'Matt@gmail.com', 'Mantaps slurrr'),
-(4, 'sanji', 'sanji@gmail.com', 'sukakkkkkkk');
+INSERT INTO `formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
+(1, 'revan', 'admin@gmail.com', 'es teh satu\r\n'),
+(2, 'carlo', 'admin@gmail.com', 'es teh satu'),
+(3, 'remon', 'admin@gmail.com', 'yo');
 
 -- --------------------------------------------------------
 
@@ -89,11 +87,21 @@ CREATE TABLE `subscribe` (
 
 INSERT INTO `subscribe` (`id`, `email`) VALUES
 (1, 'muni@gmail.com'),
-(2, 'admin@gmail.com'),
-(3, 'monster@gmail.com'),
-(4, 'monster@gmail.com'),
-(5, 'anda@gmail.com'),
-(6, 'sisca@gmail.co');
+(2, 'revand@gmail.com'),
+(3, 'kelvin@gmail.com'),
+(4, 'rois@gmail.com'),
+(5, 'amar@gmail.com'),
+(6, 'vinagarut@gmail.com'),
+(7, 'your@gmail.com'),
+(8, 'muqniansyah@gmail.co'),
+(9, 'muqniansyah@gmail.co'),
+(10, 'amin@gmail.com'),
+(11, 'aldiauau@gmail.com'),
+(12, 'muqniansyah@gmail.co'),
+(13, 'your@gmail.com'),
+(14, 'your@gmail.com'),
+(15, 'muni@gmail.com'),
+(16, 'aldiauau@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -120,8 +128,7 @@ CREATE TABLE `temporary_form` (
 --
 
 INSERT INTO `temporary_form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'carlo', 'your@gmail.com', 2147483647, 'taman indah', 'Kalimantan Timur', 'Tangerang', 'Honda Vario', 'oli bocor', '2024-05-08', '19:28:00'),
-(2, 'muni', 'your@gmail.com', 2147483647, 'taman kota', 'Kepulauan Bangka Belitung', 'Batam', 'Kawasaki Ninja', 'ban ilang', '2024-05-23', '17:28:00');
+(1, 'remon', 'admin@gmail.com', 2147483647, 'kiw', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Aerox', 'Ganti oli gardan', '2024-06-19', '15:03:00');
 
 -- --------------------------------------------------------
 
@@ -130,7 +137,7 @@ INSERT INTO `temporary_form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi
 --
 
 CREATE TABLE `temporary_formkontak` (
-  `id_kontak` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `pesan` text NOT NULL
@@ -140,11 +147,10 @@ CREATE TABLE `temporary_formkontak` (
 -- Dumping data untuk tabel `temporary_formkontak`
 --
 
-INSERT INTO `temporary_formkontak` (`id_kontak`, `nama`, `email`, `pesan`) VALUES
-(1, 'Rangga', 'Rangga99@gmail.com', 'Hallo Admin maxtune, websitenya sangat bagus dan memudahkan pelanggan untuk mengetahui informasi seputar bengkel maxtune'),
-(2, 'chiko', 'chiko@gmail.com', 'Bagus Websitenya, Mantapss'),
-(3, 'Matthew', 'Matt@gmail.com', 'Mantaps slurrr'),
-(4, 'sanji', 'sanji@gmail.com', 'sukakkkkkkk');
+INSERT INTO `temporary_formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
+(1, 'revan', 'admin@gmail.com', 'es teh satu\r\n'),
+(2, 'carlo', 'admin@gmail.com', 'es teh satu'),
+(3, 'remon', 'admin@gmail.com', 'yo');
 
 -- --------------------------------------------------------
 
@@ -163,11 +169,21 @@ CREATE TABLE `temporary_subscribe` (
 
 INSERT INTO `temporary_subscribe` (`id`, `email`) VALUES
 (1, 'muni@gmail.com'),
-(2, 'admin@gmail.com'),
-(3, 'monster@gmail.com'),
-(4, 'monster@gmail.com'),
-(5, 'anda@gmail.com'),
-(6, 'sisca@gmail.co');
+(2, 'revand@gmail.com'),
+(3, 'kelvin@gmail.com'),
+(4, 'rois@gmail.com'),
+(5, 'amar@gmail.com'),
+(6, 'vinagarut@gmail.com'),
+(7, 'your@gmail.com'),
+(8, 'muqniansyah@gmail.co'),
+(9, 'muqniansyah@gmail.co'),
+(10, 'amin@gmail.com'),
+(11, 'aldiauau@gmail.com'),
+(12, 'muqniansyah@gmail.co'),
+(13, 'your@gmail.com'),
+(14, 'your@gmail.com'),
+(15, 'muni@gmail.com'),
+(16, 'aldiauau@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -190,7 +206,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
 (1, 'muni', 'muni@gmail.com', 'muni', '827ccb0eea8a706c4c34a16891f84e7b'),
 (2, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(3, 'Rangga', 'Rangga99@gmail.com', 'rangga', '12345');
+(3, 'Rangga', 'Rangga99@gmail.com', 'rangga', '12345'),
+(5, 'muni', 'inda@gmail.com', 'muni', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Indexes for dumped tables
@@ -206,7 +223,7 @@ ALTER TABLE `form`
 -- Indeks untuk tabel `formkontak`
 --
 ALTER TABLE `formkontak`
-  ADD PRIMARY KEY (`id_kontak`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `subscribe`
@@ -224,7 +241,7 @@ ALTER TABLE `temporary_form`
 -- Indeks untuk tabel `temporary_formkontak`
 --
 ALTER TABLE `temporary_formkontak`
-  ADD PRIMARY KEY (`id_kontak`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `temporary_subscribe`
@@ -247,43 +264,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `form`
 --
 ALTER TABLE `form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `formkontak`
 --
 ALTER TABLE `formkontak`
-  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `subscribe`
 --
 ALTER TABLE `subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_form`
 --
 ALTER TABLE `temporary_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_formkontak`
 --
 ALTER TABLE `temporary_formkontak`
-  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_subscribe`
 --
 ALTER TABLE `temporary_subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
