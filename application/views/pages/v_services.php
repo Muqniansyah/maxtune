@@ -38,43 +38,12 @@
             <label for="provinsi">Provinsi:</label>
             <select name="provinsi" id="provinsi">
                 <option value="">Pilih Provinsi</option>
-                <option value="Aceh">Aceh</option>
-                <option value="Bali">Bali</option>
-                <option value="Banten">Banten</option>
-                <option value="Bengkulu">Bengkulu</option>
-                <option value="DI Yogyakarta">DI Yogyakarta</option>
-                <option value="DKI Jakarta">DKI Jakarta</option>
-                <option value="Gorontalo">Gorontalo</option>
-                <option value="Jambi">Jambi</option>
+                <option value="Dki Jakarta">Dki Jakarta</option>
                 <option value="Jawa Barat">Jawa Barat</option>
-                <option value="Jawa Tengah">Jawa Tengah</option>
-                <option value="Jawa Timur">Jawa Timur</option>
-                <option value="Kalimantan Barat">Kalimantan Barat</option>
-                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                <option value="Kalimantan Timur">Kalimantan Timur</option>
-                <option value="Kalimantan Utara">Kalimantan Utara</option>
-                <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                <option value="Kepulauan Riau">Kepulauan Riau</option>
-                <option value="Lampung">Lampung</option>
-                <option value="Maluku">Maluku</option>
-                <option value="Maluku Utara">Maluku Utara</option>
-                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                <option value="Papua">Papua</option>
-                <option value="Papua Barat">Papua Barat</option>
-                <option value="Riau">Riau</option>
-                <option value="Sulawesi Barat">Sulawesi Barat</option>
-                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                <option value="Sulawesi Utara">Sulawesi Utara</option>
-                <option value="Sumatera Barat">Sumatera Barat</option>
-                <option value="Sumatera Selatan">Sumatera Selatan</option>
-                <option value="Sumatera Utara">Sumatera Utara</option>
             </select>
-            <div class="error-text">
-                    <?php echo form_error('provinsi'); ?>
+
+            <div class="error-text"  id="provinsi-error">
+                <?php echo form_error('provinsi'); ?>
             </div>
         </div>
 
@@ -82,30 +51,24 @@
             <label for="kota">Kota:</label>
             <select name="kota" id="kota">
                 <option value="">Pilih Kota</option>
-                <option value="Jakarta">Jakarta</option>
                 <option value="Bandung">Bandung</option>
-                <option value="Surabaya">Surabaya</option>
-                <option value="Medan">Medan</option>
-                <option value="Semarang">Semarang</option>
-                <option value="Makassar">Makassar</option>
-                <option value="Palembang">Palembang</option>
-                <option value="Denpasar">Denpasar</option>
-                <option value="Yogyakarta">Yogyakarta</option>
-                <option value="Malang">Malang</option>
+                <option value="Banjar">Banjar</option>
                 <option value="Bekasi">Bekasi</option>
-                <option value="Depok">Depok</option>
-                <option value="Tangerang">Tangerang</option>
                 <option value="Bogor">Bogor</option>
-                <option value="Batam">Batam</option>
-                <option value="Pekanbaru">Pekanbaru</option>
-                <option value="Banda Aceh">Banda Aceh</option>
-                <option value="Pontianak">Pontianak</option>
-                <option value="Balikpapan">Balikpapan</option>
-                <option value="Manado">Manado</option>
-                <option value="Jayapura">Jayapura</option>
+                <option value="Cimahi">Cimahi</option>
+                <option value="Cirebon">Cirebon</option>
+                <option value="Depok">Depok</option>
+                <option value="Sukabumi">Sukabumi</option>
+                <option value="Tasikmalaya">Tasikmalaya</option>
+                <option value="Jakarta Barat">Jakarta Barat</option>
+                <option value="Jakarta Pusat">Jakarta Pusat</option>
+                <option value="Jakarta Selatan">Jakarta Selatan</option>
+                <option value="Jakarta Timur">Jakarta Timur</option>
+                <option value="Jakarta Utara">Jakarta Utara</option>
             </select>
-            <div class="error-text">
-                    <?php echo form_error('kota'); ?>
+
+            <div class="error-text" id="kota-error">
+                <?php echo form_error('kota'); ?>
             </div>
         </div>
 
@@ -131,9 +94,21 @@
 
         <div class="form-group">
             <label for="jenis_servis">Jenis Servis:</label>
-            <input type="text" name="jenis_servis" id="jenis_servis">
+            <select name="jenis_servis" id="jenis_servis">
+                <option value="">Pilih Jenis Servis</option>
+                <option value="Ganti oli mesin">Ganti oli mesin</option>
+                <option value="Tune up">Tune up</option>
+                <option value="Ganti oli gardan">Ganti oli gardan</option>
+                <option value="Ganti busi">Ganti busi</option>
+                <option value="Ganti filter udara">Ganti filter udara</option>
+                <option value="Ganti kampas rem">Ganti kampas rem</option>
+                <option value="Perawatan aki">Perawatan aki</option>
+                <option value="Bongkar pasang mesin">Bongkar pasang mesin</option>
+                <option value="Tambal ban">Tambal ban</option>
+                <option value="Bore up">Bore up</option>
+            </select>
             <div class="error-text">
-                    <?php echo form_error('jenis_servis'); ?>
+                <?php echo form_error('jenis_servis'); ?>
             </div>
         </div>
 
@@ -158,3 +133,40 @@
         </div>
     </form>
 </section>
+
+<!-- script untukk provinsi dan kota -->
+<script>
+    // Ambil elemen-elemen yang diperlukan
+    const provinsiSelect = document.getElementById('provinsi');
+    const kotaSelect = document.getElementById('kota');
+    const kotaOptions = {
+        'Dki Jakarta': ['Jakarta Barat', 'Jakarta Pusat', 'Jakarta Selatan', 'Jakarta Timur', 'Jakarta Utara'],
+        'Jawa Barat': ['Bandung', 'Banjar', 'Bekasi', 'Bogor', 'Cimahi', 'Cirebon', 'Depok', 'Sukabumi', 'Tasikmalaya']
+    };
+
+    // Event listener untuk perubahan pada select provinsi
+    provinsiSelect.addEventListener('change', function() {
+        const selectedProvinsi = this.value;
+        // Kosongkan terlebih dahulu pilihan kota
+        kotaSelect.innerHTML = '<option value="">Pilih Kota</option>';
+        // Tambahkan kota-kota sesuai dengan provinsi yang dipilih
+        if (selectedProvinsi in kotaOptions) {
+            kotaOptions[selectedProvinsi].forEach(function(kota) {
+                const option = document.createElement('option');
+                option.value = kota;
+                option.textContent = kota;
+                kotaSelect.appendChild(option);
+            });
+        }
+    });
+
+    // Initial setup (menampilkan pilihan kota sesuai provinsi awal jika ada)
+    if (provinsiSelect.value === 'Dki Jakarta') {
+        kotaOptions['Dki Jakarta'].forEach(function(kota) {
+            const option = document.createElement('option');
+            option.value = kota;
+            option.textContent = kota;
+            kotaSelect.appendChild(option);
+        });
+    }
+</script>
