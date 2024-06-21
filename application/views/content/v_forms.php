@@ -139,20 +139,64 @@
                             <input type="text" class="form-control" id="recipient-alamat" name="alamat">
                         </div>
                         <div class="form-group">
-                            <label for="recipient-provinsi" class="col-form-label label-edit">Provinsi :</label>
-                            <input type="text" class="form-control" id="recipient-provinsi" name="provinsi">
+                            <label for="provinsi" class="col-form-label label-edit">Provinsi :</label>
+                            <select name="provinsi" id="provinsi" class="form-control">
+                                <option value="">Pilih Provinsi</option>
+                                <option value="Dki Jakarta">Dki Jakarta</option>
+                                <option value="Jawa Barat">Jawa Barat</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="recipient-kota" class="col-form-label label-edit">Kota :</label>
-                            <input type="text" class="form-control" id="recipient-kota" name="kota">
+                            <label for="kota" class="col-form-label label-edit">Kota :</label>
+                            <select name="kota" id="kota" class="form-control">
+                                <option value="">Pilih Kota</option>
+                                <option value="Bandung">Bandung</option>
+                                <option value="Banjar">Banjar</option>
+                                <option value="Bekasi">Bekasi</option>
+                                <option value="Bogor">Bogor</option>
+                                <option value="Cimahi">Cimahi</option>
+                                <option value="Cirebon">Cirebon</option>
+                                <option value="Depok">Depok</option>
+                                <option value="Sukabumi">Sukabumi</option>
+                                <option value="Tasikmalaya">Tasikmalaya</option>
+                                <option value="Jakarta Barat">Jakarta Barat</option>
+                                <option value="Jakarta Pusat">Jakarta Pusat</option>
+                                <option value="Jakarta Selatan">Jakarta Selatan</option>
+                                <option value="Jakarta Timur">Jakarta Timur</option>
+                                <option value="Jakarta Utara">Jakarta Utara</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="recipient-motor" class="col-form-label label-edit">Motor :</label>
-                            <input type="text" class="form-control" id="recipient-motor" name="motor">
+                            <label for="motor" class="col-form-label label-edit">Motor :</label> 
+                            <select class="form-control" name="motor" id="motor">
+                                <option value="">Pilih Motor</option>
+                                <option value="Honda Beat">Honda Beat</option>
+                                <option value="Honda Vario">Honda Vario</option>
+                                <option value="Honda PCX">Honda PCX</option>
+                                <option value="Yamaha NMAX">Yamaha NMAX</option>
+                                <option value="Yamaha Aerox">Yamaha Aerox</option>
+                                <option value="Yamaha Mio">Yamaha Mio</option>
+                                <option value="Suzuki Satria">Suzuki Satria</option>
+                                <option value="Suzuki Nex">Suzuki Nex</option>
+                                <option value="Kawasaki Ninja">Kawasaki Ninja</option>
+                                <option value="Kawasaki KLX">Kawasaki KLX</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="recipient-jenis_servis" class="col-form-label label-edit">Jenis Servis :</label>
-                            <input type="text" class="form-control" id="recipient-jenis_servis" name="jenis_servis">
+                            <label for="jenis_servis" class="col-form-label label-edit">Jenis Servis :</label>
+                            <select name="jenis_servis" id="jenis_servis" class="form-control">
+                                <option value="">Pilih Jenis Servis</option>
+                                <option value="Ganti oli mesin - 50k">Ganti oli mesin - 50k</option>
+                                <option value="Tune up - 70k">Tune up - 70k</option>
+                                <option value="Ganti oli gardan - 15k">Ganti oli gardan - 15k</option>
+                                <option value="Ganti busi - 50k">Ganti busi - 50k</option>
+                                <option value="Ganti filter udara - 60k">Ganti filter udara - 60k</option>
+                                <option value="Ganti kampas rem - 60k">Ganti kampas rem - 60k</option>
+                                <option value="Perawatan aki - 150k">Perawatan aki - 150k</option>
+                                <option value="Bongkar pasang mesin - 500k">Bongkar pasang mesin - 500k</option>
+                                <option value="Tambal ban - 15k">Tambal ban - 15k</option>
+                                <option value="Bore up - 700k">Bore up - 700k</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="recipient-jadwal" class="col-form-label label-edit">Jadwal :</label>

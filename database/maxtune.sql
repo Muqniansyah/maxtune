@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Jun 2024 pada 09.05
+-- Waktu pembuatan: 21 Jun 2024 pada 05.24
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.25
 
@@ -31,7 +31,7 @@ CREATE TABLE `form` (
   `id` int(11) NOT NULL,
   `nama` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `email` varchar(128) NOT NULL,
-  `nohp` int(12) NOT NULL,
+  `nohp` varchar(12) NOT NULL,
   `alamat` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `provinsi` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `kota` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -46,7 +46,11 @@ CREATE TABLE `form` (
 --
 
 INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'remon', 'admin@gmail.com', 2147483647, 'kiw', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Aerox', 'Ganti oli gardan', '2024-06-19', '15:03:00');
+(1, 'aisyah', 'aisyah@gmail.com', '927282828', 'jalan satu', 'Jawa Barat', 'Tasikmalaya', 'Yamaha NMAX', 'Perawatan aki', '2024-06-20', '11:20:00'),
+(2, 'remon', 'your@gmail.com', '8987685', 'assa', 'Dki Jakarta', 'Bekasi', 'Honda PCX', 'Ganti oli mesin', '2024-06-12', '15:33:00'),
+(3, 'muni', 'muni@gmail.com', '2147483647', 'harapn', 'Jawa Barat', 'Sukabumi', 'Yamaha Mio', 'Ganti kampas rem', '2024-06-20', '14:09:00'),
+(4, 'carlo', 'carlo@gmail.com', '2147483647', 'perunm', 'Dki Jakarta', 'Jakarta Barat', 'Yamaha Mio', 'Ganti kampas rem - 60k', '2024-06-13', '08:42:00'),
+(5, 'amin', 'amin@gmail.com', '089607886367', 'thb', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Mio', 'Tune up - 70k', '2024-06-20', '12:21:00');
 
 -- --------------------------------------------------------
 
@@ -66,7 +70,7 @@ CREATE TABLE `formkontak` (
 --
 
 INSERT INTO `formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
-(1, 'revan', 'admin@gmail.com', 'es teh satu\r\n'),
+(1, 'revando', 'admin@gmail.com', 'kerjanya bagus banget\r\n\r\n'),
 (2, 'carlo', 'admin@gmail.com', 'es teh satu'),
 (3, 'remon', 'admin@gmail.com', 'yo');
 
@@ -86,7 +90,7 @@ CREATE TABLE `subscribe` (
 --
 
 INSERT INTO `subscribe` (`id`, `email`) VALUES
-(1, 'muni@gmail.com'),
+(1, 'muniy@gmail.com'),
 (2, 'revand@gmail.com'),
 (3, 'kelvin@gmail.com'),
 (4, 'rois@gmail.com'),
@@ -113,7 +117,7 @@ CREATE TABLE `temporary_form` (
   `id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `nohp` int(12) NOT NULL,
+  `nohp` varchar(12) NOT NULL,
   `alamat` varchar(128) NOT NULL,
   `provinsi` varchar(128) NOT NULL,
   `kota` varchar(128) NOT NULL,
@@ -128,7 +132,11 @@ CREATE TABLE `temporary_form` (
 --
 
 INSERT INTO `temporary_form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'remon', 'admin@gmail.com', 2147483647, 'kiw', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Aerox', 'Ganti oli gardan', '2024-06-19', '15:03:00');
+(1, 'aisyah', 'aisyah@gmail.com', '927282828', 'jalan satu', 'Jawa Barat', 'Tasikmalaya', 'Yamaha NMAX', 'Perawatan aki', '2024-06-20', '11:20:00'),
+(2, 'remon', 'your@gmail.com', '8987685', 'assa', 'Dki Jakarta', 'Bekasi', 'Honda PCX', 'Ganti oli mesin', '2024-06-12', '15:33:00'),
+(3, 'muni', 'muni@gmail.com', '2147483647', 'harapn', 'Jawa Barat', 'Sukabumi', 'Yamaha Mio', 'Ganti kampas rem', '2024-06-20', '14:09:00'),
+(4, 'carlo', 'carlo@gmail.com', '2147483647', 'perunm', 'Dki Jakarta', 'Jakarta Barat', 'Yamaha Mio', 'Ganti kampas rem - 60k', '2024-06-13', '08:42:00'),
+(5, 'amin', 'amin@gmail.com', '089607886367', 'thb', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Mio', 'Tune up - 70k', '2024-06-20', '12:21:00');
 
 -- --------------------------------------------------------
 
@@ -148,7 +156,7 @@ CREATE TABLE `temporary_formkontak` (
 --
 
 INSERT INTO `temporary_formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
-(1, 'revan', 'admin@gmail.com', 'es teh satu\r\n'),
+(1, 'revando', 'admin@gmail.com', 'kerjanya bagus banget\r\n\r\n'),
 (2, 'carlo', 'admin@gmail.com', 'es teh satu'),
 (3, 'remon', 'admin@gmail.com', 'yo');
 
@@ -168,7 +176,7 @@ CREATE TABLE `temporary_subscribe` (
 --
 
 INSERT INTO `temporary_subscribe` (`id`, `email`) VALUES
-(1, 'muni@gmail.com'),
+(1, 'muniy@gmail.com'),
 (2, 'revand@gmail.com'),
 (3, 'kelvin@gmail.com'),
 (4, 'rois@gmail.com'),
@@ -204,10 +212,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
-(1, 'muni', 'muni@gmail.com', 'muni', '827ccb0eea8a706c4c34a16891f84e7b'),
-(2, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(3, 'Rangga', 'Rangga99@gmail.com', 'rangga', '12345'),
-(5, 'muni', 'inda@gmail.com', 'muni', '827ccb0eea8a706c4c34a16891f84e7b');
+(1, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(6, 'carlos', 'carlos@gmail.com', 'carlosaja', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Indexes for dumped tables
@@ -264,7 +270,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `form`
 --
 ALTER TABLE `form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `formkontak`
@@ -282,7 +288,7 @@ ALTER TABLE `subscribe`
 -- AUTO_INCREMENT untuk tabel `temporary_form`
 --
 ALTER TABLE `temporary_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_formkontak`
@@ -300,7 +306,7 @@ ALTER TABLE `temporary_subscribe`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,27 @@
+1.) maxtune app
+font : ubuntu
+colour : 
+--primary: #234edb;
+--white: #ffffff;
+#dee3e6
+tech : codeigniter3, boostrap4, php, css, js, html.
+
+2.) maxtune dashboard
+
+- controller yang digunakan dashboard.php
+- dashboard.php memanggil v_dashboard untuk dashboard, v_dashboard2 untuk menu form, v_dashboard3 untuk menu contact, v_dashboard4 untuk menu subscriber.
+- didalam v_dashboard, v_dashboard2, v_dashboard3, v_dashboard4 memanggil template didalam folder views partial dan memanggil konten dashboard dalam folder views content.
+- folder partial adalah template dari dashboard. 
+- folder content adalah konten dari dashboard maxtune.
+v_dashboard menampilkan v_dashboards dalam folder content.
+v_dashboard2 menampilkan v_forms dalam folder content.
+v_dashboard3 menampilkan v_contacts dalam folder content.
+v_dashboard4 menampilkan v_subscribes dalam folder content.
+- untuk styling dari dashboard ada di assets/css/dashboard-style.css
+
+3.) maxtune landing page
+
+- controller yang digunakan maxtune.php
+- maxtune.php memanggil v_header, v_footer, dan folder pages pada views.
+- untuk styling dari landing page ada di assets/css/landing-style.css
+- untuk script dari landing page ada di assets/javascript/script.js

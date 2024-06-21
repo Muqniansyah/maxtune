@@ -29,9 +29,9 @@
 
                     <div class="form-group">
                         <label for="nohp" class="col-form-label label-edit">No. HP:</label>
-                        <input type="tel" class="form-control" name="nohp" id="nohp" placeholder="Masukkan nomor HP Anda">
+                        <input type="text" class="form-control" name="nohp" id="nohp" placeholder="Masukkan nomor HP Anda">
                     </div>
-
+                    
                     <div class="form-group">
                         <label for="alamat" class="col-form-label label-edit">Alamat:</label>
                         <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat Anda"></textarea>
@@ -94,18 +94,18 @@
 
                     <div class="form-group">
                         <label for="jenis_servis" class="col-form-label label-edit">Jenis Servis:</label>
-                        <select name="jenis_servis" id="jenis_servis" class="form-control">
+                        <select class="form-control" name="jenis_servis" id="jenis_servis">
                             <option value="">Pilih Jenis Servis</option>
-                            <option value="Ganti oli mesin">Ganti oli mesin</option>
-                            <option value="Tune up">Tune up</option>
-                            <option value="Ganti oli gardan">Ganti oli gardan</option>
-                            <option value="Ganti busi">Ganti busi</option>
-                            <option value="Ganti filter udara">Ganti filter udara</option>
-                            <option value="Ganti kampas rem">Ganti kampas rem</option>
-                            <option value="Perawatan aki">Perawatan aki</option>
-                            <option value="Bongkar pasang mesin">Bongkar pasang mesin</option>
-                            <option value="Tambal ban">Tambal ban</option>
-                            <option value="Bore up">Bore up</option>
+                            <option value="Ganti oli mesin - 50k">Ganti oli mesin - 50k</option>
+                            <option value="Tune up - 70k">Tune up - 70k</option>
+                            <option value="Ganti oli gardan - 15k">Ganti oli gardan - 15k</option>
+                            <option value="Ganti busi - 50k">Ganti busi - 50k</option>
+                            <option value="Ganti filter udara - 60k">Ganti filter udara - 60k</option>
+                            <option value="Ganti kampas rem - 60k">Ganti kampas rem - 60k</option>
+                            <option value="Perawatan aki - 150k">Perawatan aki - 150k</option>
+                            <option value="Bongkar pasang mesin - 500k">Bongkar pasang mesin - 500k</option>
+                            <option value="Tambal ban - 15k">Tambal ban - 15k</option>
+                            <option value="Bore up - 700k">Bore up - 700k</option>
                         </select>
                         <div class="error-text">
                             <?php echo form_error('jenis_servis'); ?>
