@@ -25,3 +25,19 @@ v_dashboard4 menampilkan v_subscribes dalam folder content.
 - maxtune.php memanggil v_header, v_footer, dan folder pages pada views.
 - untuk styling dari landing page ada di assets/css/landing-style.css
 - untuk script dari landing page ada di assets/javascript/script.js
+
+4.) maxtune crud 
+-menampilkan data
+ambil data table sementara dari temporary 
+
+-menambah data
+simpan data table sementara lalu copy ke table asli.
+
+-mengahapus data
+mengahapus table asli dan sementara secara bersamaan sekaligus atur ulang id dan auto increment.
+
+-print data
+print langsung dari view dengan memunculkan modalbox dan pakai javascript untuk filter data.
+
+-edit data
+menarik data dengan fungsi edit lalu lakukan aksi update dengan menggunakan fungsi update.

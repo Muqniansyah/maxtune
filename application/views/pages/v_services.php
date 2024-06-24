@@ -76,16 +76,12 @@
             <label for="motor">Motor:</label>
             <select name="motor" id="motor">
                 <option value="">Pilih Motor</option>
-                <option value="Honda Beat">Honda Beat</option>
-                <option value="Honda Vario">Honda Vario</option>
-                <option value="Honda PCX">Honda PCX</option>
-                <option value="Yamaha NMAX">Yamaha NMAX</option>
-                <option value="Yamaha Aerox">Yamaha Aerox</option>
-                <option value="Yamaha Mio">Yamaha Mio</option>
-                <option value="Suzuki Satria">Suzuki Satria</option>
-                <option value="Suzuki Nex">Suzuki Nex</option>
-                <option value="Kawasaki Ninja">Kawasaki Ninja</option>
-                <option value="Kawasaki KLX">Kawasaki KLX</option>
+                <option value="Motor Sport">Motor Sport</option>
+                <option value="Motor Cruiser">Motor Cruiser</option>
+                <option value="Motor Matic">Motor Matic</option>
+                <option value="Motor Cub">Motor Cub</option>
+                <option value="Motor EV">Motor EV</option>
+                <option value="Motor Bigbike">Motor Bigbike</option>
             </select>
             <div class="error-text">
                     <?php echo form_error('motor'); ?>

@@ -58,6 +58,26 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
+    public function check() {
+        $this->load->model('M_account'); // Memuat model M_account
+    
+        // Ambil data terbaru dari tabel temporary_form berdasarkan id
+        $this->db->order_by('id', 'DESC'); // Mengurutkan berdasarkan id secara descending
+        $query = $this->db->get('temporary_form', 1); // Ambil satu baris data terbaru
+        
+        if ($query->num_rows() > 0) {
+            $data['form_data'] = $query->row(); // Ambil satu baris data terbaru
+        } else {
+            $data['form_data'] = null; // Tidak ada data
+        }
+    
+        // Ambil data form dari session dengan nama 'data'
+        $data['form_data'] = $this->session->userdata('data');
+    
+        // Render halaman view
+        $this->load->view('pages/v_check', $data);
+    }
+
     // fungsi cetak
     public function cetaksubscribe() {
         // Validasi Data
@@ -131,6 +151,9 @@ class Maxtune extends CI_Controller {
                 'jadwal' => $this->input->post('jadwal'),
                 'jam' => $this->input->post('jam')
             ];
+
+            // Simpan data ke session dengan nama 'data'
+            $this->session->set_userdata('data', $data);
     
             // Simpan data ke dalam tabel sementara
             $this->db->insert('temporary_form', $data);
@@ -139,7 +162,7 @@ class Maxtune extends CI_Controller {
             $this->db->query('REPLACE INTO form (id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam) SELECT id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam FROM temporary_form');
 
             // Redirect kembali ke halaman sebelumnya
-            redirect($_SERVER['HTTP_REFERER']);
+            redirect('maxtune/check');
         }
     }
 
@@ -178,6 +201,43 @@ class Maxtune extends CI_Controller {
         }
     
     
+    }
+
+    // fungsi hapus
+    public function hapusform($id = null) {
+        // Hapus data dari session dengan nama 'data'
+        $this->session->unset_userdata('data');
+    
+        // Hapus data terbaru dari tabel 'temporary_form' jika $id tidak disediakan
+        if ($id === null) {
+            // Ambil id data terbaru dari tabel temporary_form
+            $this->db->order_by('id', 'DESC'); // Urutkan berdasarkan id secara descending
+            $query = $this->db->get('temporary_form', 1); // Ambil satu baris data terbaru
+            
+            if ($query->num_rows() > 0) {
+                $row = $query->row();
+                $id = $row->id;
+    
+                // Hapus data terbaru dari tabel temporary_form berdasarkan id
+                $this->db->delete('temporary_form', array('id' => $id));
+    
+                // Hapus juga data dari tabel form berdasarkan id yang sama
+                $this->db->delete('form', array('id' => $id));
+    
+                // Atur ulang id dan auto increment jika diperlukan
+                $this->M_account->reset_auto_increment('temporary_form');
+                $this->M_account->reset_auto_increment('form');
+            }
+        } else {
+            // Hapus data dari tabel temporary_form berdasarkan id yang diberikan
+            $this->db->delete('temporary_form', array('id' => $id));
+    
+            // Hapus juga data dari tabel form berdasarkan id yang sama
+            $this->db->delete('form', array('id' => $id));
+        }
+    
+        // Redirect kembali ke halaman utama
+        redirect('maxtune');
     }
 }
 ?>

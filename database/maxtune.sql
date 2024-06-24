@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jun 2024 pada 05.24
+-- Waktu pembuatan: 24 Jun 2024 pada 08.07
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.25
 
@@ -46,11 +46,8 @@ CREATE TABLE `form` (
 --
 
 INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'aisyah', 'aisyah@gmail.com', '927282828', 'jalan satu', 'Jawa Barat', 'Tasikmalaya', 'Yamaha NMAX', 'Perawatan aki', '2024-06-20', '11:20:00'),
-(2, 'remon', 'your@gmail.com', '8987685', 'assa', 'Dki Jakarta', 'Bekasi', 'Honda PCX', 'Ganti oli mesin', '2024-06-12', '15:33:00'),
-(3, 'muni', 'muni@gmail.com', '2147483647', 'harapn', 'Jawa Barat', 'Sukabumi', 'Yamaha Mio', 'Ganti kampas rem', '2024-06-20', '14:09:00'),
-(4, 'carlo', 'carlo@gmail.com', '2147483647', 'perunm', 'Dki Jakarta', 'Jakarta Barat', 'Yamaha Mio', 'Ganti kampas rem - 60k', '2024-06-13', '08:42:00'),
-(5, 'amin', 'amin@gmail.com', '089607886367', 'thb', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Mio', 'Tune up - 70k', '2024-06-20', '12:21:00');
+(1, 'remon', 'admin@gmail.com', '089675839393', 'aewe', 'Jawa Barat', 'Depok', 'Motor Cub', 'Ganti busi - 50k', '2024-06-12', '20:21:00'),
+(2, 'carlo', 'your@gmail.com', '089675839393', 'asd', 'Jawa Barat', 'Banjar', 'Motor Cruiser', 'Perawatan aki - 150k', '2024-06-13', '09:43:00');
 
 -- --------------------------------------------------------
 
@@ -90,22 +87,11 @@ CREATE TABLE `subscribe` (
 --
 
 INSERT INTO `subscribe` (`id`, `email`) VALUES
-(1, 'muniy@gmail.com'),
-(2, 'revand@gmail.com'),
-(3, 'kelvin@gmail.com'),
-(4, 'rois@gmail.com'),
-(5, 'amar@gmail.com'),
-(6, 'vinagarut@gmail.com'),
-(7, 'your@gmail.com'),
-(8, 'muqniansyah@gmail.co'),
-(9, 'muqniansyah@gmail.co'),
-(10, 'amin@gmail.com'),
-(11, 'aldiauau@gmail.com'),
-(12, 'muqniansyah@gmail.co'),
-(13, 'your@gmail.com'),
-(14, 'your@gmail.com'),
-(15, 'muni@gmail.com'),
-(16, 'aldiauau@gmail.com');
+(1, 'amar@gmail.com'),
+(2, 'your@gmail.com'),
+(3, 'amin@gmail.com'),
+(4, 'aldiauau@gmail.com'),
+(5, 'muqniansyah@gmail.co');
 
 -- --------------------------------------------------------
 
@@ -132,11 +118,8 @@ CREATE TABLE `temporary_form` (
 --
 
 INSERT INTO `temporary_form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'aisyah', 'aisyah@gmail.com', '927282828', 'jalan satu', 'Jawa Barat', 'Tasikmalaya', 'Yamaha NMAX', 'Perawatan aki', '2024-06-20', '11:20:00'),
-(2, 'remon', 'your@gmail.com', '8987685', 'assa', 'Dki Jakarta', 'Bekasi', 'Honda PCX', 'Ganti oli mesin', '2024-06-12', '15:33:00'),
-(3, 'muni', 'muni@gmail.com', '2147483647', 'harapn', 'Jawa Barat', 'Sukabumi', 'Yamaha Mio', 'Ganti kampas rem', '2024-06-20', '14:09:00'),
-(4, 'carlo', 'carlo@gmail.com', '2147483647', 'perunm', 'Dki Jakarta', 'Jakarta Barat', 'Yamaha Mio', 'Ganti kampas rem - 60k', '2024-06-13', '08:42:00'),
-(5, 'amin', 'amin@gmail.com', '089607886367', 'thb', 'Dki Jakarta', 'Jakarta Timur', 'Yamaha Mio', 'Tune up - 70k', '2024-06-20', '12:21:00');
+(1, 'remon', 'admin@gmail.com', '089675839393', 'aewe', 'Jawa Barat', 'Depok', 'Motor Cub', 'Ganti busi - 50k', '2024-06-12', '20:21:00'),
+(2, 'carlo', 'your@gmail.com', '089675839393', 'asd', 'Jawa Barat', 'Banjar', 'Motor Cruiser', 'Perawatan aki - 150k', '2024-06-13', '09:43:00');
 
 -- --------------------------------------------------------
 
@@ -176,22 +159,11 @@ CREATE TABLE `temporary_subscribe` (
 --
 
 INSERT INTO `temporary_subscribe` (`id`, `email`) VALUES
-(1, 'muniy@gmail.com'),
-(2, 'revand@gmail.com'),
-(3, 'kelvin@gmail.com'),
-(4, 'rois@gmail.com'),
-(5, 'amar@gmail.com'),
-(6, 'vinagarut@gmail.com'),
-(7, 'your@gmail.com'),
-(8, 'muqniansyah@gmail.co'),
-(9, 'muqniansyah@gmail.co'),
-(10, 'amin@gmail.com'),
-(11, 'aldiauau@gmail.com'),
-(12, 'muqniansyah@gmail.co'),
-(13, 'your@gmail.com'),
-(14, 'your@gmail.com'),
-(15, 'muni@gmail.com'),
-(16, 'aldiauau@gmail.com');
+(1, 'amar@gmail.com'),
+(2, 'your@gmail.com'),
+(3, 'amin@gmail.com'),
+(4, 'aldiauau@gmail.com'),
+(5, 'muqniansyah@gmail.co');
 
 -- --------------------------------------------------------
 
@@ -270,7 +242,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `form`
 --
 ALTER TABLE `form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `formkontak`
@@ -282,13 +254,13 @@ ALTER TABLE `formkontak`
 -- AUTO_INCREMENT untuk tabel `subscribe`
 --
 ALTER TABLE `subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_form`
 --
 ALTER TABLE `temporary_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_formkontak`
@@ -300,7 +272,7 @@ ALTER TABLE `temporary_formkontak`
 -- AUTO_INCREMENT untuk tabel `temporary_subscribe`
 --
 ALTER TABLE `temporary_subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
