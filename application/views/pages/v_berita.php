@@ -16,7 +16,7 @@
                         <img src="<?php echo base_url() ?>assets/img/montir/muni.jpg" alt="Montir-1" width="380" height="400">
                         <div class="team-info">
                             <h4>Muqniansyah Arifin</h4>
-                            <p>Montir</p>
+                            <p>Montir Motor Sport</p>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         <img src="<?php echo base_url() ?>assets/img/montir/rahman.jpg" alt="Montir-2" width="380" height="400">
                         <div class="team-info">
                             <h4>Rahman Nurhadi</h4>
-                            <p>Montir</p>
+                            <p>Montir Motor Cruiser</p>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                         <img src="<?php echo base_url() ?>assets/img/montir/rangga.jpg" alt="Montir-3" width="380" height="400">
                         <div class="team-info">
                             <h4>Rangga Ryantico</h4>
-                            <p>Montir</p>
+                            <p>Montir Motor Matic</p>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         <img src="<?php echo base_url() ?>assets/img/montir/calvin.jpg" alt="Montir-4" width="380" height="400">
                         <div class="team-info">
                             <h4>Calvin Altra Alfrando</h4>
-                            <p>Montir</p>
+                            <p>Montir Motor Cub</p>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <img src="<?php echo base_url() ?>assets/img/montir/revanda.jpg" alt="Montir-5" width="380" height="400">
                         <div class="team-info">
                             <h4>Revanda Ghofar Pratama</h4>
-                            <p>Montir</p>
+                            <p>Montir Motor EV</p>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         <img src="<?php echo base_url() ?>assets/img/montir/rois.jpg" alt="Montir-6" width="380" height="400">
                         <div class="team-info">
                             <h4>Mohamad Rois Alfariji</h4>
-                            <p>Montir</p>
+                            <p>Montir Motor Bigbike</p>
                         </div>
                     </div>
                 </div>

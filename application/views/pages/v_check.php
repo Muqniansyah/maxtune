@@ -1,112 +1,226 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f0f0f0;
-            font-family: 'Lato', sans-serif;
-        }
+<style>
+    /* Importing Google Fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
-        section {
-            padding: 60px 0;
-            background-color: #f0f0f0;
-        }
+    /* Base styles */
+    body {
+         background-color: #f0f0f0;
+        font-family: "Ubuntu", sans-serif;
+    }
 
-        .container {
-            background-color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    section {
+        padding: 60px 0;
+        background-color: #f0f0f0;
+    }
 
-        .container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    .container {
+        background-color: #ffffff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #333;
+        font-weight: 700;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #444;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .summary {
+        margin-top: 30px;
+    }
+
+    .summary h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #444;
+    }
+
+    .summary p {
+        font-size: 18px;
+        color: #555;
+    }
+
+    /* General button style */
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .btn-custom {
+        position: relative;
+        height: 65px;
+        width: 210px;
+        margin: 0 20px; /* Reduced margin to fit buttons better */
+        font-size: 23px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        border: 1px solid transparent;
+        outline: none;
+        cursor: pointer;
+        background: var(--white);
+        overflow: hidden;
+        transition: 0.6s;
+        color: #17a2b8;
+        border-color: #45474B;
+        text-align: center;
+    }
+
+    .btn-custom:hover {
+        color: #f2f2f2;
+        background: #17a2b8;
+    }
+
+    .btn-custom:before,
+    .btn-custom:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        height: 100%;
+        filter: blur(30px);
+        opacity: 0.4;
+        transition: 0.6s;
+    }
+
+    .btn-custom:before {
+        width: 60px;
+        background: rgba(255, 255, 255, 0.6);
+        transform: translateX(-130px) skewX(-45deg);
+    }
+
+    .btn-custom:after {
+        width: 30px;
+        background: rgba(255, 255, 255, 0.6);
+        transform: translateX(-130px) skewX(-45deg);
+    }
+
+    .btn-custom:hover:before,
+    .btn-custom:hover:after {
+        opacity: 0.6;
+        transform: translateX(320px) skewX(-45deg);
+    }
+
+    /* Primary button style */
+    .btn-primary-custom {
+        color: white;
+        background-color: #007bff;
+        text-decoration: none;
+        border: 2px solid #007bff;
+        border-radius: 30px;
+        padding: 10px 25px;
+        display: inline-block;
+    }
+
+    .btn-primary-custom:hover {
+        color: #f2f2f2;
+        background: #0056b3;
+        text-decoration: none;
+    }
+
+    /* Link button style */
+    .btn-link-custom {
+        color: grey;
+        background-color: #F7F9F2; 
+        text-decoration: none;
+        border-radius: 30px;
+        display: inline-block;
+    }
+
+    .btn-link-custom:hover {
+        color: black; 
+        background-color: #91DDCF;
+        text-decoration: none;
+
+    }
+
+    /* Print button style */
+    .btn-print {
+        background-color: #F7F9F2; 
+        border-color: none;
+        color: grey;
+        border-radius: 30px; 
+        padding: 10px 25px; 
+        display: inline-block;
+    }
+
+    .btn-print:hover {
+        color: black; 
+        background-color: #91DDCF;
+        border-color: none;
+    }
+
+    @media (max-width: 768px) {
+        .col-md-6 {
+            margin-bottom: 20px;
         }
 
         h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #333;
-            font-weight: 700;
+            font-size: 28px;
         }
 
         h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #444;
-            font-weight: 600;
+            font-size: 20px;
         }
 
-        p {
-            font-size: 16px;
-            color: #555;
-        }
-
-        .summary {
-            margin-top: 30px;
-        }
-
-        .summary h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #444;
-        }
-
-        .summary p {
-            font-size: 18px;
-            color: #555;
+        .btn-container {
+            flex-direction: column;
+            align-items: stretch;
+            margin: 0 auto;
+            gap: 10px;
         }
 
         .btn-custom {
-            padding: 12px 25px;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 18px;
+            height: 55px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        section {
+            padding: 20px 0;
+        }
+
+        .summary p {
             font-size: 16px;
-            border-radius: 30px;
-            margin: 5px;
-            transition: all 0.3s ease-in-out;
         }
 
-        .btn-primary-custom {
-            background-color: #007bff;
-            border-color: #007bff;
-            color: white;
+        .summary h3 {
+            font-size: 20px;
         }
-
-        .btn-link-custom {
-            color: #007bff;
-            text-decoration: none;
-            border: 2px solid #007bff;
-            border-radius: 30px;
-            padding: 10px 25px;
-            display: inline-block;
-        }
-
-        .btn-print {
-            background-color: #28a745;
-            border-color: #28a745;
-            color: white;
-        }
-
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .col-md-6 {
-                margin-bottom: 20px;
-            }
-
-            h2 {
-                font-size: 28px;
-            }
-
-            h3 {
-                font-size: 20px;
-            }
-        }
-    </style>
-    <section>
+    }
+</style>
+<section>
     <div class="container">
         <h2>Checkout Booking Service</h2>
         <div class="row">
@@ -129,16 +243,15 @@
         </div>
         <div class="summary">
             <h3>Ringkasan Pesanan:</h3>
+            <p><strong>Montir:</strong> <?= htmlspecialchars($form_data['montir']); ?></p>
             <p><strong>Total Harga:</strong> <span id="total-harga"></span></p>
         </div>
-        <div class="mt-3">
-            <button type="button" class="btn btn-print btn-custom" onclick="window.print()">Print</button>
-            <form method="post" action="<?php echo base_url('maxtune/hapusform/'); ?>">
-                <button type="submit" class="btn-link-custom btn-custom">
-                    Batalkan dan Kembali ke Beranda
-                </button>
+        <div class="btn-container">
+            <form method="post" action="<?= base_url('maxtune/hapusform/'); ?>">
+                <button type="submit" class="btn-link-custom btn-custom">Batalkan</button>
             </form>
-            <a href="https://wa.me/6281220893249?" class="btn btn-primary btn-primary-custom btn-custom">Konfirmasi dan Lanjutkan Pembayaran</a>
+            <button type="button" class="btn-print btn-custom" onclick="window.print()">Print</button>
+            <a href="https://wa.me/6281220893249?" class="btn-primary-custom btn-custom">Konfirmasi</a>
         </div>
     </div>
 </section>
@@ -163,7 +276,5 @@
         }
     });
 </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 

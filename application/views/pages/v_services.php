@@ -76,12 +76,12 @@
             <label for="motor">Motor:</label>
             <select name="motor" id="motor">
                 <option value="">Pilih Motor</option>
-                <option value="Motor Sport">Motor Sport</option>
-                <option value="Motor Cruiser">Motor Cruiser</option>
-                <option value="Motor Matic">Motor Matic</option>
-                <option value="Motor Cub">Motor Cub</option>
-                <option value="Motor EV">Motor EV</option>
-                <option value="Motor Bigbike">Motor Bigbike</option>
+                <option value="Motor Sport - Muqni">Motor Sport</option>
+                <option value="Motor Cruiser - Rahman">Motor Cruiser</option>
+                <option value="Motor Matic - Rangga">Motor Matic</option>
+                <option value="Motor Cub - Calvin">Motor Cub</option>
+                <option value="Motor EV - Revanda">Motor EV</option>
+                <option value="Motor Bigbike - Rois">Motor Bigbike</option>
             </select>
             <div class="error-text">
                     <?php echo form_error('motor'); ?>

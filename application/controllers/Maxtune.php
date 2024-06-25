@@ -74,6 +74,36 @@ class Maxtune extends CI_Controller {
         // Ambil data form dari session dengan nama 'data'
         $data['form_data'] = $this->session->userdata('data');
     
+        // Jika data ada di session, ambil montir berdasarkan motor
+        if ($data['form_data']) {
+            $motor = $data['form_data']['motor'];
+            switch($motor) {
+                case 'Motor Sport - Muqni':
+                    $data['form_data']['montir'] = 'Muqniansyah Arifin';
+                    break;
+                case 'Motor Cruiser - Rahman':
+                    $data['form_data']['montir'] = 'Rahman Nurhadi';
+                    break;
+                case 'Motor Matic - Rangga':
+                    $data['form_data']['montir'] = 'Rangga Ryantico';
+                    break;
+                case 'Motor Cub - Calvin':
+                    $data['form_data']['montir'] = 'Calvin Altra Alfrando';
+                    break;
+                case 'Motor EV - Revanda':
+                    $data['form_data']['montir'] = 'Revanda Ghofar Pratama';
+                    break;
+                case 'Motor Bigbike - Rois':
+                    $data['form_data']['montir'] = 'Mohamad Rois Alfariji';
+                    break;
+                default:
+                    $data['form_data']['montir'] = 'Tidak ada montir yang dipilih';
+                    break;
+            }
+        } else {
+            $data['form_data'] = ['montir' => 'Form tidak dikirim dengan benar.'];
+        }
+
         // Render halaman view
         $this->load->view('pages/v_check', $data);
     }

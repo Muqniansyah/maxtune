@@ -18,7 +18,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* background: #7d2ae8; */
             padding: 30px;
             background-image: url("assets/img/login/login.jpg");
             background-position: center;
@@ -117,7 +116,7 @@
     </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <div class="forms">
             <div class="form-content">
                 <div class="title">Pendaftaran Akun</div>

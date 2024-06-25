@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Jun 2024 pada 08.07
+-- Waktu pembuatan: 25 Jun 2024 pada 11.04
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.25
 
@@ -46,8 +46,9 @@ CREATE TABLE `form` (
 --
 
 INSERT INTO `form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'remon', 'admin@gmail.com', '089675839393', 'aewe', 'Jawa Barat', 'Depok', 'Motor Cub', 'Ganti busi - 50k', '2024-06-12', '20:21:00'),
-(2, 'carlo', 'your@gmail.com', '089675839393', 'asd', 'Jawa Barat', 'Banjar', 'Motor Cruiser', 'Perawatan aki - 150k', '2024-06-13', '09:43:00');
+(1, 'aisyah', 'aisyah@gmail.com', '089607886365', 'jalan ponorogo blok D5 No3', 'Dki Jakarta', 'Jakarta Pusat', 'Motor Sport - Muqni', 'Perawatan aki - 150k', '2024-06-20', '15:24:00'),
+(2, 'alex', 'alex@gmail.com', '08976589443', 'jalan kaki blok R4 No3', 'Dki Jakarta', 'Jakarta Selatan', 'Motor EV - Revanda', 'Ganti busi - 50k', '2024-06-04', '15:27:00'),
+(3, 'bruno', 'bruno@gmail.com', '08976589443', 'jalan kaki blok R4 No3', 'Dki Jakarta', 'Jakarta Selatan', 'Motor Matic - Rangga', 'Bongkar pasang mesin - 500k', '2024-06-04', '15:27:00');
 
 -- --------------------------------------------------------
 
@@ -67,9 +68,7 @@ CREATE TABLE `formkontak` (
 --
 
 INSERT INTO `formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
-(1, 'revando', 'admin@gmail.com', 'kerjanya bagus banget\r\n\r\n'),
-(2, 'carlo', 'admin@gmail.com', 'es teh satu'),
-(3, 'remon', 'admin@gmail.com', 'yo');
+(1, 'carlos', 'carlos@gmail.com', 'Yth. Tim Layanan Service Motor, saya Carlos, pelanggan dengan nomor telepon 08123456789, ingin melaporkan bahwa setelah servis pada 20 Juni 2024, motor saya mengalami masalah kelistrikan yang menyebabkan sering mati mendadak; mohon bantuannya untuk memeriksa dan memperbaikinya sesegera mungkin.');
 
 -- --------------------------------------------------------
 
@@ -87,11 +86,12 @@ CREATE TABLE `subscribe` (
 --
 
 INSERT INTO `subscribe` (`id`, `email`) VALUES
-(1, 'amar@gmail.com'),
-(2, 'your@gmail.com'),
-(3, 'amin@gmail.com'),
-(4, 'aldiauau@gmail.com'),
-(5, 'muqniansyah@gmail.co');
+(1, 'rahman@gmail.com'),
+(2, 'muqni@gmail.com'),
+(3, 'rois@rois.co.id'),
+(4, 'revand@gmail.co'),
+(5, 'rangga@info.co'),
+(6, 'kelvin@kelvin.net');
 
 -- --------------------------------------------------------
 
@@ -118,8 +118,9 @@ CREATE TABLE `temporary_form` (
 --
 
 INSERT INTO `temporary_form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'remon', 'admin@gmail.com', '089675839393', 'aewe', 'Jawa Barat', 'Depok', 'Motor Cub', 'Ganti busi - 50k', '2024-06-12', '20:21:00'),
-(2, 'carlo', 'your@gmail.com', '089675839393', 'asd', 'Jawa Barat', 'Banjar', 'Motor Cruiser', 'Perawatan aki - 150k', '2024-06-13', '09:43:00');
+(1, 'aisyah', 'aisyah@gmail.com', '089607886365', 'jalan ponorogo blok D5 No3', 'Dki Jakarta', 'Jakarta Pusat', 'Motor Sport - Muqni', 'Perawatan aki - 150k', '2024-06-20', '15:24:00'),
+(2, 'alex', 'alex@gmail.com', '08976589443', 'jalan kaki blok R4 No3', 'Dki Jakarta', 'Jakarta Selatan', 'Motor EV - Revanda', 'Ganti busi - 50k', '2024-06-04', '15:27:00'),
+(3, 'bruno', 'bruno@gmail.com', '08976589443', 'jalan kaki blok R4 No3', 'Dki Jakarta', 'Jakarta Selatan', 'Motor Matic - Rangga', 'Bongkar pasang mesin - 500k', '2024-06-04', '15:27:00');
 
 -- --------------------------------------------------------
 
@@ -139,9 +140,7 @@ CREATE TABLE `temporary_formkontak` (
 --
 
 INSERT INTO `temporary_formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
-(1, 'revando', 'admin@gmail.com', 'kerjanya bagus banget\r\n\r\n'),
-(2, 'carlo', 'admin@gmail.com', 'es teh satu'),
-(3, 'remon', 'admin@gmail.com', 'yo');
+(1, 'carlos', 'carlos@gmail.com', 'Yth. Tim Layanan Service Motor, saya Carlos, pelanggan dengan nomor telepon 08123456789, ingin melaporkan bahwa setelah servis pada 20 Juni 2024, motor saya mengalami masalah kelistrikan yang menyebabkan sering mati mendadak; mohon bantuannya untuk memeriksa dan memperbaikinya sesegera mungkin.');
 
 -- --------------------------------------------------------
 
@@ -159,11 +158,12 @@ CREATE TABLE `temporary_subscribe` (
 --
 
 INSERT INTO `temporary_subscribe` (`id`, `email`) VALUES
-(1, 'amar@gmail.com'),
-(2, 'your@gmail.com'),
-(3, 'amin@gmail.com'),
-(4, 'aldiauau@gmail.com'),
-(5, 'muqniansyah@gmail.co');
+(1, 'rahman@gmail.com'),
+(2, 'muqni@gmail.com'),
+(3, 'rois@rois.co.id'),
+(4, 'revand@gmail.co'),
+(5, 'rangga@info.co'),
+(6, 'kelvin@kelvin.net');
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
 (1, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(6, 'carlos', 'carlos@gmail.com', 'carlosaja', '827ccb0eea8a706c4c34a16891f84e7b');
+(7, 'muni', 'muni@gmail.com', 'muniaja', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Indexes for dumped tables
@@ -242,43 +242,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `form`
 --
 ALTER TABLE `form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `formkontak`
 --
 ALTER TABLE `formkontak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `subscribe`
 --
 ALTER TABLE `subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_form`
 --
 ALTER TABLE `temporary_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_formkontak`
 --
 ALTER TABLE `temporary_formkontak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `temporary_subscribe`
 --
 ALTER TABLE `temporary_subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

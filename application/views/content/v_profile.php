@@ -1,8 +1,10 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <?= $this->session->flashdata('pesan'); ?>
-    <div class="row">
+<center>
+    <h1>Data Admin</h1>
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid d-flex justify-content-center">
         <div class="col-lg-8">
+            <?= $this->session->flashdata('pesan'); ?>
             <?php if (validation_errors()) { ?>
                 <div class="alert alert-danger" role="alert">
                     <?= validation_errors(); ?>
@@ -28,16 +30,13 @@
                             <td><?= $a['nama']; ?></td>
                             <td><?= $a['email']; ?></td>
                             <td><?= $a['username']; ?></td>
-                            </td>
-
                         </tr>
                     <?php } ?>
-
                 </tbody>
             </table>
         </div>
     </div>
-</div>
-<!-- /.container-fluid -->
-</div>
-<!-- End of Main Content -->
+    <!-- /.container-fluid -->
+    </div>
+    <!-- End of Main Content -->
+</center>

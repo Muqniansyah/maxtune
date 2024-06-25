@@ -8,7 +8,6 @@
 }
 
 :root {
-	/* --poppins: "Poppins", sans-serif; */
 	--primary: #234edb;
 	--white: #ffffff;
 }
@@ -317,10 +316,6 @@ input[type="submit"] {
 	border-color: #17a2b8;
 }
 
-/* input[type="submit"]:hover {
-	background-color: #45a049;
-} */
-
 input[type="submit"]:hover {
 	color: #f2f2f2;
 	background: #17a2b8;
@@ -528,14 +523,6 @@ input[type="submit"]:hover:after {
 	font-size: 16px;
 	opacity: 0.8;
 }
-
-/* faq */
-/* .faq {
-	font-family: "Arial", sans-serif;
-	background-color: #1c6ea1;
-	margin: 0;
-	padding: 0;
-} */
 
 .faq .box {
 	width: 90%;

@@ -25,16 +25,6 @@
             background-size: cover;
         }
 
-        /* body::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url("assets/img/beranda.jpg"), #000;
-            background-position: center;
-            background-size: cover;
-        } */
-
         .container {
             width: 400px;
             border-radius: 8px;
@@ -125,7 +115,7 @@
     </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <div class="forms">
             <div class="form-content">
                 <div class="title">Login</div>

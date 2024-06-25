@@ -41,3 +41,7 @@ print langsung dari view dengan memunculkan modalbox dan pakai javascript untuk 
 
 -edit data
 menarik data dengan fungsi edit lalu lakukan aksi update dengan menggunakan fungsi update.
+
+5.) role pembuatan maxtune
+dashboard : muqni, rangga, rahman
+landing page : rois, kelvin, revand

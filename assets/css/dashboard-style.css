@@ -119,14 +119,6 @@ tr:nth-child(odd) {
 	border: 1px solid #ddd;
 }
 
-/* .action-dash-form {
-	border: none;
-	display: flex;
-	align-items: center;
-	gap: 10px; 
-	margin-top: 5%;
-} */
-
 .modal-body p {
 	text-align: left;
 }
@@ -209,10 +201,6 @@ tr:nth-child(odd) {
 	.action-dash {
 		flex-direction: column; /* Mengubah tata letak menu aksi menjadi kolom */
 	}
-
-	/* .action-dash-form {
-		margin-top: 5%; 
-	} */
 
 	.label-edit {
 		margin-right: 0; /* Menghapus margin kanan pada label edit */
