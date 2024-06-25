@@ -17,6 +17,15 @@ class Dashboard extends CI_Controller {
         $this->load->view('v_dashboard', $data); // Load view with data
     }
 
+    public function profile() {
+        $this->load->model('M_account'); // Memuat model M_account
+        $data['judul'] = 'Data Admin'; 
+        $data['users'] = $this->M_account->cekData(['email' => $this->session->userdata('email')])->row_array(); 
+        $data['admin'] = $this->db->get('users')->result_array(); 
+
+        $this->load->view('v_dashboard5', $data); // memuat view profile
+    }
+
     public function form() {
         $data['judul'] = "Detail Form";
         $this->load->view('v_dashboard2', $data);

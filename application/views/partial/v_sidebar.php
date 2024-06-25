@@ -18,6 +18,11 @@
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="<?php echo base_url().'dashboard/profile' ?>">
+        <i class="fas fa-solid fa-user"></i>
+        <span>Admin</span></a>
+</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider">

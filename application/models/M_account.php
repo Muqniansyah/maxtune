@@ -10,6 +10,10 @@ class M_account extends CI_Model{
         $this->load->database();
     }
 
+    public function cekData($data = null) {
+        return $this->db->get_where('users', $data);
+    }
+
     // masukkan data
     function daftar($data) {
         $this->db->insert('users',$data);
