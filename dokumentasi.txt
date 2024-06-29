@@ -45,3 +45,30 @@ menarik data dengan fungsi edit lalu lakukan aksi update dengan menggunakan fung
 5.) role pembuatan maxtune
 dashboard : muqni, rangga, rahman
 landing page : rois, kelvin, revand
+
+6.) log
+17-05-2024 : prepare project(navbar and filesystem)
+18-05-2024 : jumbotron, contact, services.
+19-05-2024 : footer, scroll on top, berita
+25-05-2024 : dashboard, login, regis
+26-05-2024 : routes, forms,services pada dashboard
+12-06-2024 : clean code, action hapus, action cetak, action edit, problem solving, cara pembayaran.
+13-06-2024 : login dan register styling pesan error, tambah data khusus yang diform saja, notif atau feedback input form.
+kalau berhasil dia kembali saja atau reload
+kalau error dia kembali atau reload dan menghasilkan pesan error.
+21-06-2024 : error nohp(ganti typedata)
+23-06-2024 : rombak jenis service dan halaman checkout (pembayaran for wa not midtrands)
+24-06-2024 : montir berdasrkan jenis motor
+
+7.) correction
+1. edit form bagian select didashboard
+2. fitur search & pagination
+3. darkmode
+4. mockup dan wireframe
+5. nomer urut pemesanan pada dashboard
+6. midtrans untuk payment gateway
+7. didashboard ada menu pembayaran
+8. Dari Segi Erd semua entity harus ada (7 tabel) dan saling berhubungan kaya ada relasi one to many, many to one
+9. Class Diagram harus ada method kaya di dalam table ada delete, edit, 
+10. di website maxtune harus ada form validation (kalo udah di booking, ya ga bisa dibooking kecuali udah kosong jadwalnya)
+11. setelah pelanggan selesai melakukan service maka harus ada konfirmasi selesai

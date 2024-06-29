@@ -245,32 +245,33 @@
             });
 
             // Untuk modal edit
-            $('#modalEdit').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget);
-                var id = button.data('id');
-                var nama = button.data('nama');
-                var email = button.data('email');
-                var nohp = button.data('nohp');
-                var alamat = button.data('alamat');
-                var provinsi = button.data('provinsi');
-                var kota = button.data('kota');
-                var motor = button.data('motor');
-                var jenis_servis = button.data('jenis_servis');
-                var jadwal = button.data('jadwal');
-                var jam = button.data('jam');
+            let editButtons = document.querySelectorAll('.edit-button');
+            editButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    let id = this.getAttribute('data-id');
+                    let nama = this.getAttribute('data-nama');
+                    let email = this.getAttribute('data-email');
+                    let nohp = this.getAttribute('data-nohp');
+                    let alamat = this.getAttribute('data-alamat');
+                    let provinsi = this.getAttribute('data-provinsi');
+                    let kota = this.getAttribute('data-kota');
+                    let motor = this.getAttribute('data-motor');
+                    let jenis_servis = this.getAttribute('data-jenis_servis');
+                    let jadwal = this.getAttribute('data-jadwal');
+                    let jam = this.getAttribute('data-jam');
 
-                var modal = $(this);
-                modal.find('.modal-body #recipient-id').val(id);
-                modal.find('.modal-body #recipient-nama').val(nama);
-                modal.find('.modal-body #recipient-email').val(email);
-                modal.find('.modal-body #recipient-nohp').val(nohp);
-                modal.find('.modal-body #recipient-alamat').val(alamat);
-                modal.find('.modal-body #recipient-provinsi').val(provinsi);
-                modal.find('.modal-body #recipient-kota').val(kota);
-                modal.find('.modal-body #recipient-motor').val(motor);
-                modal.find('.modal-body #recipient-jenis_servis').val(jenis_servis);
-                modal.find('.modal-body #recipient-jadwal').val(jadwal);
-                modal.find('.modal-body #recipient-jam').val(jam);
+                    document.getElementById('recipient-id').value = id;
+                    document.getElementById('recipient-nama').value = nama;
+                    document.getElementById('recipient-email').value = email;
+                    document.getElementById('recipient-nohp').value = nohp;
+                    document.getElementById('recipient-alamat').value = alamat;
+                    document.getElementById('provinsi').value = provinsi;
+                    document.getElementById('kota').value = kota;
+                    document.getElementById('motor').value = motor;
+                    document.getElementById('jenis_servis').value = jenis_servis;
+                    document.getElementById('recipient-jadwal').value = jadwal;
+                    document.getElementById('recipient-jam').value = jam;
+                });
             });
         });
     </script>
