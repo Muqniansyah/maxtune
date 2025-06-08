@@ -1,5 +1,5 @@
 <center>
-    <h1>Daftar Layanan Service</h1>
+    <h1>Daftar Pemesanan Servis</h1>
 
     <!-- Start flash data -->
     <?php if($this->session->flashdata('message')): ?>

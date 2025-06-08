@@ -1,11 +1,9 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-    /* Importing Google Fonts */
     @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
-    /* Base styles */
     body {
-         background-color: #f0f0f0;
+        background-color: #f0f0f0;
         font-family: "Ubuntu", sans-serif;
     }
 
@@ -62,7 +60,6 @@
         color: #555;
     }
 
-    /* General button style */
     .btn-container {
         display: flex;
         justify-content: center;
@@ -73,107 +70,58 @@
 
     .btn-custom {
         position: relative;
-        height: 65px;
-        width: 210px;
-        margin: 0 20px; /* Reduced margin to fit buttons better */
-        font-size: 23px;
+        height: 55px;
+        width: 180px;
+        font-size: 16px;
         font-weight: 500;
         letter-spacing: 1px;
-        border-radius: 5px;
+        border-radius: 8px;
         text-transform: uppercase;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         outline: none;
         cursor: pointer;
-        background: var(--white);
         overflow: hidden;
         transition: 0.6s;
-        color: #17a2b8;
-        border-color: #45474B;
         text-align: center;
     }
 
-    .btn-custom:hover {
-        color: #f2f2f2;
-        background: #17a2b8;
-    }
-
-    .btn-custom:before,
-    .btn-custom:after {
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        height: 100%;
-        filter: blur(30px);
-        opacity: 0.4;
-        transition: 0.6s;
-    }
-
-    .btn-custom:before {
-        width: 60px;
-        background: rgba(255, 255, 255, 0.6);
-        transform: translateX(-130px) skewX(-45deg);
-    }
-
-    .btn-custom:after {
-        width: 30px;
-        background: rgba(255, 255, 255, 0.6);
-        transform: translateX(-130px) skewX(-45deg);
-    }
-
-    .btn-custom:hover:before,
-    .btn-custom:hover:after {
-        opacity: 0.6;
-        transform: translateX(320px) skewX(-45deg);
-    }
-
-    /* Primary button style */
-    .btn-primary-custom {
-        color: white;
-        background-color: #007bff;
-        text-decoration: none;
-        border: 2px solid #007bff;
-        border-radius: 30px;
-        padding: 10px 25px;
-        display: inline-block;
-    }
-
-    .btn-primary-custom:hover {
-        color: #f2f2f2;
-        background: #0056b3;
-        text-decoration: none;
-    }
-
-    /* Link button style */
     .btn-link-custom {
-        color: grey;
-        background-color: #F7F9F2; 
-        text-decoration: none;
-        border-radius: 30px;
-        display: inline-block;
+        background-color: white;
+        color: #6c757d;
+        border: 2px solid #6c757d;
     }
 
     .btn-link-custom:hover {
-        color: black; 
-        background-color: #91DDCF;
-        text-decoration: none;
-
+        background-color: #6c757d;
+        color: white;
     }
 
-    /* Print button style */
     .btn-print {
-        background-color: #F7F9F2; 
-        border-color: none;
-        color: grey;
-        border-radius: 30px; 
-        padding: 10px 25px; 
-        display: inline-block;
+        background-color: white;
+        color: #6c757d;
+        border: 2px solid #6c757d;
     }
 
     .btn-print:hover {
-        color: black; 
-        background-color: #91DDCF;
-        border-color: none;
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .btn-primary-custom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #007bff;
+        color: white;
+        border: 2px solid #007bff;
+        text-decoration: none;
+    }
+
+    .btn-primary-custom:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        color: white;
+        text-decoration: none;
     }
 
     @media (max-width: 768px) {
@@ -198,9 +146,8 @@
 
         .btn-custom {
             width: 100%;
-            margin: 10px 0;
             font-size: 18px;
-            height: 55px;
+            height: 50px;
         }
 
         .container {
@@ -220,9 +167,10 @@
         }
     }
 </style>
+
 <section>
     <div class="container">
-        <h2>Checkout Booking Service</h2>
+        <h2>Checkout Pelayanan Servis</h2>
         <div class="row">
             <div class="col-md-6">
                 <h3>Informasi Pelanggan:</h3>
@@ -248,24 +196,21 @@
         </div>
         <div class="btn-container">
             <form method="post" action="<?= base_url('maxtune/hapusform/'); ?>">
-                <button type="submit" class="btn-link-custom btn-custom">Batalkan</button>
+                <button type="submit" class="btn-custom btn-link-custom">Batalkan</button>
             </form>
-            <button type="button" class="btn-print btn-custom" onclick="window.print()">Print</button>
-            <a href="https://wa.me/6281220893249?" class="btn-primary-custom btn-custom">Konfirmasi</a>
+            <button type="button" class="btn-custom btn-print" onclick="window.print()">Print</button>
+            <a href="<?php echo base_url().'maxtune/bayar' ?>" class="btn-custom btn-primary-custom">Bayar</a>
         </div>
     </div>
 </section>
 
 <script>
-    // Ambil nilai jenis_servis dari PHP ke JavaScript untuk menghitung total harga
     var jenisServisValue = '<?php echo isset($form_data['jenis_servis']) ? $form_data['jenis_servis'] : ''; ?>';
 
-    // Tambahkan event listener untuk menghitung total harga saat halaman dimuat
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var selectedOption = jenisServisValue;
         var totalHargaElement = document.getElementById('total-harga');
 
-        // Pisahkan nama servis dan harga dengan regex
         var regex = /(.*) - (\d+)k/;
         var match = selectedOption.match(regex);
         if (match) {
@@ -276,5 +221,3 @@
         }
     });
 </script>
-
-

@@ -28,22 +28,22 @@
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <h4 class="text-white text-uppercase mb-4">Tautan Langsung</h4>
                             <div class="d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune' ?>">Home</a>
-                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune/about' ?>">About Us</a>
-                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune/services' ?>">Our Services</a>
+                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune' ?>">Beranda</a>
+                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune/about' ?>">Tentang Kami</a>
+                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune/services' ?>">Layanan Kami</a>
                                 <!-- <a class="text-light mb-2" href="#">Meet The Team</a> -->
-                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune/berita' ?>">Latest Blog</a>
-                                <a class="text-light" href="<?php echo base_url().'maxtune/contact' ?>">Contact Us</a>
+                                <a class="text-light mb-2" href="<?php echo base_url().'maxtune/berita' ?>">Berita Terbaru</a>
+                                <a class="text-light" href="<?php echo base_url().'maxtune/contact' ?>">Hubungi Kami</a>
                             </div>
                         </div>
 
                         <!-- subscribe -->
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h4 class="text-white text-uppercase mb-4">Newsletter</h4>
+                            <h4 class="text-white text-uppercase mb-4">Informasi Terbaru</h4>
                             <p class="text-light">Yuk jadi orang pertama yang mengetahui info.</p>
                             <form action="<?= base_url('maxtune/cetaksubscribe'); ?>" method="post">
                                 <div class="input-group">
-                                    <input type="email" name="email" class="form-control border-white p-1" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control border-white p-1" placeholder="Isi Email">
                                     <button class="btn btn-secondary">Subscribe</button>
                                 </div>
                                 <div class="error-text" style="color: white;">
@@ -82,6 +82,44 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-info border-inner py-3 fs-4 scroll-to-top" id="scrollToTopBtn"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- Linking Swiper script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Custom Script -->
+    <script>
+      new Swiper(".wrapper", {
+        loop: true,
+        spaceBetween: 30,
+        // Autoplay
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        // Pagination bullets
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          dynamicBullets: true,
+        },
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // Responsive breakpoints
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    </script>
     <!-- my script -->
     <script src="<?php echo base_url() ?>assets/javascript/script.js"></script>
 </body>

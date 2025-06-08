@@ -29,9 +29,9 @@
                                 <a href="https://www.linkedin.com/in/rahman-nurhadi-1419001a7/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
-                        <img src="<?php echo base_url() ?>assets/img/montir/rahman.jpg" alt="Montir-2" width="380" height="400">
+                        <img src="<?php echo base_url() ?>assets/img/montir/irawan.jpg" alt="Montir-2" width="380" height="400">
                         <div class="team-info">
-                            <h4>Rahman Nurhadi</h4>
+                            <h4>Irawan Budi Santoso</h4>
                             <p>Montir Motor Cruiser</p>
                         </div>
                     </div>
@@ -45,9 +45,9 @@
                                 <a href="https://www.linkedin.com/in/rangga-ryantico19/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
-                        <img src="<?php echo base_url() ?>assets/img/montir/rangga.jpg" alt="Montir-3" width="380" height="400">
+                        <img src="<?php echo base_url() ?>assets/img/montir/haikal.jpg" alt="Montir-3" width="380" height="400">
                         <div class="team-info">
-                            <h4>Rangga Ryantico</h4>
+                            <h4>Haikal Sita Fajri Ramadhan</h4>
                             <p>Montir Motor Matic</p>
                         </div>
                     </div>
@@ -61,9 +61,9 @@
                                 <a href="https://www.linkedin.com/in/evin-altra-11a61b30a/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
-                        <img src="<?php echo base_url() ?>assets/img/montir/calvin.jpg" alt="Montir-4" width="380" height="400">
+                        <img src="<?php echo base_url() ?>assets/img/montir/saiful.jpg" alt="Montir-4" width="380" height="400">
                         <div class="team-info">
-                            <h4>Calvin Altra Alfrando</h4>
+                            <h4>Saifulloh Yusuf</h4>
                             <p>Montir Motor Cub</p>
                         </div>
                     </div>
@@ -77,15 +77,15 @@
                                 <a href="https://www.linkedin.com/in/revanda-ghofar-pratama-08236a30a/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
-                        <img src="<?php echo base_url() ?>assets/img/montir/revanda.jpg" alt="Montir-5" width="380" height="400">
+                        <img src="<?php echo base_url() ?>assets/img/montir/fahri.jpg" alt="Montir-5" width="380" height="400">
                         <div class="team-info">
-                            <h4>Revanda Ghofar Pratama</h4>
+                            <h4>Fachri Fathurrohman</h4>
                             <p>Montir Motor EV</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="team-item">
                         <div class="team-overlay">
                             <div class="social-icons">
@@ -99,7 +99,7 @@
                             <p>Montir Motor Bigbike</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@
 
     <!-- Review Start -->
     <div class="review" id="review">
-        <h2>Customer Review</h2>
+        <h2>Review Pelanggan</h2>
         <h3>Temukan testimoni positif dari pelanggan yang mencerminkan profesionalisme dan dedikasi tim Maxtune.</h3>
         <div class="row">
             <div class="col">
@@ -209,4 +209,127 @@
         </div>
     </div>
     <!-- Review End -->
+
+    <!-- Blog Start -->
+    <div class="blog" id="blog">
+        <h2>Blog</h2>
+        <h3>Berita Terkini</h3>
+
+        <div class="container swiper">
+            <div class="wrapper">
+                <div class="card-list swiper-wrapper">
+                    <!-- Single Card -->
+                    <div class="card swiper-slide">
+                        <div class="card-image">
+                            <img src="<?php echo base_url() ?>assets/img/blog/1.jpg" alt="Pemeliharaan" />
+                            <div class="card-tag">Pemeliharaan</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Perawatan Rutin Agar Motor Awet</h3>
+                            <p class="card-text">
+                                Menjaga performa motor tidak cukup hanya dengan dipakai. Artikel
+                                ini membahas tips perawatan sederhana yang bisa dilakukan di
+                                rumah agar motor tetap prima dan awet digunakan dalam jangka
+                                panjang.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-profile">
+                                    <img src="<?php echo base_url() ?>assets/img/montir/rahman.jpg" alt="Rahman" />
+                                    <div class="card-profile-info">
+                                        <span class="card-profile-name">Rahman</span>
+                                        <span class="card-profile-role">Penulis</span>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url().'maxtune/blog' ?>" class="card-button">Lihat</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Card -->
+                    <div class="card swiper-slide">
+                        <div class="card-image">
+                            <img src="<?php echo base_url() ?>assets/img/blog/2.jpg" alt="Tips" />
+                            <div class="card-tag">Tips</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Kapan Harus Ganti Oli Motor?</h3>
+                            <p class="card-text">
+                                Tidak semua pemilik motor tahu kapan waktu terbaik untuk
+                                mengganti oli. Artikel ini membahas tanda-tanda oli sudah harus
+                                diganti dan dampaknya jika terlalu lama dibiarkan.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-profile">
+                                    <img src="<?php echo base_url() ?>assets/img/montir/rangga.jpg" alt="Rangga" />
+                                    <div class="card-profile-info">
+                                        <span class="card-profile-name">Rangga</span>
+                                        <span class="card-profile-role">Penulis</span>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url().'maxtune/blog_2' ?>" class="card-button">Lihat</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Card -->
+                    <div class="card swiper-slide">
+                        <div class="card-image">
+                            <img src="<?php echo base_url() ?>assets/img/blog/3.jpg" alt="Panduan Layanan" />
+                            <div class="card-tag">Panduan Layanan</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Mengenal Jenis Servis Berkala Motor</h3>
+                            <p class="card-text">
+                                Apa saja jenis servis berkala yang penting untuk kendaraan roda
+                                dua? Artikel ini mengulas servis ringan, sedang, dan berat serta
+                                manfaatnya untuk performa dan keamanan berkendara.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-profile">
+                                    <img src="<?php echo base_url() ?>assets/img/montir/revanda.jpg" alt="Revanda" />
+                                    <div class="card-profile-info">
+                                        <span class="card-profile-name">Revanda</span>
+                                        <span class="card-profile-role">Penasihat</span>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url().'maxtune/blog_3' ?>" class="card-button">Lihat</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Card -->
+                    <div class="card swiper-slide">
+                        <div class="card-image">
+                            <img src="<?php echo base_url() ?>assets/img/blog/4.jpg" alt="Pengetahuan" />
+                            <div class="card-tag">Pengetahuan</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Pilih Montir atau Servis Sendiri?</h3>
+                            <p class="card-text">
+                                Beberapa orang masih bingung apakah harus mempercayakan motornya
+                                ke bengkel atau mencoba servis sendiri. Artikel ini
+                                membandingkan kelebihan dan risiko dari masing-masing pilihan.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-profile">
+                                    <img src="<?php echo base_url() ?>assets/img/montir/calvin.jpg" alt="Calvin" />
+                                    <div class="card-profile-info">
+                                        <span class="card-profile-name">Calvin</span>
+                                        <span class="card-profile-role">Editor</span>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url().'maxtune/blog_4' ?>" class="card-button">Lihat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Navigation Buttons -->
+                <div class="swiper-slide-button swiper-button-prev"></div>
+                <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
 </section>

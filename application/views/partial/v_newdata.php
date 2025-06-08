@@ -1,6 +1,6 @@
 <form method="post" class="form-new">
     <button type="button" class="edit-button" data-toggle="modal" data-target="#modalAdd">
-        <i class="fas fa-plus"></i> New Data
+        <i class="fas fa-plus"></i> Buat Data
     </button>
 </form>
 
@@ -9,7 +9,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create New Data</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Buat Data Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

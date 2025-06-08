@@ -64,11 +64,15 @@ kalau error dia kembali atau reload dan menghasilkan pesan error.
 1. edit form bagian select didashboard
 2. fitur search & pagination
 3. darkmode
-4. mockup dan wireframe
 5. nomer urut pemesanan pada dashboard
 6. midtrans untuk payment gateway
 7. didashboard ada menu pembayaran
-8. Dari Segi Erd semua entity harus ada (7 tabel) dan saling berhubungan kaya ada relasi one to many, many to one
-9. Class Diagram harus ada method kaya di dalam table ada delete, edit, 
-10. di website maxtune harus ada form validation (kalo udah di booking, ya ga bisa dibooking kecuali udah kosong jadwalnya)
 11. setelah pelanggan selesai melakukan service maka harus ada konfirmasi selesai
+12. validasi kurang berjalan di form servise landing page
+
+finish error :
+1. konsistensi bahasa
+2. Dari Segi Erd semua entity harus ada (7 tabel) dan saling berhubungan kaya ada relasi one to many, many to one
+3. mockup dan wireframe
+4. Class Diagram harus ada method kaya di dalam table ada delete, edit, 
+5. di website maxtune harus ada form validation (kalo udah di booking, ya ga bisa dibooking kecuali udah kosong jadwalnya)

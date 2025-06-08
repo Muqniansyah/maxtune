@@ -11,7 +11,7 @@ class Maxtune extends CI_Controller {
     }
 
     public function index() {
-        $data['judul'] = "~ Home ~";
+        $data['judul'] = "~ Beranda ~";
 
         // render halaman view
         $this->load->view("v_header", $data);
@@ -23,7 +23,7 @@ class Maxtune extends CI_Controller {
     }
 
     public function about() {
-        $data['judul'] = "~ About ~";
+        $data['judul'] = "~ Tentang ~";
 
         // render halaman view
         $this->load->view('v_header', $data);
@@ -32,7 +32,7 @@ class Maxtune extends CI_Controller {
     }
 
     public function services() {
-        $data['judul'] = "~ Services ~";
+        $data['judul'] = "~ Servis ~";
 
         // render halaman view
         $this->load->view('v_header', $data);
@@ -50,7 +50,7 @@ class Maxtune extends CI_Controller {
     }
 
     public function contact() {
-        $data['judul'] = "~ Contact ~";
+        $data['judul'] = "~ Kontak ~";
 
         // render halaman view
         $this->load->view('v_header', $data);
@@ -58,6 +58,44 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
+    // render halaman blog
+    public function blog() {
+        $data['judul'] = "~ Blog ~";
+
+        // render halaman view
+        $this->load->view('v_header', $data);
+        $this->load->view('pages/blog/v_blog', $data);
+        $this->load->view('v_footer', $data);
+    }
+
+    public function blog_2() {
+        $data['judul'] = "~ Blog ~";
+
+        // render halaman view
+        $this->load->view('v_header', $data);
+        $this->load->view('pages/blog/v_blog_2', $data);
+        $this->load->view('v_footer', $data);
+    }
+
+    public function blog_3() {
+        $data['judul'] = "~ Blog ~";
+
+        // render halaman view
+        $this->load->view('v_header', $data);
+        $this->load->view('pages/blog/v_blog_3', $data);
+        $this->load->view('v_footer', $data);
+    }
+
+    public function blog_4() {
+        $data['judul'] = "~ Blog ~";
+
+        // render halaman view
+        $this->load->view('v_header', $data);
+        $this->load->view('pages/blog/v_blog_4', $data);
+        $this->load->view('v_footer', $data);
+    }
+
+    // fungsi checkout
     public function check() {
         $this->load->model('M_account'); // Memuat model M_account
     
@@ -81,21 +119,21 @@ class Maxtune extends CI_Controller {
                 case 'Motor Sport - Muqni':
                     $data['form_data']['montir'] = 'Muqniansyah Arifin';
                     break;
-                case 'Motor Cruiser - Rahman':
-                    $data['form_data']['montir'] = 'Rahman Nurhadi';
+                case 'Motor Cruiser - Irawan':
+                    $data['form_data']['montir'] = 'Irawan Budi Santoso';
                     break;
-                case 'Motor Matic - Rangga':
-                    $data['form_data']['montir'] = 'Rangga Ryantico';
+                case 'Motor Matic - Haikal':
+                    $data['form_data']['montir'] = 'Haikal Sita Fajri Ramadhan';
                     break;
-                case 'Motor Cub - Calvin':
-                    $data['form_data']['montir'] = 'Calvin Altra Alfrando';
+                case 'Motor Cub - Saiful':
+                    $data['form_data']['montir'] = 'Saifulloh Yusuf';
                     break;
-                case 'Motor EV - Revanda':
-                    $data['form_data']['montir'] = 'Revanda Ghofar Pratama';
+                case 'Motor EV - Fahri':
+                    $data['form_data']['montir'] = 'Fachri Fathurrohman';
                     break;
-                case 'Motor Bigbike - Rois':
-                    $data['form_data']['montir'] = 'Mohamad Rois Alfariji';
-                    break;
+                // case 'Motor Bigbike - Rois':
+                //     $data['form_data']['montir'] = 'Mohamad Rois Alfariji';
+                //     break;
                 default:
                     $data['form_data']['montir'] = 'Tidak ada montir yang dipilih';
                     break;
@@ -106,6 +144,12 @@ class Maxtune extends CI_Controller {
 
         // Render halaman view
         $this->load->view('pages/v_check', $data);
+    }
+
+    // FUNGSI bayar
+    public function bayar() {
+        // render halaman view
+        $this->load->view('pages/v_bayar');
     }
 
     // fungsi cetak
@@ -147,7 +191,7 @@ class Maxtune extends CI_Controller {
         // Validasi Data
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('nohp', 'No. HP', 'required');
+        $this->form_validation->set_rules('nohp', 'No. HP', 'required|exact_length[12]|numeric');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
         $this->form_validation->set_rules('kota', 'Kota', 'required');
@@ -155,12 +199,10 @@ class Maxtune extends CI_Controller {
         $this->form_validation->set_rules('jenis_servis', 'Jenis Servis', 'required');
         $this->form_validation->set_rules('jadwal', 'Jadwal', 'required');
         $this->form_validation->set_rules('jam', 'Jam', 'required');
-    
+
         if ($this->form_validation->run() == false) {
             // Jika validasi gagal, tampilkan kembali form
             $data['judul'] = "~ Home ~";
-
-            // render halaman view
             $this->load->view("v_header", $data);
             $this->load->view('pages/v_about', $data);
             $this->load->view('pages/v_services', $data);
@@ -168,30 +210,53 @@ class Maxtune extends CI_Controller {
             $this->load->view('pages/v_contact', $data);
             $this->load->view("v_footer", $data);
         } else {
-            // Ambil data dari form
+            // Ambil input
+            $jadwal = $this->input->post('jadwal');
+            $jam = $this->input->post('jam');
+            $email = $this->input->post('email');
+            $nohp = $this->input->post('nohp');
+
+            // Cek apakah jadwal dan jam sudah dipesan
+            $cek_jadwal = $this->db->get_where('form', [
+                'jadwal' => $jadwal,
+                'jam' => $jam
+            ]);
+
+            if ($cek_jadwal->num_rows() > 0) {
+                $this->session->set_flashdata('pesan_error', 'Jadwal dan jam tersebut sudah dipesan. Silakan pilih waktu lain.');
+                redirect('maxtune');
+            }
+
+            // Cek jika email atau nohp sudah digunakan
+            $cek_duplikat = $this->db->get_where('form', [
+                'email' => $email
+            ])->num_rows() + $this->db->get_where('form', [
+                'nohp' => $nohp
+            ])->num_rows();
+
+            if ($cek_duplikat > 0) {
+                $this->session->set_flashdata('pesan_error', 'Email atau nomor HP sudah terdaftar. Silakan gunakan data lain.');
+                redirect('maxtune');
+            }
+
+            // Simpan data ke session dan database
             $data = [
                 'nama' => $this->input->post('nama'),
-                'email' => $this->input->post('email'),
-                'nohp' => $this->input->post('nohp'),
+                'email' => $email,
+                'nohp' => $nohp,
                 'alamat' => $this->input->post('alamat'),
                 'provinsi' => $this->input->post('provinsi'),
                 'kota' => $this->input->post('kota'),
                 'motor' => $this->input->post('motor'),
                 'jenis_servis' => $this->input->post('jenis_servis'),
-                'jadwal' => $this->input->post('jadwal'),
-                'jam' => $this->input->post('jam')
+                'jadwal' => $jadwal,
+                'jam' => $jam
             ];
 
-            // Simpan data ke session dengan nama 'data'
             $this->session->set_userdata('data', $data);
-    
-            // Simpan data ke dalam tabel sementara
             $this->db->insert('temporary_form', $data);
-
-            // Salin data dari tabel sementara ke tabel 
             $this->db->query('REPLACE INTO form (id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam) SELECT id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam FROM temporary_form');
 
-            // Redirect kembali ke halaman sebelumnya
             redirect('maxtune/check');
         }
     }

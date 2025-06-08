@@ -1,6 +1,13 @@
 <section id="services" class="services">
-    <h2>Layanan Booking Service</h2>
+    <h2>Layanan Pemesanan Servis</h2>
     <h3>Pesan layanan anda dengan mudah melalui platform pemesanan online Maxtune untuk kenyamanan anda.</h3>
+    <!-- pesan error start -->
+    <?php if ($this->session->flashdata('pesan_error')): ?>
+        <div class="alert alert-danger">
+            <?= $this->session->flashdata('pesan_error'); ?>
+        </div>
+    <?php endif; ?>
+    <!-- pesan error end -->
     <form action="<?= base_url('maxtune/cetakform'); ?>" method="post" class="form-container">
         <div class="form-group">
             <label for="nama">Nama:</label>
@@ -77,11 +84,11 @@
             <select name="motor" id="motor">
                 <option value="">Pilih Motor</option>
                 <option value="Motor Sport - Muqni">Motor Sport</option>
-                <option value="Motor Cruiser - Rahman">Motor Cruiser</option>
-                <option value="Motor Matic - Rangga">Motor Matic</option>
-                <option value="Motor Cub - Calvin">Motor Cub</option>
-                <option value="Motor EV - Revanda">Motor EV</option>
-                <option value="Motor Bigbike - Rois">Motor Bigbike</option>
+                <option value="Motor Cruiser - Irawan">Motor Cruiser</option>
+                <option value="Motor Matic - Haikal">Motor Matic</option>
+                <option value="Motor Cub - Saiful">Motor Cub</option>
+                <option value="Motor EV - Fahri">Motor EV</option>
+                <!-- <option value="Motor Bigbike - Rois">Motor Bigbike</option> -->
             </select>
             <div class="error-text">
                     <?php echo form_error('motor'); ?>
@@ -125,7 +132,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" value="Submit">
+            <input type="submit" value="Kirim">
         </div>
     </form>
 </section>
