@@ -2,6 +2,13 @@
 <section id="contact" class="contact">
     <h2>Form Kontak</h2>
     <h3>Jika ada pertanyaan, saran atau kritik anda bisa menghubungi kami dengan cara mengisi form dibawah ini.</h3>
+    <!-- pesan error start -->
+    <?php if ($this->session->flashdata('pesan_error_kontak')): ?>
+        <div class="alert alert-danger">
+            <?= $this->session->flashdata('pesan_error_kontak'); ?>
+        </div>
+    <?php endif; ?>
+    <!-- pesan error end -->
     <div class="container">
         <div class="contact-wrapper">
             <div class="form-container">

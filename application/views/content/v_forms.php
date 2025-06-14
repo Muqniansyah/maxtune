@@ -24,7 +24,7 @@
             <th>Jenis Servis</th>
             <th>Jadwal</th>
             <th>Jam</th>
-            <th>Action</th>
+            <th>Aksi</th>
         </tr>
         <?php if(isset($list_form) && is_array($list_form) && count($list_form) > 0): ?>
             <?php foreach ($list_form as $user) : ?>
@@ -171,11 +171,11 @@
                             <select class="form-control" name="motor" id="motor">
                                 <option value="">Pilih Motor</option>
                                 <option value="Motor Sport - Muqni">Motor Sport</option>
-                                <option value="Motor Cruiser - Rahman">Motor Cruiser</option>
-                                <option value="Motor Matic - Rangga">Motor Matic</option>
-                                <option value="Motor Cub - Calvin">Motor Cub</option>
-                                <option value="Motor EV - Revanda">Motor EV</option>
-                                <option value="Motor Bigbike - Rois">Motor Bigbike</option>
+                                <option value="Motor Cruiser - Irawan">Motor Cruiser</option>
+                                <option value="Motor Matic - Haikal">Motor Matic</option>
+                                <option value="Motor Cub - Saiful">Motor Cub</option>
+                                <option value="Motor EV - Fahri">Motor EV</option>
+                                <!-- <option value="Motor Bigbike - Rois">Motor Bigbike</option> -->
                             </select>
                         </div>
                         <div class="form-group">

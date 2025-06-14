@@ -13,7 +13,7 @@
                         if (!empty('content/v_subscribes')): 
                             $this->load->database();
                             // Ambil data form dari tabel sementara
-                            $query = $this->db->get('temporary_subscribe');
+                            $query = $this->db->get('subscribe');
                             $data['subs_list'] = $query->result_array();
                             $this->load->view('content/v_subscribes', $data);
                         else: 

@@ -13,7 +13,7 @@
                         if (!empty('content/v_contacts')): 
                             $this->load->database();
                             // Ambil data form dari tabel sementara
-                            $query = $this->db->get('temporary_formkontak');
+                            $query = $this->db->get('formkontak');
                             $data['dtkontak'] = $query->result_array();
                             $this->load->view('content/v_contacts', $data);
                         else: 

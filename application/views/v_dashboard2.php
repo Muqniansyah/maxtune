@@ -12,8 +12,8 @@
                     <?php
                         if (!empty('content/v_forms')): 
                             $this->load->database();
-                            // Ambil data form dari tabel sementara
-                            $query = $this->db->get('temporary_form');
+                            // Ambil data form dari tabel booking
+                            $query = $this->db->get('booking');
                             $data['list_form'] = $query->result_array();
                             $this->load->view('content/v_forms', $data);
                         else: 

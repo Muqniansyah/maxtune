@@ -98,21 +98,18 @@ class Maxtune extends CI_Controller {
     // fungsi checkout
     public function check() {
         $this->load->model('M_account'); // Memuat model M_account
-    
-        // Ambil data terbaru dari tabel temporary_form berdasarkan id
-        $this->db->order_by('id', 'DESC'); // Mengurutkan berdasarkan id secara descending
-        $query = $this->db->get('temporary_form', 1); // Ambil satu baris data terbaru
-        
+
+        // Ambil data terbaru dari tabel booking berdasarkan id
+        $this->db->order_by('id', 'DESC'); // Urutkan berdasarkan id secara descending
+        $query = $this->db->get('booking', 1); // Ambil satu baris data terbaru
+
         if ($query->num_rows() > 0) {
-            $data['form_data'] = $query->row(); // Ambil satu baris data terbaru
+            $data['form_data'] = (array) $query->row(); // Ubah ke array agar bisa diakses seperti session
         } else {
-            $data['form_data'] = null; // Tidak ada data
+            $data['form_data'] = null;
         }
-    
-        // Ambil data form dari session dengan nama 'data'
-        $data['form_data'] = $this->session->userdata('data');
-    
-        // Jika data ada di session, ambil montir berdasarkan motor
+
+        // Jika data ditemukan, tetapkan montir berdasarkan motor
         if ($data['form_data']) {
             $motor = $data['form_data']['motor'];
             switch($motor) {
@@ -131,15 +128,12 @@ class Maxtune extends CI_Controller {
                 case 'Motor EV - Fahri':
                     $data['form_data']['montir'] = 'Fachri Fathurrohman';
                     break;
-                // case 'Motor Bigbike - Rois':
-                //     $data['form_data']['montir'] = 'Mohamad Rois Alfariji';
-                //     break;
                 default:
                     $data['form_data']['montir'] = 'Tidak ada montir yang dipilih';
                     break;
             }
         } else {
-            $data['form_data'] = ['montir' => 'Form tidak dikirim dengan benar.'];
+            $data['form_data'] = ['montir' => 'Form tidak ditemukan.'];
         }
 
         // Render halaman view
@@ -154,14 +148,12 @@ class Maxtune extends CI_Controller {
 
     // fungsi cetak
     public function cetaksubscribe() {
-        // Validasi Data
+        // Validasi Form
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         
         if ($this->form_validation->run() == false) {
-            // Jika validasi gagal, tampilkan kembali form
+            // Jika validasi gagal, tampilkan kembali halaman
             $data['judul'] = "~ Home ~";
-
-            // render halaman view
             $this->load->view("v_header", $data);
             $this->load->view('pages/v_about', $data);
             $this->load->view('pages/v_services', $data);
@@ -169,21 +161,64 @@ class Maxtune extends CI_Controller {
             $this->load->view('pages/v_contact', $data);
             $this->load->view("v_footer", $data);
         } else {
-            // Ambil data dari form
-            $data = [
-                'email' => $this->input->post('email'),
-            ];
-        
-            // Simpan data ke dalam tabel sementara
-            $this->db->insert('temporary_subscribe', $data);
+            $email = $this->input->post('email');
 
-            // Salin data dari tabel sementara ke tabel 
-            $this->db->query('REPLACE INTO subscribe (id, email) SELECT id, email FROM temporary_subscribe');
-    
+            // Cek apakah email sudah terdaftar
+            $cek = $this->db->get_where('subscribe', ['email' => $email])->num_rows();
+
+            if ($cek > 0) {
+                // Jika email sudah ada, tampilkan pesan error
+                $this->session->set_flashdata('pesan_error_subscribe', 'Email sudah terdaftar!');
+            } else {
+                // Simpan data ke tabel subscribe
+                $data = ['email' => $email];
+                $this->db->insert('subscribe', $data);
+                $this->session->set_flashdata('pesan', 'Berhasil berlangganan!');
+            }
+
             // Redirect kembali ke halaman sebelumnya
             redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
 
-            $this->session->set_flashdata('pesan', 'Data berhasil ditambah'); // set flash data
+    public function cetakkontak() {
+        // Validasi Data
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('pesan', 'Pesan', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = "~ Home ~";
+
+            $this->load->view("v_header", $data);
+            $this->load->view('pages/v_about', $data);
+            $this->load->view('pages/v_services', $data);
+            $this->load->view('pages/v_berita', $data);
+            $this->load->view('pages/v_contact', $data);
+            $this->load->view("v_footer", $data);
+        } else {
+            $email = $this->input->post('email');
+
+            // Cek apakah email sudah pernah mengirim kontak
+            $cek_email = $this->db->get_where('formkontak', ['email' => $email])->num_rows();
+
+            if ($cek_email > 0) {
+                // Email sudah pernah dipakai
+                $this->session->set_flashdata('pesan_error_kontak', 'Email sudah pernah digunakan untuk mengirim pesan.');
+            } else {
+                // Email belum ada, simpan data
+                $data = [
+                    'nama' => $this->input->post('nama'),
+                    'email' => $email,
+                    'pesan' => $this->input->post('pesan')
+                ];
+
+                $this->db->insert('formkontak', $data);
+                $this->session->set_flashdata('pesan', 'Pesan berhasil dikirim!');
+            }
+
+            // Redirect kembali ke halaman sebelumnya
+            redirect($_SERVER['HTTP_REFERER']);
         }
     }
 
@@ -217,7 +252,7 @@ class Maxtune extends CI_Controller {
             $nohp = $this->input->post('nohp');
 
             // Cek apakah jadwal dan jam sudah dipesan
-            $cek_jadwal = $this->db->get_where('form', [
+            $cek_jadwal = $this->db->get_where('booking', [
                 'jadwal' => $jadwal,
                 'jam' => $jam
             ]);
@@ -228,9 +263,9 @@ class Maxtune extends CI_Controller {
             }
 
             // Cek jika email atau nohp sudah digunakan
-            $cek_duplikat = $this->db->get_where('form', [
+            $cek_duplikat = $this->db->get_where('booking', [
                 'email' => $email
-            ])->num_rows() + $this->db->get_where('form', [
+            ])->num_rows() + $this->db->get_where('booking', [
                 'nohp' => $nohp
             ])->num_rows();
 
@@ -254,85 +289,40 @@ class Maxtune extends CI_Controller {
             ];
 
             $this->session->set_userdata('data', $data);
-            $this->db->insert('temporary_form', $data);
-            $this->db->query('REPLACE INTO form (id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam) SELECT id, nama, email, nohp, alamat, provinsi, kota, motor, jenis_servis, jadwal, jam FROM temporary_form');
+            $this->db->insert('booking', $data);
 
             redirect('maxtune/check');
         }
-    }
-
-    public function cetakkontak() {
-        // Validasi Data
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('pesan', 'Pesan', 'required');
-        
-        if ($this->form_validation->run() == false) {
-            // Jika validasi gagal, tampilkan kembali form
-            $data['judul'] = "~ Home ~";
-
-            // render halaman view
-            $this->load->view("v_header", $data);
-            $this->load->view('pages/v_about', $data);
-            $this->load->view('pages/v_services', $data);
-            $this->load->view('pages/v_berita', $data);
-            $this->load->view('pages/v_contact', $data);
-            $this->load->view("v_footer", $data);
-        } else {
-            // Ambil data dari form
-            $data = [
-                'nama' => $this->input->post('nama'),
-                'email' => $this->input->post('email'),
-                'pesan' => $this->input->post('pesan')
-            ];
-            // Simpan data ke dalam tabel sementara
-            $this->db->insert('temporary_formkontak', $data);
-
-            // Salin data dari tabel sementara ke tabel 
-            $this->db->query('REPLACE INTO formkontak (id, nama, email, pesan) SELECT id, nama, email, pesan FROM temporary_formkontak');
-    
-            // Redirect kembali ke halaman sebelumnya
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-    
-    
     }
 
     // fungsi hapus
     public function hapusform($id = null) {
         // Hapus data dari session dengan nama 'data'
         $this->session->unset_userdata('data');
-    
-        // Hapus data terbaru dari tabel 'temporary_form' jika $id tidak disediakan
+
         if ($id === null) {
-            // Ambil id data terbaru dari tabel temporary_form
-            $this->db->order_by('id', 'DESC'); // Urutkan berdasarkan id secara descending
-            $query = $this->db->get('temporary_form', 1); // Ambil satu baris data terbaru
-            
+            // Ambil id data terbaru dari tabel booking jika id tidak diberikan
+            $this->db->order_by('id', 'DESC');
+            $query = $this->db->get('booking', 1); // Ambil satu baris data terbaru
+
             if ($query->num_rows() > 0) {
                 $row = $query->row();
                 $id = $row->id;
-    
-                // Hapus data terbaru dari tabel temporary_form berdasarkan id
-                $this->db->delete('temporary_form', array('id' => $id));
-    
-                // Hapus juga data dari tabel form berdasarkan id yang sama
-                $this->db->delete('form', array('id' => $id));
-    
-                // Atur ulang id dan auto increment jika diperlukan
-                $this->M_account->reset_auto_increment('temporary_form');
-                $this->M_account->reset_auto_increment('form');
+
+                // Hapus data dari tabel booking berdasarkan id terbaru
+                $this->db->delete('booking', ['id' => $id]);
+
+                // Reset auto_increment jika dibutuhkan
+                $this->M_account->reset_auto_increment('booking');
             }
         } else {
-            // Hapus data dari tabel temporary_form berdasarkan id yang diberikan
-            $this->db->delete('temporary_form', array('id' => $id));
-    
-            // Hapus juga data dari tabel form berdasarkan id yang sama
-            $this->db->delete('form', array('id' => $id));
+            // Jika ID diberikan, langsung hapus data berdasarkan ID
+            $this->db->delete('booking', ['id' => $id]);
         }
-    
+
         // Redirect kembali ke halaman utama
         redirect('maxtune');
     }
+
 }
 ?>

@@ -1,3 +1,11 @@
+    <!-- pesan error start -->
+    <?php if ($this->session->flashdata('pesan_error_subscribe')): ?>
+        <div class="alert alert-danger">
+            <?= $this->session->flashdata('pesan_error_subscribe'); ?>
+        </div>
+    <?php endif; ?>
+    <!-- pesan error end -->
+    
     <!-- Footer Start -->
     <div class="container-fluid bg-dark bg-img text-secondary" style="margin-top: 135px">
         <div class="container">

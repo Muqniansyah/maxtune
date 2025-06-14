@@ -1,5 +1,5 @@
 <center>
-    <h1>Daftar Contact</h1>
+    <h1>Daftar Kontak</h1>
 
     <!-- Start flash data -->
     <?php if($this->session->flashdata('message')): ?>
@@ -15,7 +15,7 @@
             <th>Nama</th>
             <th>Email</th>
             <th>Pesan</th>
-            <th>Action</th>
+            <th>Aksi</th>
         </tr>
         <?php if(isset($dtkontak) && is_array($dtkontak) && count($dtkontak) > 0): ?>
             <?php foreach ($dtkontak as $contact) : ?>

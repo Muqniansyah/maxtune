@@ -1,4 +1,5 @@
 <section id="about" class="about">
+    <!-- Main Start -->
     <div class="main">
         <div class="text">
             <h2>Tentang <span>Kami</span></h2>
@@ -13,4 +14,9 @@
             <img src="<?php echo base_url() ?>assets/img/about/about.jpg" alt="maxtune-about">
         </div>
     </div>
+    <!-- Main End -->
+
+    <!-- Clients Start -->
+    
+    <!-- Clients End -->
 </section>

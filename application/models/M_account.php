@@ -25,7 +25,7 @@ class M_account extends CI_Model{
     }
 
     function formsSave($data) {
-        $this->db->insert('form',$data);
+        $this->db->insert('booking',$data);
         return $this->db->insert_id();
     }
 
@@ -36,7 +36,7 @@ class M_account extends CI_Model{
 
     // untuk menghitung jumlah baris dalam sebuah tabel atau menghitung total baris pada tabel 
     public function getFormCount() {
-        return $this->db->count_all('form');
+        return $this->db->count_all('booking');
     }
 
     public function getFormKontakCount() {
