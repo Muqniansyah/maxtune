@@ -71,4 +71,12 @@ class M_account extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+
+    // Ambil semua data pembayaran beserta nama servis dan data booking
+    public function getAllPembayaran() {
+        $this->db->select('pembayaran.*, booking.nama AS nama_pelanggan, booking.jenis_servis');
+        $this->db->from('pembayaran');
+        $this->db->join('booking', 'pembayaran.booking_id = booking.id', 'left'); // FIX: gunakan 'id'
+        return $this->db->get()->result_array();
+    }
 }

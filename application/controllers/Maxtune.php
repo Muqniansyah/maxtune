@@ -140,10 +140,52 @@ class Maxtune extends CI_Controller {
         $this->load->view('pages/v_check', $data);
     }
 
-    // FUNGSI bayar
+    // Fungsi bayar
     public function bayar() {
         // render halaman view
         $this->load->view('pages/v_bayar');
+    }
+
+    // fungsi upload bukti
+    public function upload_bukti() {
+        if (!empty($_FILES['bukti_pembayaran']['name'])) {
+            $config['upload_path']   = './assets/uploads/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['max_size']      = 2048;
+            $config['file_name']     = 'bukti_' . time();
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('bukti_pembayaran')) {
+                $data       = $this->upload->data();
+                $nama_file  = $data['file_name'];
+
+                // Ambil data booking terbaru
+                $this->db->order_by('id', 'DESC'); // FIX: gunakan 'id' bukan 'id_booking'
+                $query = $this->db->get('booking', 1);
+
+                if ($query->num_rows() > 0) {
+                    $booking = $query->row();
+
+                    $this->db->insert('pembayaran', [
+                        'booking_id'    => $booking->id,
+                        'jenis_servis'  => $booking->jenis_servis, // langsung ambil teks
+                        'status'        => 'pending',
+                        'upload_file'   => $nama_file
+                    ]);
+
+                    $this->session->set_flashdata('message', 'Bukti pembayaran berhasil diupload.');
+                } else {
+                    $this->session->set_flashdata('message', 'Data booking tidak ditemukan.');
+                }
+            } else {
+                $this->session->set_flashdata('message', 'Gagal upload: ' . $this->upload->display_errors());
+            }
+        } else {
+            $this->session->set_flashdata('message', 'Tidak ada file yang dipilih.');
+        }
+
+        redirect('maxtune'); // bisa diarahkan ke halaman status
     }
 
     // fungsi cetak
@@ -173,7 +215,7 @@ class Maxtune extends CI_Controller {
                 // Simpan data ke tabel subscribe
                 $data = ['email' => $email];
                 $this->db->insert('subscribe', $data);
-                $this->session->set_flashdata('pesan', 'Berhasil berlangganan!');
+                $this->session->set_flashdata('pesan_subscribe', 'Berhasil berlangganan!');
             }
 
             // Redirect kembali ke halaman sebelumnya
@@ -214,7 +256,7 @@ class Maxtune extends CI_Controller {
                 ];
 
                 $this->db->insert('formkontak', $data);
-                $this->session->set_flashdata('pesan', 'Pesan berhasil dikirim!');
+                $this->session->set_flashdata('pesan_kontak', 'Pesan berhasil dikirim!');
             }
 
             // Redirect kembali ke halaman sebelumnya

@@ -59,9 +59,9 @@
                                 </div>
                             </form>
                             <!-- Start flash data -->
-                            <?php if($this->session->flashdata('pesan')): ?>
+                            <?php if($this->session->flashdata('pesan_subscribe')): ?>
                                 <div class="alert alert-success">
-                                    <?= $this->session->flashdata('pesan'); ?>
+                                    <?= $this->session->flashdata('pesan_subscribe'); ?>
                                 </div>
                             <?php endif; ?>
                             <!-- End flash data -->

@@ -1,0 +1,105 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               8.0.30 - MySQL Community Server - GPL
+-- Server OS:                    Win64
+-- HeidiSQL Version:             12.1.0.6537
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+-- Dumping structure for table maxtune.booking
+CREATE TABLE IF NOT EXISTS `booking` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nohp` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `provinsi` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kota` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `motor` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `jenis_servis` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `jadwal` date NOT NULL,
+  `jam` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table maxtune.booking: ~0 rows (approximately)
+INSERT INTO `booking` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
+	(1, 'haikal', 'haikal@gmail.com', '089607886367', 'taman bahagia', 'Dki Jakarta', 'Jakarta Barat', 'Motor Cruiser - Irawan', 'Ganti oli gardan - 15k', '2025-06-14', '12:43:00');
+
+-- Dumping structure for table maxtune.formkontak
+CREATE TABLE IF NOT EXISTS `formkontak` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `pesan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table maxtune.formkontak: ~1 rows (approximately)
+INSERT INTO `formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
+	(1, 'carlos', 'carlos@gmail.com', 'Yth. Tim Layanan Service Motor, saya Carlos, pelanggan dengan nomor telepon 08123456789, ingin melaporkan bahwa setelah servis pada 20 Juni 2024, motor saya mengalami masalah kelistrikan yang menyebabkan sering mati mendadak; mohon bantuannya untuk memeriksa dan memperbaikinya sesegera mungkin.');
+
+-- Dumping structure for table maxtune.pembayaran
+CREATE TABLE IF NOT EXISTS `pembayaran` (
+  `id_pembayaran` int NOT NULL AUTO_INCREMENT,
+  `booking_id` int NOT NULL,
+  `jenis_servis` varchar(128) NOT NULL,
+  `status` enum('pending','lunas','gagal') DEFAULT 'pending',
+  `upload_file` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_pembayaran`),
+  KEY `fk_booking` (`booking_id`),
+  CONSTRAINT `fk_booking` FOREIGN KEY (`booking_id`) REFERENCES `booking` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table maxtune.pembayaran: ~0 rows (approximately)
+INSERT INTO `pembayaran` (`id_pembayaran`, `booking_id`, `jenis_servis`, `status`, `upload_file`, `created_at`, `updated_at`) VALUES
+	(23, 1, 'Ganti oli gardan - 15k', 'pending', 'bukti_1749967401.png', '2025-06-15 06:03:22', '2025-06-15 06:03:22');
+
+-- Dumping structure for table maxtune.subscribe
+CREATE TABLE IF NOT EXISTS `subscribe` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table maxtune.subscribe: ~6 rows (approximately)
+INSERT INTO `subscribe` (`id`, `email`) VALUES
+	(1, 'rahman@gmail.com'),
+	(2, 'muqni@gmail.com'),
+	(3, 'rois@rois.co.id'),
+	(4, 'revand@gmail.co'),
+	(5, 'rangga@info.co'),
+	(6, 'kelvin@kelvin.net');
+
+-- Dumping structure for table maxtune.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id_user` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table maxtune.users: ~3 rows (approximately)
+INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`) VALUES
+	(1, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+	(7, 'muni', 'muni@gmail.com', 'muniaja', '827ccb0eea8a706c4c34a16891f84e7b'),
+	(8, 'haikal', 'haikal@gmail.com', 'haikal', '25d55ad283aa400af464c76d713c07ad');
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

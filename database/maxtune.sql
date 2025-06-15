@@ -96,78 +96,6 @@ INSERT INTO `subscribe` (`id`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `temporary_form`
---
-
-CREATE TABLE `temporary_form` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `nohp` varchar(12) NOT NULL,
-  `alamat` varchar(128) NOT NULL,
-  `provinsi` varchar(128) NOT NULL,
-  `kota` varchar(128) NOT NULL,
-  `motor` varchar(128) NOT NULL,
-  `jenis_servis` varchar(128) NOT NULL,
-  `jadwal` date NOT NULL,
-  `jam` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `temporary_form`
---
-
-INSERT INTO `temporary_form` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
-(1, 'aisyah', 'aisyah@gmail.com', '089607886365', 'jalan ponorogo blok D5 No3', 'Dki Jakarta', 'Jakarta Pusat', 'Motor Sport - Muqni', 'Perawatan aki - 150k', '2024-06-20', '15:24:00'),
-(2, 'alex', 'alex@gmail.com', '08976589443', 'jalan kaki blok R4 No3', 'Dki Jakarta', 'Jakarta Selatan', 'Motor EV - Revanda', 'Ganti busi - 50k', '2024-06-04', '15:27:00'),
-(3, 'bruno', 'bruno@gmail.com', '08976589443', 'jalan kaki blok R4 No3', 'Dki Jakarta', 'Jakarta Selatan', 'Motor Matic - Rangga', 'Bongkar pasang mesin - 500k', '2024-06-04', '15:27:00');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `temporary_formkontak`
---
-
-CREATE TABLE `temporary_formkontak` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `pesan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `temporary_formkontak`
---
-
-INSERT INTO `temporary_formkontak` (`id`, `nama`, `email`, `pesan`) VALUES
-(1, 'carlos', 'carlos@gmail.com', 'Yth. Tim Layanan Service Motor, saya Carlos, pelanggan dengan nomor telepon 08123456789, ingin melaporkan bahwa setelah servis pada 20 Juni 2024, motor saya mengalami masalah kelistrikan yang menyebabkan sering mati mendadak; mohon bantuannya untuk memeriksa dan memperbaikinya sesegera mungkin.');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `temporary_subscribe`
---
-
-CREATE TABLE `temporary_subscribe` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `temporary_subscribe`
---
-
-INSERT INTO `temporary_subscribe` (`id`, `email`) VALUES
-(1, 'rahman@gmail.com'),
-(2, 'muqni@gmail.com'),
-(3, 'rois@rois.co.id'),
-(4, 'revand@gmail.co'),
-(5, 'rangga@info.co'),
-(6, 'kelvin@kelvin.net');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `users`
 --
 
@@ -210,24 +138,6 @@ ALTER TABLE `subscribe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `temporary_form`
---
-ALTER TABLE `temporary_form`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `temporary_formkontak`
---
-ALTER TABLE `temporary_formkontak`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `temporary_subscribe`
---
-ALTER TABLE `temporary_subscribe`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -257,24 +167,6 @@ ALTER TABLE `subscribe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `temporary_form`
---
-ALTER TABLE `temporary_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `temporary_formkontak`
---
-ALTER TABLE `temporary_formkontak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `temporary_subscribe`
---
-ALTER TABLE `temporary_subscribe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -284,3 +176,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+booking

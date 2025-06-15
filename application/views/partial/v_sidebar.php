@@ -50,6 +50,15 @@
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
+    <a class="nav-link collapsed" href="<?php echo base_url().'dashboard/pembayaran' ?>">
+        <i class="fas fa-credit-card"></i>
+        <span>Pembayaran</span>
+    </a>
+</li>
+
+
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="modal" data-target="#logoutModal"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-laugh-wink"></i>

@@ -41,6 +41,28 @@ class Dashboard extends CI_Controller {
         $this->load->view('v_dashboard4', $data);
     }
 
+    // fungsi pembayaran
+    public function pembayaran() {
+        $this->load->model('M_account');
+        $data['judul'] = "Detail Pembayaran";
+        $data['dtbayar'] = $this->M_account->getAllPembayaran(); // ambil data dengan join
+        $this->load->view('v_dashboard6', $data);
+    }
+
+    public function hapuspembayaran($id) {
+        $this->db->where('id_pembayaran', $id);
+        $this->db->delete('pembayaran');
+        $this->session->set_flashdata('message', 'Data pembayaran berhasil dihapus.');
+        redirect('dashboard/pembayaran');
+    }
+
+    public function ubahstatus($id) {
+        $this->db->where('id_pembayaran', $id);
+        $this->db->update('pembayaran', ['status' => 'lunas']);
+        $this->session->set_flashdata('message', 'Status pembayaran berhasil diubah menjadi lunas.');
+        redirect('dashboard/pembayaran');
+    }
+
     // fungsi hapus
     function hapussubscribe($id) {
         $this->load->model('M_account'); // memuat model M_account

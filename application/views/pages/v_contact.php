@@ -39,6 +39,13 @@
             </div>
         </div>
     </div>
+    <!-- Start flash data -->
+    <?php if($this->session->flashdata('pesan_kontak')): ?>
+        <div class="alert alert-success">
+            <?= $this->session->flashdata('pesan_kontak'); ?>
+        </div>
+    <?php endif; ?>
+    <!-- End flash data -->
 </section>
 <!-- Akhir contact -->
 
