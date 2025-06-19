@@ -265,6 +265,12 @@ class Maxtune extends CI_Controller {
     }
 
     public function cetakform() {
+        // Cek apakah user sudah login
+        if (!$this->session->userdata('customer_logged_in')) {
+            $this->session->set_flashdata('pesan_error', 'Silakan masuk terlebih dahulu untuk melakukan booking.');
+            redirect('loginuser');
+        }
+        
         // Validasi Data
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');

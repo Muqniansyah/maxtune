@@ -128,6 +128,12 @@
             </div>
         <?php endif; ?>
 
+        <?php if ($this->session->flashdata('pesan_error')): ?>
+            <div class="alert alert-danger">
+                <?php echo $this->session->flashdata('pesan_error'); ?>
+            </div>
+        <?php endif; ?>
+
         <?php
         /*
          * Menampilkan error validasi form secara keseluruhan jika ada.

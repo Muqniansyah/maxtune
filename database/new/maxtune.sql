@@ -40,7 +40,7 @@ INSERT INTO `booking` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kot
 
 -- Dumping structure for table maxtune.customer
 CREATE TABLE IF NOT EXISTS `customer` (
-  `id_customer` int NOT NULL,
+  `id_customer` int NOT NULL AUTO_INCREMENT,
   `username` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -49,10 +49,9 @@ CREATE TABLE IF NOT EXISTS `customer` (
   PRIMARY KEY (`id_customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table maxtune.customer: ~2 rows (approximately)
+-- Dumping data for table maxtune.customer: ~1 rows (approximately)
 INSERT INTO `customer` (`id_customer`, `username`, `password`, `email`, `nama_lengkap`, `no_telepon`) VALUES
-	(0, 'muqniansyah', '25d55ad283aa400af464c76d713c07ad', 'muqniansyah@gmail.com', 'muqniansyah arifin', '089607886354'),
-	(1, 'haikal', 'haikalramadhan', 'haikalsitafajriramadhan@gmail.com', 'haikal sita fajri ramadhan', '089535057974');
+	(0, 'admin', '25d55ad283aa400af464c76d713c07ad', 'admin@gmail.com', 'admin aja', '089607886354');
 
 -- Dumping structure for table maxtune.formkontak
 CREATE TABLE IF NOT EXISTS `formkontak` (
