@@ -29,7 +29,7 @@
                                 <a href="https://www.linkedin.com/in/rahman-nurhadi-1419001a7/" class="simbol"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
-                        <img src="<?php echo base_url() ?>assets/img/montir/irawan.jpg" alt="Montir-2" width="380" height="400">
+                        <img src="<?php echo base_url() ?>assets/img/montir/irawan.jpeg" alt="Montir-2" width="380" height="400">
                         <div class="team-info">
                             <h4>Irawan Budi Santoso</h4>
                             <p>Montir Motor Cruiser</p>

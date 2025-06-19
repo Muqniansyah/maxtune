@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `jadwal` date NOT NULL,
   `jam` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table maxtune.booking: ~5 rows (approximately)
 INSERT INTO `booking` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kota`, `motor`, `jenis_servis`, `jadwal`, `jam`) VALUES
@@ -36,22 +36,27 @@ INSERT INTO `booking` (`id`, `nama`, `email`, `nohp`, `alamat`, `provinsi`, `kot
 	(2, 'fahri', 'fahri@gmail.com', '089607886374', 'pelosok', 'Jawa Barat', 'Cirebon', 'Motor Cruiser - Irawan', 'Ganti filter udara - 60k', '2025-06-24', '13:00:00'),
 	(3, 'irawan', 'irawan@gmail.com', '089607886353', 'harapan', 'Jawa Barat', 'Cimahi', 'Motor Cruiser - Irawan', 'Bongkar pasang mesin - 500k', '2025-06-21', '14:09:00'),
 	(4, 'saiful', 'saiful@gmail.com', '089607886314', 'tes', 'Dki Jakarta', 'Jakarta Selatan', 'Motor Cruiser - Irawan', 'Perawatan aki - 150k', '2025-06-19', '14:33:00'),
-	(5, 'imu', 'imu@gmail.com', '089607886365', 'sadrwew', 'Dki Jakarta', 'Jakarta Pusat', 'Motor Cruiser - Irawan', 'Ganti oli gardan - 15k', '2025-06-20', '15:29:00');
+	(5, 'imu', 'imu@gmail.com', '089607886365', 'sadrwew', 'Dki Jakarta', 'Jakarta Pusat', 'Motor Cruiser - Irawan', 'Ganti oli gardan - 15k', '2025-06-20', '15:29:00'),
+	(6, 'akuy', 'akuyt@gmail.com', '089607886361', 'jalan', 'Jawa Barat', 'Sukabumi', 'Motor Cruiser - Irawan', 'Bongkar pasang mesin - 500k', '2025-06-16', '14:33:00'),
+	(7, 'harga', 'harga@gmail.com', '089607886362', 'asd', 'Dki Jakarta', 'Jakarta Timur', 'Motor Matic - Haikal', 'Bongkar pasang mesin - 500k', '2025-06-14', '14:32:00'),
+	(8, 'akuaja', 'aku@gmail.com', '089607886369', 'asd', 'Jawa Barat', 'Cirebon', 'Motor Matic - Haikal', 'Bongkar pasang mesin - 500k', '2025-06-13', '15:15:00'),
+	(9, 'agung', 'agung@gmail.com', '089607886382', 'blokswe', 'Dki Jakarta', 'Jakarta Selatan', 'Motor Cruiser - Irawan', 'Ganti kampas rem - 60k', '2025-06-21', '15:15:00');
 
 -- Dumping structure for table maxtune.customer
 CREATE TABLE IF NOT EXISTS `customer` (
   `id_customer` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nama_lengkap` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `no_telepon` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `username` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nama_lengkap` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `no_telepon` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_customer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table maxtune.customer: ~1 rows (approximately)
+-- Dumping data for table maxtune.customer: ~2 rows (approximately)
 INSERT INTO `customer` (`id_customer`, `username`, `password`, `email`, `nama_lengkap`, `no_telepon`) VALUES
-	(0, 'admin', '25d55ad283aa400af464c76d713c07ad', 'admin@gmail.com', 'admin aja', '089607886354');
+	(0, 'admin', 'b93d83634de0b8143a418f91495b4fdb', 'admin@gmail.com', 'admin aja', '089607886354'),
+	(1, 'haikal', '25d55ad283aa400af464c76d713c07ad', 'haikal@gmail.com', 'haikal', '089607886314');
 
 -- Dumping structure for table maxtune.formkontak
 CREATE TABLE IF NOT EXISTS `formkontak` (
@@ -80,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `pembayaran` (
   CONSTRAINT `fk_booking` FOREIGN KEY (`booking_id`) REFERENCES `booking` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table maxtune.pembayaran: ~3 rows (approximately)
+-- Dumping data for table maxtune.pembayaran: ~0 rows (approximately)
 INSERT INTO `pembayaran` (`id_pembayaran`, `booking_id`, `jenis_servis`, `status`, `upload_file`, `created_at`, `updated_at`) VALUES
 	(23, 1, 'Ganti oli gardan - 15k', 'pending', 'bukti_1749967401.png', '2025-06-15 06:03:22', '2025-06-15 06:03:22');
 
@@ -91,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `subscribe` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table maxtune.subscribe: ~8 rows (approximately)
+-- Dumping data for table maxtune.subscribe: ~7 rows (approximately)
 INSERT INTO `subscribe` (`id`, `email`) VALUES
 	(1, 'rahman@gmail.com'),
 	(2, 'muqni@gmail.com'),

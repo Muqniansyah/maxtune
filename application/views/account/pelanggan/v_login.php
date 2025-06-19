@@ -11,6 +11,9 @@
     <style>
         /* CSS kustom untuk styling halaman login */
         body {
+            background-image: url("assets/img/login/login2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
             background-color: #f8f9fa;
             /* Warna latar belakang halaman */
             display: flex;

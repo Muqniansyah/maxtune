@@ -54,14 +54,30 @@ class Maxtune extends CI_Controller
         $this->load->view('pages/v_berita', $data);
         $this->load->view('v_footer', $data);
     }
+
     public function profiluser()
     {
         $data['judul'] = "~ Akun Saya ~";
 
-        // render halaman view
-        $this->load->view('v_headerprofil', $data);
-    }
+        // Pastikan user sudah login
+        if (!$this->session->userdata('customer_logged_in')) {
+            redirect('loginuser');
+        }
 
+        // Ambil data customer dari session
+        $id_customer = $this->session->userdata('id_customer');
+
+        // Load model Customer_model
+        $this->load->model('Customer_model');
+        $customer = $this->Customer_model->get_user_by_id($id_customer);
+
+        $data['customer'] = $customer;
+
+        // Load view dan kirim data
+        $this->load->view('v_header', $data);
+        $this->load->view('pages/v_headerprofil', $data);
+        $this->load->view('v_footer', $data);
+    }
 
     public function contact()
     {
@@ -112,6 +128,48 @@ class Maxtune extends CI_Controller
         $this->load->view('v_header', $data);
         $this->load->view('pages/blog/v_blog_4', $data);
         $this->load->view('v_footer', $data);
+    }
+
+    // fungsi ganti password
+    public function ganti_password()
+    {
+        // Cek login
+        if (!$this->session->userdata('customer_logged_in')) {
+            redirect('loginuser');
+        }
+
+        // Validasi input
+        $this->form_validation->set_rules('password_lama', 'Password Lama', 'required');
+        $this->form_validation->set_rules('password_baru', 'Password Baru', 'required|min_length[5]');
+        $this->form_validation->set_rules('konfirmasi_password', 'Konfirmasi Password', 'required|matches[password_baru]');
+
+        if ($this->form_validation->run() == FALSE) {
+            // Redirect kembali ke halaman profil dengan pesan error
+            $this->session->set_flashdata('error', validation_errors());
+            redirect('maxtune/profiluser');
+        }
+
+        // Ambil data
+        $id_customer = $this->session->userdata('id_customer');
+        $this->load->model('Customer_model');
+        $user = $this->Customer_model->get_user_by_id($id_customer);
+
+        $password_lama = $this->input->post('password_lama');
+        $password_baru = $this->input->post('password_baru');
+
+        // Cek password lama
+        if (md5($password_lama) !== $user->password) {
+            $this->session->set_flashdata('error', 'Password lama salah.');
+            redirect('maxtune/profiluser');
+        }
+
+        // Update password
+        $data = ['password' => md5($password_baru)];
+        $this->db->where('id_customer', $id_customer);
+        $this->db->update('customer', $data);
+
+        $this->session->set_flashdata('success', 'Password berhasil diubah.');
+        redirect('maxtune/profiluser');
     }
 
     // fungsi checkout

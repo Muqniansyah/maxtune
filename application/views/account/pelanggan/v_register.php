@@ -9,6 +9,9 @@
     <style>
         /* CSS kustom yang serupa dengan halaman login untuk konsistensi */
         body {
+            background-image: url("assets/img/login/login2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
             background-color: #f8f9fa;
             display: flex;
             justify-content: center;
@@ -25,6 +28,7 @@
             width: 100%;
             max-width: 500px;
             /* Lebih lebar sedikit dari login karena lebih banyak field */
+            margin: 40px 0; /* Tambahan jarak atas dan bawah */
         }
 
         .register-container h2 {
@@ -151,7 +155,7 @@
         <button type="submit" class="btn btn-primary">Daftar Akun</button>
         <?php echo form_close(); ?>
         <div class="text-center">
-            <a href="<?php echo base_url().'loginuser' ?>" class="link-login">Sudah punya akun? Login di sini.</a>
+            <a href="<?php echo base_url().'loginuser' ?>" class="link-login">Sudah punya akun? Masuk di sini.</a>
         </div>
     </div>
 

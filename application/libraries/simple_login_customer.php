@@ -35,7 +35,7 @@ class Simple_login_customer {
         $this->CI->session->unset_userdata('id_customer');
         $this->CI->session->unset_userdata('customer_username');
         $this->CI->session->set_flashdata('sukses', 'Anda berhasil logout');
-        redirect('loginuser');
+        redirect('maxtune');
     }
 
     public function cek_login() {
