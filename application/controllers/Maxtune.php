@@ -1,16 +1,19 @@
 <?php
 defined('BASEPATH') or exit('no direct script access allowed');
 
-class Maxtune extends CI_Controller {
+class Maxtune extends CI_Controller
+{
 
-    function __construct(){       
+    function __construct()
+    {
         parent::__construct();
         // pengaktifan helper url.
         $this->load->helper('url');
         $this->load->model('M_account');
     }
 
-    public function index() {
+    public function index()
+    {
         $data['judul'] = "~ Beranda ~";
 
         // render halaman view
@@ -22,7 +25,8 @@ class Maxtune extends CI_Controller {
         $this->load->view("v_footer", $data);
     }
 
-    public function about() {
+    public function about()
+    {
         $data['judul'] = "~ Tentang ~";
 
         // render halaman view
@@ -31,7 +35,8 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
-    public function services() {
+    public function services()
+    {
         $data['judul'] = "~ Servis ~";
 
         // render halaman view
@@ -40,7 +45,8 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
-    public function berita() {
+    public function berita()
+    {
         $data['judul'] = "~ Berita ~";
 
         // render halaman view
@@ -48,8 +54,17 @@ class Maxtune extends CI_Controller {
         $this->load->view('pages/v_berita', $data);
         $this->load->view('v_footer', $data);
     }
+    public function profiluser()
+    {
+        $data['judul'] = "~ Akun Saya ~";
 
-    public function contact() {
+        // render halaman view
+        $this->load->view('v_headerprofil', $data);
+    }
+
+
+    public function contact()
+    {
         $data['judul'] = "~ Kontak ~";
 
         // render halaman view
@@ -59,7 +74,8 @@ class Maxtune extends CI_Controller {
     }
 
     // render halaman blog
-    public function blog() {
+    public function blog()
+    {
         $data['judul'] = "~ Blog ~";
 
         // render halaman view
@@ -68,7 +84,8 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
-    public function blog_2() {
+    public function blog_2()
+    {
         $data['judul'] = "~ Blog ~";
 
         // render halaman view
@@ -77,7 +94,8 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
-    public function blog_3() {
+    public function blog_3()
+    {
         $data['judul'] = "~ Blog ~";
 
         // render halaman view
@@ -86,7 +104,8 @@ class Maxtune extends CI_Controller {
         $this->load->view('v_footer', $data);
     }
 
-    public function blog_4() {
+    public function blog_4()
+    {
         $data['judul'] = "~ Blog ~";
 
         // render halaman view
@@ -96,7 +115,8 @@ class Maxtune extends CI_Controller {
     }
 
     // fungsi checkout
-    public function check() {
+    public function check()
+    {
         $this->load->model('M_account'); // Memuat model M_account
 
         // Ambil data terbaru dari tabel booking berdasarkan id
@@ -112,7 +132,7 @@ class Maxtune extends CI_Controller {
         // Jika data ditemukan, tetapkan montir berdasarkan motor
         if ($data['form_data']) {
             $motor = $data['form_data']['motor'];
-            switch($motor) {
+            switch ($motor) {
                 case 'Motor Sport - Muqni':
                     $data['form_data']['montir'] = 'Muqniansyah Arifin';
                     break;
@@ -141,13 +161,15 @@ class Maxtune extends CI_Controller {
     }
 
     // Fungsi bayar
-    public function bayar() {
+    public function bayar()
+    {
         // render halaman view
         $this->load->view('pages/v_bayar');
     }
 
     // fungsi upload bukti
-    public function upload_bukti() {
+    public function upload_bukti()
+    {
         if (!empty($_FILES['bukti_pembayaran']['name'])) {
             $config['upload_path']   = './assets/uploads/';
             $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -189,10 +211,11 @@ class Maxtune extends CI_Controller {
     }
 
     // fungsi cetak
-    public function cetaksubscribe() {
+    public function cetaksubscribe()
+    {
         // Validasi Form
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        
+
         if ($this->form_validation->run() == false) {
             // Jika validasi gagal, tampilkan kembali halaman
             $data['judul'] = "~ Home ~";
@@ -223,7 +246,8 @@ class Maxtune extends CI_Controller {
         }
     }
 
-    public function cetakkontak() {
+    public function cetakkontak()
+    {
         // Validasi Data
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -263,6 +287,7 @@ class Maxtune extends CI_Controller {
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
+
 
     public function cetakform() {
         // Cek apakah user sudah login
@@ -344,7 +369,8 @@ class Maxtune extends CI_Controller {
     }
 
     // fungsi hapus
-    public function hapusform($id = null) {
+    public function hapusform($id = null)
+    {
         // Hapus data dari session dengan nama 'data'
         $this->session->unset_userdata('data');
 
@@ -371,6 +397,4 @@ class Maxtune extends CI_Controller {
         // Redirect kembali ke halaman utama
         redirect('maxtune');
     }
-
 }
-?>
