@@ -114,7 +114,7 @@
 
 <body>
     <div class="login-container">
-        <h2>Login Bengkel Online</h2>
+        <h2>Masuk Bengkel Online</h2>
 
         <?php if ($this->session->flashdata('success')): ?>
             <div class="alert alert-success">
@@ -143,18 +143,18 @@
         <?php echo form_open('loginuser'); ?>
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username" name="username" value="<?php echo set_value('username'); ?>" required>
+            <input type="text" class="form-control" id="username" name="username" value="<?php echo set_value('username'); ?>" placeholder="Masukkan Username" required>
             <?php echo form_error('username', '<small class="text-danger">', '</small>'); ?>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password Anda" required>
             <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Masuk</button>
         <?php echo form_close(); ?>
         <div class="text-center">
-            <a href="<?php echo site_url('v_registeruser'); ?>" class="link-registrasi">Belum punya akun? Daftar sekarang!</a>
+            <a href="<?php echo base_url().'registeruser' ?>" class="link-registrasi">Belum punya akun? Daftar sekarang!</a>
         </div>
     </div>
 

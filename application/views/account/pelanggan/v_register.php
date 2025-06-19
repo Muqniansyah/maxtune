@@ -151,7 +151,7 @@
         <button type="submit" class="btn btn-primary">Daftar Akun</button>
         <?php echo form_close(); ?>
         <div class="text-center">
-            <a href="<?php echo site_url('acoount/v_loginuser'); ?>" class="link-login">Sudah punya akun? Login di sini.</a>
+            <a href="<?php echo base_url().'loginuser' ?>" class="link-login">Sudah punya akun? Login di sini.</a>
         </div>
     </div>
 

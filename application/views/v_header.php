@@ -26,7 +26,7 @@
         <i class="bi bi-list"></i>
       </div>
       <ul class="nav-links">
-        <li class="center link-masuk"><a href="<?php echo base_url().'maxtune' ?>">Masuk</a></li>
+        <li class="center link-masuk"><a href="<?php echo base_url().'loginuser' ?>">Masuk</a></li>
         <li class="center"><a href="<?php echo base_url().'maxtune' ?>">Beranda</a></li>
         <li class="center"><a href="<?php echo base_url().'maxtune/about' ?>">Tentang</a></li>
         <li class="center"><a href="<?php echo base_url().'maxtune/services' ?>">Servis</a></li>
