@@ -29,40 +29,63 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Interface
+    Antarmuka
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Web Store</span>
+        <span></span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href=" <?php echo base_url().'dashboard/form' ?>">Booking</a>
             <a class="collapse-item" href="<?php echo base_url().'dashboard/contact' ?>">Kontak</a>
-            <a class="collapse-item" href="<?php echo base_url().'dashboard/subscribe' ?>">Subscribe</a>
+            <a class="collapse-item" href="<?php echo base_url().'dashboard/subscribe' ?>">Berlangganan</a>
         </div>
     </div>
-</li>
+</li> -->
 
-<!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="<?php echo base_url().'dashboard/pembayaran' ?>">
-        <i class="fas fa-credit-card"></i>
-        <span>Pembayaran</span>
+<!-- Nav Item - Booking -->
+<li class="nav-item mb-2">
+    <a class="nav-link collapsed" href="<?php echo base_url().'dashboard/form' ?>">
+        <i class="fas fa-calendar-check"></i>
+        <span>Booking</span>
     </a>
 </li>
 
+<!-- Nav Item - Kontak -->
+<li class="nav-item mb-2">
+    <a class="nav-link collapsed" href="<?php echo base_url().'dashboard/contact' ?>">
+        <i class="fas fa-envelope"></i>
+        <span>Kontak</span>
+    </a>
+</li>
+
+<!-- Nav Item - Berlangganan -->
+<li class="nav-item mb-2">
+    <a class="nav-link collapsed" href="<?php echo base_url().'dashboard/subscribe' ?>">
+        <i class="fas fa-bell"></i>
+        <span>Berlangganan</span>
+    </a>
+</li>
+
+<!-- Nav Item - Pembayaran -->
+<li class="nav-item mb-2">
+    <a class="nav-link collapsed" href="<?php echo base_url().'dashboard/pembayaran' ?>">
+        <i class="fas fa-money-check-alt"></i>
+        <span>Pembayaran</span>
+    </a>
+</li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="modal" data-target="#logoutModal"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-laugh-wink"></i>
-        <span>Logout</span>
+        <span>Keluar</span>
     </a>
 </li>
 

@@ -118,7 +118,7 @@
     <div class="container">
         <div class="forms">
             <div class="form-content">
-                <div class="title">Login</div>
+                <div class="title">Masuk</div>
                 <?php echo form_open('login');?>
                 <div class="input-boxes">
                     <div class="input-box">
@@ -138,12 +138,12 @@
                     </div>
                     
                     <div class="button">
-                        <input type="submit" name="btnSubmit" value="Login" />
+                        <input type="submit" name="btnSubmit" value="Masuk" />
                     </div>
                 </div>
                 <?php echo form_close();?>
                 <div class="register">
-                    <p>Don't have an account? <a href="<?php echo base_url().'register'?>">Register</a></p>
+                    <p>Tidak punya akun? <a href="<?php echo base_url().'register'?>">Daftar</a></p>
                 </div>
             </div>
         </div>

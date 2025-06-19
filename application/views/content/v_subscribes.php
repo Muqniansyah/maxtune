@@ -1,5 +1,5 @@
 <center>
-    <h1>Daftar Subscriber</h1>
+    <h1>Daftar Berlangganan</h1>
 
     <!-- Start flash data -->
     <?php if($this->session->flashdata('message')): ?>

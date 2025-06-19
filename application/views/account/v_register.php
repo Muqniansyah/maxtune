@@ -163,7 +163,7 @@
                 </div>
                 <?php echo form_close();?>
                 <div class="login">
-                    <p>already have an account? <a href="<?php echo base_url().'login'?>">Login</a></p>
+                    <p>Sudah punya akun? <a href="<?php echo base_url().'login'?>">Masuk</a></p>
                 </div>
             </div>
         </div>
