@@ -119,6 +119,11 @@
         <div class="forms">
             <div class="form-content">
                 <div class="title">Masuk</div>
+                <?php if ($this->session->flashdata('sukses')): ?>
+                    <div class="error">
+                        <?php echo $this->session->flashdata('sukses'); ?>
+                    </div>
+                <?php endif; ?>
                 <?php echo form_open('login');?>
                 <div class="input-boxes">
                     <div class="input-box">

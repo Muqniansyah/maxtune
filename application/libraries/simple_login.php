@@ -26,31 +26,30 @@ class Simple_login {
     * @param string password dari input form
     */
     public function login($username, $password) {
+        // Cek apakah username ada di tabel users
+        $user = $this->CI->db->get_where('users', ['username' => $username])->row();
 
-        //cek username dan password
-        $query = $this->CI->db->get_where('users',array('username'=>$username,'password' => md5($password)));
+        if ($user) {
+            // Username ditemukan, sekarang cek password
+            if ($user->password === md5($password)) {
+                // Password cocok
+                $this->CI->session->set_userdata('username', $username);
+                $this->CI->session->set_userdata('id_login', uniqid(rand()));
+                $this->CI->session->set_userdata('id', $user->id_user);
 
-        if($query->num_rows() == 1) {
-            //ambil data user berdasar username
-            $row  = $this->CI->db->query('SELECT id_user FROM users where username = "'.$username.'"');
-            $admin     = $row->row();
-            $id   = $admin->id_user;
-
-            //set session user
-            $this->CI->session->set_userdata('username', $username);
-            $this->CI->session->set_userdata('id_login', uniqid(rand()));
-            $this->CI->session->set_userdata('id', $id);
-
-            //redirect ke halaman dashboard
-            redirect(site_url('dashboard'));
-        }else{
-
-            //jika tidak ada, set notifikasi dalam flashdata.
-            $this->CI->session->set_flashdata('sukses','Username atau password anda salah, silakan coba lagi.. ');
-
-            //redirect ke halaman login
+                // Redirect ke dashboard
+                redirect(site_url('dashboard'));
+            } else {
+                // Password salah
+                $this->CI->session->set_flashdata('sukses', 'Password salah. Silakan coba lagi.');
+                redirect(site_url('login'));
+            }
+        } else {
+            // Username tidak ditemukan di database
+            $this->CI->session->set_flashdata('sukses', 'Akun tidak terdaftar. Silakan daftar terlebih dahulu.');
             redirect(site_url('login'));
         }
+
         return false;
     }
 
