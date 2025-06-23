@@ -145,29 +145,37 @@ class Maxtune extends CI_Controller
         $this->form_validation->set_rules('konfirmasi_password', 'Konfirmasi Password', 'required|matches[password_baru]');
 
         if ($this->form_validation->run() == FALSE) {
-            // Redirect kembali ke halaman profil dengan pesan error
             $this->session->set_flashdata('error', validation_errors());
             redirect('maxtune/profiluser');
         }
 
-        // Ambil data
-        $id_customer = $this->session->userdata('id_customer');
+        // Ambil data customer dari session
+        $customer = $this->session->userdata('customer');
+        $id_customer = $customer['id_customer'];
+
         $this->load->model('Customer_model');
         $user = $this->Customer_model->get_user_by_id($id_customer);
 
+        if (!$user) {
+            $this->session->set_flashdata('error', 'Data customer tidak ditemukan.');
+            redirect('maxtune/profiluser');
+        }
+
+        // Ambil input
         $password_lama = $this->input->post('password_lama');
         $password_baru = $this->input->post('password_baru');
 
-        // Cek password lama
+        // Cek kecocokan password lama
         if (md5($password_lama) !== $user->password) {
             $this->session->set_flashdata('error', 'Password lama salah.');
             redirect('maxtune/profiluser');
         }
 
-        // Update password
-        $data = ['password' => md5($password_baru)];
+        // Update password baru
         $this->db->where('id_customer', $id_customer);
-        $this->db->update('customer', $data);
+        $this->db->update('customer', [
+            'password' => md5($password_baru)
+        ]);
 
         $this->session->set_flashdata('success', 'Password berhasil diubah.');
         redirect('maxtune/profiluser');
@@ -348,17 +356,25 @@ class Maxtune extends CI_Controller
     }
 
 
-    public function cetakform() {
+    public function cetakform()
+    {
         // Cek apakah user sudah login
         if (!$this->session->userdata('customer_logged_in')) {
             $this->session->set_flashdata('pesan_error', 'Silakan masuk terlebih dahulu untuk melakukan booking.');
             redirect('loginuser');
         }
-        
-        // Validasi Data
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('nohp', 'No. HP', 'required|exact_length[12]|numeric');
+
+        $customer = $this->session->userdata('customer'); // Data customer (isi saat login)
+        $is_logged_in = $this->session->userdata('customer_logged_in');
+
+        // Validasi Form
+        // Nama, email, nohp divalidasi hanya jika belum login (diisi manual)
+        if (!$is_logged_in) {
+            $this->form_validation->set_rules('nama', 'Nama', 'required');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+            $this->form_validation->set_rules('nohp', 'No. HP', 'required|exact_length[12]|numeric');
+        }
+
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
         $this->form_validation->set_rules('kota', 'Kota', 'required');
@@ -368,7 +384,7 @@ class Maxtune extends CI_Controller
         $this->form_validation->set_rules('jam', 'Jam', 'required');
 
         if ($this->form_validation->run() == false) {
-            // Jika validasi gagal, tampilkan kembali form
+            // Jika validasi gagal
             $data['judul'] = "~ Home ~";
             $this->load->view("v_header", $data);
             $this->load->view('pages/v_about', $data);
@@ -377,38 +393,36 @@ class Maxtune extends CI_Controller
             $this->load->view('pages/v_contact', $data);
             $this->load->view("v_footer", $data);
         } else {
-            // Ambil input
+            // Ambil data dari session jika login, atau dari post
+            $nama  = $is_logged_in ? $customer['nama_lengkap'] : $this->input->post('nama');
+            $email = $is_logged_in ? $customer['email'] : $this->input->post('email');
+            $nohp  = $is_logged_in ? $customer['no_telepon'] : $this->input->post('nohp');
+
             $jadwal = $this->input->post('jadwal');
             $jam = $this->input->post('jam');
-            $email = $this->input->post('email');
-            $nohp = $this->input->post('nohp');
 
-            // Cek apakah jadwal dan jam sudah dipesan
+            // Cek jadwal & jam bentrok
             $cek_jadwal = $this->db->get_where('booking', [
                 'jadwal' => $jadwal,
                 'jam' => $jam
             ]);
-
             if ($cek_jadwal->num_rows() > 0) {
                 $this->session->set_flashdata('pesan_error', 'Jadwal dan jam tersebut sudah dipesan. Silakan pilih waktu lain.');
                 redirect('maxtune');
             }
 
-            // Cek jika email atau nohp sudah digunakan
-            $cek_duplikat = $this->db->get_where('booking', [
-                'email' => $email
-            ])->num_rows() + $this->db->get_where('booking', [
-                'nohp' => $nohp
-            ])->num_rows();
+            // Cek email/nohp sudah dipakai
+            // $cek_duplikat = $this->db->get_where('booking', ['email' => $email])->num_rows()
+            //             + $this->db->get_where('booking', ['nohp' => $nohp])->num_rows();
 
-            if ($cek_duplikat > 0) {
-                $this->session->set_flashdata('pesan_error', 'Email atau nomor HP sudah terdaftar. Silakan gunakan data lain.');
-                redirect('maxtune');
-            }
+            // if ($cek_duplikat > 0) {
+            //     $this->session->set_flashdata('pesan_error', 'Email atau nomor HP sudah terdaftar. Silakan gunakan data lain.');
+            //     redirect('maxtune');
+            // }
 
-            // Simpan data ke session dan database
+            // Simpan data booking
             $data = [
-                'nama' => $this->input->post('nama'),
+                'nama' => $nama,
                 'email' => $email,
                 'nohp' => $nohp,
                 'alamat' => $this->input->post('alamat'),
@@ -422,7 +436,6 @@ class Maxtune extends CI_Controller
 
             $this->session->set_userdata('data', $data);
             $this->db->insert('booking', $data);
-
             redirect('maxtune/check');
         }
     }

@@ -132,7 +132,7 @@
 
 <!-- Jenis Service Start -->
 <section>
-  <h2 style="text-align: center; margin-bottom: 30px; margin-top: 80px;">Daftar Harga Servis</h2>
+  <h2 style="text-align: center; margin-bottom: 30px; margin-top: 130px;">Daftar Harga Servis</h2>
 
   <div class="card-container">
     <div class="card">

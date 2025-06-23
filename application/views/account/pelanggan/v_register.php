@@ -131,7 +131,7 @@
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Minimal 6 karakter" required>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Minimal 8 karakter" required>
             <?php echo form_error('password', '<small class="text-danger">', '</small>'); // Menampilkan error spesifik field password 
             ?>
         </div>

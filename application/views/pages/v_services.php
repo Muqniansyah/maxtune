@@ -1,3 +1,15 @@
+<?php
+// Ambil data dari session
+$customer = $this->session->userdata('customer');
+$is_logged_in = $this->session->userdata('customer_logged_in');
+
+// Siapkan nilai field dan readonly
+$nama_value = $is_logged_in && isset($customer['nama_lengkap']) ? $customer['nama_lengkap'] : set_value('nama');
+$email_value = $is_logged_in && isset($customer['email']) ? $customer['email'] : set_value('email');
+$nohp_value = $is_logged_in && isset($customer['no_telepon']) ? $customer['no_telepon'] : set_value('nohp');
+$readonly = $is_logged_in ? 'readonly' : '';
+?>
+
 <section id="services" class="services">
     <h2>Layanan Pemesanan Servis</h2>
     <h3>Pesan layanan anda dengan mudah melalui platform pemesanan online Maxtune untuk kenyamanan anda.</h3>
@@ -11,26 +23,20 @@
     <form action="<?= base_url('maxtune/cetakform'); ?>" method="post" class="form-container">
         <div class="form-group">
             <label for="nama">Nama:</label>
-            <input type="text" name="nama" id="nama" placeholder="masukkan nama">
-            <div class="error-text">
-                    <?php echo form_error('nama'); ?>
-            </div>
+            <input type="text" name="nama" id="nama" placeholder="masukkan nama" value="<?= $nama_value ?>" <?= $readonly ?>>
+            <div class="error-text"><?= form_error('nama'); ?></div>
         </div>
 
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="masukkan email">
-            <div class="error-text">
-                    <?php echo form_error('email'); ?>
-            </div>
+            <input type="email" name="email" id="email" placeholder="masukkan email" value="<?= $email_value ?>" <?= $readonly ?>>
+            <div class="error-text"><?= form_error('email'); ?></div>
         </div>
 
         <div class="form-group">
             <label for="nohp">No. HP:</label>
-            <input type="text" name="nohp" id="nohp" placeholder="masukkan no hp">
-            <div class="error-text">
-                    <?php echo form_error('nohp'); ?>
-            </div>
+            <input type="text" name="nohp" id="nohp" placeholder="masukkan no hp" value="<?= $nohp_value ?>" <?= $readonly ?>>
+            <div class="error-text"><?= form_error('nohp'); ?></div>
         </div>
 
         <div class="form-group">

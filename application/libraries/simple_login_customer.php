@@ -22,18 +22,24 @@ class Simple_login_customer {
             $this->CI->session->set_flashdata('error', 'Password salah');
             redirect($failed_redirect);
         } else {
-            // Login berhasil
+            // ✅ Login berhasil, simpan data lengkap ke session
             $this->CI->session->set_userdata('customer_logged_in', true);
-            $this->CI->session->set_userdata('id_customer', $user->id_customer);
-            $this->CI->session->set_userdata('customer_username', $user->username);
+            $this->CI->session->set_userdata('customer', [
+                'id_customer'   => $user->id_customer,
+                'username'      => $user->username,
+                'nama_lengkap'  => $user->nama_lengkap,
+                'email'         => $user->email,
+                'no_telepon'    => $user->no_telepon
+            ]);
+
             redirect($success_redirect);
         }
     }
 
     public function logout() {
+        // ✅ Hapus semua data session customer
         $this->CI->session->unset_userdata('customer_logged_in');
-        $this->CI->session->unset_userdata('id_customer');
-        $this->CI->session->unset_userdata('customer_username');
+        $this->CI->session->unset_userdata('customer');
         $this->CI->session->set_flashdata('sukses', 'Anda berhasil logout');
         redirect('maxtune');
     }

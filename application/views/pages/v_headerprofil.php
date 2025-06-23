@@ -72,7 +72,8 @@
     }
 
     input[type="text"],
-    input[type="email"] {
+    input[type="email"],
+    input[type="password"] {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 6px;
@@ -134,6 +135,10 @@
     }
 </style>
 
+<?php
+$customer = $this->session->userdata('customer');
+?>
+
 <?php if ($this->session->flashdata('success')): ?>
     <div class="alert alert-success"><?php echo $this->session->flashdata('success'); ?></div>
 <?php endif; ?>
@@ -148,8 +153,8 @@
     </div>
 
     <?php if (isset($customer)): ?>
-        <h3><?php echo $customer->nama_lengkap ?: $customer->username; ?></h3>
-        <p><?php echo $customer->email; ?></p>
+        <h3><?php echo $customer['nama_lengkap'] ?: $customer['username']; ?></h3>
+        <p><?php echo $customer['email']; ?></p>
 
         <div class="form">
             <div class="form-container">
@@ -158,7 +163,7 @@
                 <div class="form-group full-width">
                     <div class="form-field">
                         <label for="username">Username</label>
-                        <input type="text" id="username" disabled value="<?php echo $customer->username; ?>">
+                        <input type="text" id="username" disabled value="<?php echo $customer['username']; ?>">
                         <p class="help-text">Ini akan menjadi cara nama Anda ditampilkan di bagian akun dan dalam ulasan</p>
                     </div>
                 </div>
@@ -166,14 +171,14 @@
                 <div class="form-group full-width">
                     <div class="form-field">
                         <label for="no_telepon">Nomor Telepon</label>
-                        <input type="text" id="no_telepon" disabled value="<?php echo $customer->no_telepon; ?>">
+                        <input type="text" id="no_telepon" disabled value="<?php echo $customer['no_telepon']; ?>">
                     </div>
                 </div>
 
                 <div class="form-group full-width">
                     <div class="form-field">
                         <label for="email">Alamat Email</label>
-                        <input type="email" id="email" disabled value="<?php echo $customer->email; ?>">
+                        <input type="email" id="email" disabled value="<?php echo $customer['email']; ?>">
                     </div>
                 </div>
 
@@ -219,5 +224,4 @@
     </div>
 
     <?php echo form_close(); ?>
-    
 </section>
