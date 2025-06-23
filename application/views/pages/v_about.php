@@ -15,8 +15,4 @@
         </div>
     </div>
     <!-- Main End -->
-
-    <!-- Clients Start -->
-    
-    <!-- Clients End -->
 </section>

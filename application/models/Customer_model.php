@@ -40,6 +40,12 @@ class Customer_model extends CI_Model
         return ($this->db->get('customer')->num_rows() > 0);
     }
 
+    public function telepon_exists($no_telepon)
+    {
+        $this->db->where('no_telepon', $no_telepon);
+        return ($this->db->get('customer')->num_rows() > 0);
+    }
+
     public function verify_password($plain_password, $hashed_password)
     {
         return password_verify($plain_password, $hashed_password);

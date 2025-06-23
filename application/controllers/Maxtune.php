@@ -32,6 +32,7 @@ class Maxtune extends CI_Controller
         // render halaman view
         $this->load->view('v_header', $data);
         $this->load->view('pages/v_about', $data);
+        $this->load->view('pages/v_about2', $data);
         $this->load->view('v_footer', $data);
     }
 
