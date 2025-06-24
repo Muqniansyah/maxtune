@@ -11,11 +11,7 @@
                 <div class="container-fluid mt-5">
                     <?php
                         if (!empty('content/v_forms')): 
-                            $this->load->database();
-                            // Ambil data form dari tabel booking
-                            $query = $this->db->get('booking');
-                            $data['list_form'] = $query->result_array();
-                            $this->load->view('content/v_forms', $data);
+                            $this->load->view('content/v_forms'); // gunakan data dari controller
                         else: 
                             echo ('Halaman tidak ditemukan'); 
                         endif; 

@@ -92,16 +92,11 @@
                         <label for="jenis_servis" class="col-form-label label-edit">Jenis Servis:</label>
                         <select class="form-control" name="jenis_servis" id="jenis_servis">
                             <option value="">Pilih Jenis Servis</option>
-                            <option value="Ganti oli mesin - 50k">Ganti oli mesin - 50k</option>
-                            <option value="Tune up - 70k">Tune up - 70k</option>
-                            <option value="Ganti oli gardan - 15k">Ganti oli gardan - 15k</option>
-                            <option value="Ganti busi - 50k">Ganti busi - 50k</option>
-                            <option value="Ganti filter udara - 60k">Ganti filter udara - 60k</option>
-                            <option value="Ganti kampas rem - 60k">Ganti kampas rem - 60k</option>
-                            <option value="Perawatan aki - 150k">Perawatan aki - 150k</option>
-                            <option value="Bongkar pasang mesin - 500k">Bongkar pasang mesin - 500k</option>
-                            <option value="Tambal ban - 15k">Tambal ban - 15k</option>
-                            <option value="Bore up - 700k">Bore up - 700k</option>
+                            <?php foreach($jenis_servis as $servis): ?>
+                                <option value="<?= $servis['id_servis']; ?>">
+                                    <?= $servis['nama']; ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                         <div class="error-text">
                             <?php echo form_error('jenis_servis'); ?>

@@ -103,23 +103,23 @@ $readonly = $is_logged_in ? 'readonly' : '';
 
         <div class="form-group">
             <label for="jenis_servis">Jenis Servis:</label>
-            <select name="jenis_servis" id="jenis_servis">
+            <select name="jenis_servis" id="jenis_servis" class="form-control">
                 <option value="">Pilih Jenis Servis</option>
-                <option value="Ganti oli mesin - 50k">Ganti oli mesin - 50k</option>
-                <option value="Tune up - 70k">Tune up - 70k</option>
-                <option value="Ganti oli gardan - 15k">Ganti oli gardan - 15k</option>
-                <option value="Ganti busi - 50k">Ganti busi - 50k</option>
-                <option value="Ganti filter udara - 60k">Ganti filter udara - 60k</option>
-                <option value="Ganti kampas rem - 60k">Ganti kampas rem - 60k</option>
-                <option value="Perawatan aki - 150k">Perawatan aki - 150k</option>
-                <option value="Bongkar pasang mesin - 500k">Bongkar pasang mesin - 500k</option>
-                <option value="Tambal ban - 15k">Tambal ban - 15k</option>
-                <option value="Bore up - 700k">Bore up - 700k</option>
+                <?php if (!empty($jenis_servis)): ?>
+                    <?php foreach ($jenis_servis as $servis): ?>
+                        <option value="<?= $servis['id_servis']; ?>" <?= set_select('jenis_servis', $servis['id_servis']); ?>>
+                            <?= $servis['nama']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <option value="">Data servis belum tersedia</option>
+                <?php endif; ?>
             </select>
             <div class="error-text">
-                <?php echo form_error('jenis_servis'); ?>
+                <?= form_error('jenis_servis'); ?>
             </div>
         </div>
+
 
         <div class="form-group">
             <label for="jadwal">Jadwal:</label>

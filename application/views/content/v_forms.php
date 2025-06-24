@@ -37,27 +37,48 @@
                     <td><?= $user['provinsi']; ?></td>
                     <td><?= $user['kota']; ?></td>
                     <td><?= $user['motor']; ?></td>
-                    <td><?= $user['jenis_servis']; ?></td>
+                    <td><?= isset($user['nama_servis']) ? $user['nama_servis'] : 'Jenis servis tidak ditemukan'; ?></td>
                     <td><?= $user['jadwal']; ?></td>
                     <td><?= $user['jam']; ?></td>
                     <td class="action-dash">
-                        <form method="post">
-                            <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit" data-id="<?= $user['id']; ?>" data-nama="<?= $user['nama']; ?>" data-email="<?= $user['email']; ?>" data-nohp="<?= $user['nohp']; ?>" data-alamat="<?= $user['alamat']; ?>" data-provinsi="<?= $user['provinsi']; ?>" data-kota="<?= $user['kota']; ?>" data-motor="<?= $user['motor']; ?>" data-jenis_servis="<?= $user['jenis_servis']; ?>" data-jadwal="<?= $user['jadwal']; ?>" data-jam="<?= $user['jam']; ?>">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </form>
+                        <!-- Tombol Edit -->
+                        <button type="button" class="edit-button" data-toggle="modal" data-target="#modalEdit"
+                            data-id="<?= $user['id']; ?>"
+                            data-nama="<?= $user['nama']; ?>"
+                            data-email="<?= $user['email']; ?>"
+                            data-nohp="<?= $user['nohp']; ?>"
+                            data-alamat="<?= $user['alamat']; ?>"
+                            data-provinsi="<?= $user['provinsi']; ?>"
+                            data-kota="<?= $user['kota']; ?>"
+                            data-motor="<?= $user['motor']; ?>"
+                            data-jenis_servis="<?= $user['jenis_servis']; ?>"
+                            data-jadwal="<?= $user['jadwal']; ?>"
+                            data-jam="<?= $user['jam']; ?>">
+                            <i class="fas fa-edit"></i>
+                        </button>
 
-                        <form method="post" action="<?php echo base_url('dashboard/hapusform/'.$user['id']); ?>">
-                            <button type="submit" class="hapus-button" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                        <!-- Tombol Hapus -->
+                        <form method="post" action="<?= base_url('dashboard/hapusform/'.$user['id']); ?>">
+                            <button type="submit" class="hapus-button" onclick="return confirm('Yakin hapus data ini?')">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>
-                        
-                        <form method="post">
-                            <button type="button" class="print-button" data-id="<?= $user['id']; ?>" data-nama="<?= $user['nama']; ?>" data-email="<?= $user['email']; ?>" data-nohp="<?= $user['nohp']; ?>" data-alamat="<?= $user['alamat']; ?>" data-provinsi="<?= $user['provinsi']; ?>" data-kota="<?= $user['kota']; ?>" data-motor="<?= $user['motor']; ?>" data-jenis_servis="<?= $user['jenis_servis']; ?>" data-jadwal="<?= $user['jadwal']; ?>" data-jam="<?= $user['jam']; ?>" data-toggle="modal" data-target="#exampleModal">
-                                <i class="fas fa-print"></i>
-                            </button>
-                        </form>
+
+                        <!-- Tombol Print -->
+                        <button type="button" class="print-button" data-toggle="modal" data-target="#exampleModal"
+                            data-id="<?= $user['id']; ?>"
+                            data-nama="<?= $user['nama']; ?>"
+                            data-email="<?= $user['email']; ?>"
+                            data-nohp="<?= $user['nohp']; ?>"
+                            data-alamat="<?= $user['alamat']; ?>"
+                            data-provinsi="<?= $user['provinsi']; ?>"
+                            data-kota="<?= $user['kota']; ?>"
+                            data-motor="<?= $user['motor']; ?>"
+                            data-jenis_servis="<?= $user['nama_servis']; ?>"
+                            data-jadwal="<?= $user['jadwal']; ?>"
+                            data-jam="<?= $user['jam']; ?>">
+                            <i class="fas fa-print"></i>
+                        </button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -182,16 +203,16 @@
                             <label for="jenis_servis" class="col-form-label label-edit">Jenis Servis :</label>
                             <select name="jenis_servis" id="jenis_servis" class="form-control">
                                 <option value="">Pilih Jenis Servis</option>
-                                <option value="Ganti oli mesin - 50k">Ganti oli mesin - 50k</option>
-                                <option value="Tune up - 70k">Tune up - 70k</option>
-                                <option value="Ganti oli gardan - 15k">Ganti oli gardan - 15k</option>
-                                <option value="Ganti busi - 50k">Ganti busi - 50k</option>
-                                <option value="Ganti filter udara - 60k">Ganti filter udara - 60k</option>
-                                <option value="Ganti kampas rem - 60k">Ganti kampas rem - 60k</option>
-                                <option value="Perawatan aki - 150k">Perawatan aki - 150k</option>
-                                <option value="Bongkar pasang mesin - 500k">Bongkar pasang mesin - 500k</option>
-                                <option value="Tambal ban - 15k">Tambal ban - 15k</option>
-                                <option value="Bore up - 700k">Bore up - 700k</option>
+                                <option value="1">Ganti oli mesin</option>
+                                <option value="2">Tune up</option>
+                                <option value="3">Ganti oli gardan</option>
+                                <option value="4">Ganti busi</option>
+                                <option value="5">Ganti filter udara</option>
+                                <option value="6">Ganti kampas rem</option>
+                                <option value="7">Perawatan aki</option>
+                                <option value="8">Bongkar pasang mesin</option>
+                                <option value="9">Tambal ban</option>
+                                <option value="10">Bore up</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -214,65 +235,40 @@
     <!-- Modal Edit End -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Untuk modal print
-            let printButtons = document.querySelectorAll('.print-button');
-            printButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    let id = this.getAttribute('data-id');
-                    let nama = this.getAttribute('data-nama');
-                    let email = this.getAttribute('data-email');
-                    let nohp = this.getAttribute('data-nohp');
-                    let alamat = this.getAttribute('data-alamat');
-                    let provinsi = this.getAttribute('data-provinsi');
-                    let kota = this.getAttribute('data-kota');
-                    let motor = this.getAttribute('data-motor');
-                    let jenis_servis = this.getAttribute('data-jenis_servis');
-                    let jadwal = this.getAttribute('data-jadwal');
-                    let jam = this.getAttribute('data-jam');
-                    document.getElementById('modal-id').textContent = id;
-                    document.getElementById('modal-nama').textContent = nama;
-                    document.getElementById('modal-email').textContent = email;
-                    document.getElementById('modal-nohp').textContent = nohp;
-                    document.getElementById('modal-alamat').textContent = alamat;
-                    document.getElementById('modal-provinsi').textContent = provinsi;
-                    document.getElementById('modal-kota').textContent = kota;
-                    document.getElementById('modal-motor').textContent = motor;
-                    document.getElementById('modal-jenis_servis').textContent = jenis_servis;
-                    document.getElementById('modal-jadwal').textContent = jadwal;
-                    document.getElementById('modal-jam').textContent = jam;
-                });
-            });
-
-            // Untuk modal edit
-            let editButtons = document.querySelectorAll('.edit-button');
-            editButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    let id = this.getAttribute('data-id');
-                    let nama = this.getAttribute('data-nama');
-                    let email = this.getAttribute('data-email');
-                    let nohp = this.getAttribute('data-nohp');
-                    let alamat = this.getAttribute('data-alamat');
-                    let provinsi = this.getAttribute('data-provinsi');
-                    let kota = this.getAttribute('data-kota');
-                    let motor = this.getAttribute('data-motor');
-                    let jenis_servis = this.getAttribute('data-jenis_servis');
-                    let jadwal = this.getAttribute('data-jadwal');
-                    let jam = this.getAttribute('data-jam');
-
-                    document.getElementById('recipient-id').value = id;
-                    document.getElementById('recipient-nama').value = nama;
-                    document.getElementById('recipient-email').value = email;
-                    document.getElementById('recipient-nohp').value = nohp;
-                    document.getElementById('recipient-alamat').value = alamat;
-                    document.getElementById('provinsi').value = provinsi;
-                    document.getElementById('kota').value = kota;
-                    document.getElementById('motor').value = motor;
-                    document.getElementById('jenis_servis').value = jenis_servis;
-                    document.getElementById('recipient-jadwal').value = jadwal;
-                    document.getElementById('recipient-jam').value = jam;
-                });
+    document.addEventListener('DOMContentLoaded', function () {
+        // Modal Print
+        document.querySelectorAll('.print-button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.getElementById('modal-id').textContent = this.dataset.id;
+                document.getElementById('modal-nama').textContent = this.dataset.nama;
+                document.getElementById('modal-email').textContent = this.dataset.email;
+                document.getElementById('modal-nohp').textContent = this.dataset.nohp;
+                document.getElementById('modal-alamat').textContent = this.dataset.alamat;
+                document.getElementById('modal-provinsi').textContent = this.dataset.provinsi;
+                document.getElementById('modal-kota').textContent = this.dataset.kota;
+                document.getElementById('modal-motor').textContent = this.dataset.motor;
+                document.getElementById('modal-jenis_servis').textContent = this.dataset.jenis_servis; // nama
+                document.getElementById('modal-jadwal').textContent = this.dataset.jadwal;
+                document.getElementById('modal-jam').textContent = this.dataset.jam;
             });
         });
+
+        // Modal Edit
+        document.querySelectorAll('.edit-button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.getElementById('recipient-id').value = this.dataset.id;
+                document.getElementById('recipient-nama').value = this.dataset.nama;
+                document.getElementById('recipient-email').value = this.dataset.email;
+                document.getElementById('recipient-nohp').value = this.dataset.nohp;
+                document.getElementById('recipient-alamat').value = this.dataset.alamat;
+                document.getElementById('provinsi').value = this.dataset.provinsi;
+                document.getElementById('kota').value = this.dataset.kota;
+                document.getElementById('motor').value = this.dataset.motor;
+                document.getElementById('jenis_servis').value = this.dataset.jenis_servis; // ID
+                document.getElementById('recipient-jadwal').value = this.dataset.jadwal;
+                document.getElementById('recipient-jam').value = this.dataset.jam;
+            });
+        });
+    });
     </script>
 </center>

@@ -10,6 +10,7 @@
             <th>No</th>
             <th>Nama Pelanggan</th>
             <th>Jenis Servis</th>
+            <th>Harga</th>
             <th>Status</th>
             <th>Bukti</th>
             <th>Aksi</th>
@@ -21,7 +22,8 @@
                 <tr>
                     <td><?= $no++; ?></td>
                     <td><?= $bayar['nama_pelanggan']; ?></td>
-                    <td><?= $bayar['jenis_servis']; ?></td>
+                    <td><?= $bayar['nama_servis']; ?></td>
+                    <td>Rp <?= number_format($bayar['harga'], 0, ',', '.'); ?></td>
                     <td><?= ucfirst($bayar['status']); ?></td>
                     <td>
                         <?php if (!empty($bayar['upload_file'])): ?>

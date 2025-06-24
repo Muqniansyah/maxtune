@@ -28,6 +28,18 @@ class Dashboard extends CI_Controller {
 
     public function form() {
         $data['judul'] = "Detail Booking";
+        $this->load->model('M_account');
+
+        // Ambil semua booking + join ke jenis_servis
+        $this->db->select('booking.*, jenis_servis.nama AS nama_servis');
+        $this->db->from('booking');
+        $this->db->join('jenis_servis', 'booking.jenis_servis = jenis_servis.id_servis');
+        $query = $this->db->get();
+        $data['list_form'] = $query->result_array();
+
+        // Ambil semua jenis_servis untuk ditampilkan di <select>
+        $data['jenis_servis'] = $this->M_account->getAllJenisServis();
+
         $this->load->view('v_dashboard2', $data);
     }
 

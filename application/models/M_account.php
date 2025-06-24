@@ -74,9 +74,20 @@ class M_account extends CI_Model{
 
     // Ambil semua data pembayaran beserta nama servis dan data booking
     public function getAllPembayaran() {
-        $this->db->select('pembayaran.*, booking.nama AS nama_pelanggan, booking.jenis_servis');
+        $this->db->select('
+            pembayaran.*, 
+            booking.nama AS nama_pelanggan, 
+            jenis_servis.nama AS nama_servis,
+            jenis_servis.harga
+        ');
         $this->db->from('pembayaran');
-        $this->db->join('booking', 'pembayaran.booking_id = booking.id', 'left'); // FIX: gunakan 'id'
+        $this->db->join('booking', 'pembayaran.booking_id = booking.id', 'left');
+        $this->db->join('jenis_servis', 'booking.jenis_servis = jenis_servis.id_servis', 'left');
         return $this->db->get()->result_array();
+    }
+
+    // untuk mengambil data dari tabel jenis_servis
+    public function getAllJenisServis() {
+        return $this->db->get('jenis_servis')->result_array();
     }
 }

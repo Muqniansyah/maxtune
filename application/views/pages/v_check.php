@@ -184,7 +184,7 @@
             <div class="col-md-6">
                 <h3>Detail Servis:</h3>
                 <p><strong>Motor:</strong> <?= !empty($form_data['motor']) ? htmlspecialchars($form_data['motor']) : ''; ?></p>
-                <p><strong>Jenis Servis:</strong> <?= !empty($form_data['jenis_servis']) ? htmlspecialchars($form_data['jenis_servis']) : ''; ?></p>
+                <p><strong>Jenis Servis:</strong> <?= htmlspecialchars($form_data['nama_servis']); ?></p>
                 <p><strong>Jadwal:</strong> <?= !empty($form_data['jadwal']) ? htmlspecialchars($form_data['jadwal']) : ''; ?></p>
                 <p><strong>Jam:</strong> <?= !empty($form_data['jam']) ? htmlspecialchars($form_data['jam']) : ''; ?></p>
             </div>
@@ -192,7 +192,7 @@
         <div class="summary">
             <h3>Ringkasan Pesanan:</h3>
             <p><strong>Montir:</strong> <?= htmlspecialchars($form_data['montir']); ?></p>
-            <p><strong>Total Harga:</strong> <span id="total-harga"></span></p>
+            <p><strong>Total Harga:</strong> Rp <?= number_format($form_data['harga'], 0, ',', '.'); ?></p>
         </div>
         <div class="btn-container">
             <form method="post" action="<?= base_url('maxtune/hapusform/'); ?>">
@@ -204,20 +204,4 @@
     </div>
 </section>
 
-<script>
-    var jenisServisValue = '<?php echo isset($form_data['jenis_servis']) ? $form_data['jenis_servis'] : ''; ?>';
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var selectedOption = jenisServisValue;
-        var totalHargaElement = document.getElementById('total-harga');
-
-        var regex = /(.*) - (\d+)k/;
-        var match = selectedOption.match(regex);
-        if (match) {
-            var harga = parseInt(match[2]);
-            totalHargaElement.textContent = 'Rp ' + harga.toLocaleString();
-        } else {
-            totalHargaElement.textContent = '';
-        }
-    });
-</script>
