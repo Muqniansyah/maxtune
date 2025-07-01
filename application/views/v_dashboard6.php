@@ -6,6 +6,8 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
+            <?php $this->load->view("partial/v_topbar.php") ?>
+
             <!-- Main Content -->
             <div id="content">
                 <div class="container-fluid mt-5">

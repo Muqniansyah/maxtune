@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_account extends CI_Model{
-
     //konstruktor untuk memuat library database
     public function __construct() {
         parent::__construct();
@@ -89,5 +88,31 @@ class M_account extends CI_Model{
     // untuk mengambil data dari tabel jenis_servis
     public function getAllJenisServis() {
         return $this->db->get('jenis_servis')->result_array();
+    }
+
+    // Booking per bulan (6 bulan terakhir)
+    public function getBookingPerMonth() {
+        $this->db->select("MONTH(jadwal) AS bulan, COUNT(*) AS total");
+        $this->db->from("booking");
+        $this->db->where("jadwal >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)");
+        $this->db->group_by("MONTH(jadwal)");
+        return $this->db->get()->result_array();
+    }
+
+    // Jumlah masing-masing jenis servis
+    public function getServisDistribusi() {
+        $this->db->select("jenis_servis.nama AS label, COUNT(*) AS total");
+        $this->db->from("booking");
+        $this->db->join("jenis_servis", "booking.jenis_servis = jenis_servis.id_servis", "left");
+        $this->db->group_by("booking.jenis_servis");
+        return $this->db->get()->result_array();
+    }
+
+    // Total status pembayaran
+    public function getStatusPembayaran() {
+        $this->db->select("status, COUNT(*) AS total");
+        $this->db->from("pembayaran");
+        $this->db->group_by("status");
+        return $this->db->get()->result_array();
     }
 }

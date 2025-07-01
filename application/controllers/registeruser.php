@@ -1,18 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Registeruser extends CI_Controller
-{
-    public function __construct()
-    {
+class Registeruser extends CI_Controller {
+    public function __construct() {
         parent::__construct();
         $this->load->library(['form_validation']);
         $this->load->helper(['url', 'form']);
         $this->load->model('Customer_model');
     }
 
-    public function index()
-    {
+    public function index() {
         // Aturan validasi
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]|callback_username_check');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_email_check');
@@ -40,8 +37,7 @@ class Registeruser extends CI_Controller
     }
 
     // Callback: cek username
-    public function username_check($username)
-    {
+    public function username_check($username) {
         if ($this->Customer_model->username_exists($username)) {
             $this->form_validation->set_message('username_check', 'Username sudah terdaftar.');
             return false;
@@ -50,8 +46,7 @@ class Registeruser extends CI_Controller
     }
 
     // Callback: cek email
-    public function email_check($email)
-    {
+    public function email_check($email) {
         if ($this->Customer_model->email_exists($email)) {
             $this->form_validation->set_message('email_check', 'Email sudah terdaftar.');
             return false;
@@ -60,8 +55,7 @@ class Registeruser extends CI_Controller
     }
 
     // Callback: cek no telepon
-    public function telepon_check($no_telepon)
-    {
+    public function telepon_check($no_telepon) {
         if ($this->Customer_model->telepon_exists($no_telepon)) {
             $this->form_validation->set_message('telepon_check', 'Nomor telepon sudah terdaftar.');
             return false;

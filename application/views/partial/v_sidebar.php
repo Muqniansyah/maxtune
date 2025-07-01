@@ -23,6 +23,11 @@
         <i class="fas fa-solid fa-user"></i>
         <span>Admin</span></a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="<?php echo base_url().'dashboard/profile2' ?>">
+        <i class="fas fa-user-friends"></i>
+        <span>Pelanggan</span></a>
+</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider">

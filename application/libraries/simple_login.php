@@ -3,39 +3,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 * Simple_login Class
-* Class ini digunakan untuk fitur login, proteksi halaman dan logout
+* Digunakan untuk login admin, cek akses, dan logout
 */
 
 class Simple_login {
-    // SET SUPER GLOBAL
     var $CI = NULL;
 
-    /**
-     * Class constructor
-     *
-     * @return   void
-     */
     public function __construct() {
         $this->CI =& get_instance();
     }
 
-    /*
-    * cek username dan password pada table users, jika ada set session berdasar data user dari
-    * table users.
-    * @param string username dari input form
-    * @param string password dari input form
-    */
+    // Fungsi login
     public function login($username, $password) {
-        // Cek apakah username ada di tabel users
+        // Ambil data user dari tabel users berdasarkan username
         $user = $this->CI->db->get_where('users', ['username' => $username])->row();
 
         if ($user) {
-            // Username ditemukan, sekarang cek password
             if ($user->password === md5($password)) {
-                // Password cocok
-                $this->CI->session->set_userdata('username', $username);
-                $this->CI->session->set_userdata('id_login', uniqid(rand()));
-                $this->CI->session->set_userdata('id', $user->id_user);
+                // Jika password cocok, set session lengkap
+                $this->CI->session->set_userdata([
+                    'username' => $user->username,
+                    'email'    => $user->email,
+                    'nama'     => $user->nama,
+                    'id_user'  => $user->id_user,
+                    'admin_logged_in' => true
+                ]);
 
                 // Redirect ke dashboard
                 redirect(site_url('dashboard'));
@@ -45,7 +37,7 @@ class Simple_login {
                 redirect(site_url('login'));
             }
         } else {
-            // Username tidak ditemukan di database
+            // Username tidak ditemukan
             $this->CI->session->set_flashdata('sukses', 'Akun tidak terdaftar. Silakan daftar terlebih dahulu.');
             redirect(site_url('login'));
         }
@@ -57,27 +49,33 @@ class Simple_login {
      * Cek session login, jika tidak ada, set notifikasi dalam flashdata, lalu dialihkan ke halaman
      * login
      */
+    // Fungsi cek login biasa
     public function cek_login() {
-
-        //cek session username
-        if($this->CI->session->userdata('username') == '') {
-
-            //set notifikasi
+         //cek session username
+        if ($this->CI->session->userdata('username') == '') {
+             //set notifikasi
             $this->CI->session->set_flashdata('sukses','Anda belum login');
-
             //alihkan ke halaman login
             redirect(site_url('login'));
         }
     }
 
-    /**
-     * Hapus session, lalu set notifikasi kemudian di alihkan
-     * ke halaman login
-     */
+    // Fungsi cek admin (baru)
+    public function cek_admin() {
+        if (!$this->CI->session->userdata('admin_logged_in')) {
+            $this->CI->session->set_flashdata('sukses', 'Anda belum login sebagai admin.');
+            redirect(site_url('login'));
+        }
+    }
+
+    // Fungsi logout
     public function logout() {
         $this->CI->session->unset_userdata('username');
-        $this->CI->session->unset_userdata('id_login');
-        $this->CI->session->unset_userdata('id');
+        $this->CI->session->unset_userdata('email');
+        $this->CI->session->unset_userdata('nama');
+        $this->CI->session->unset_userdata('id_user');
+        $this->CI->session->unset_userdata('admin_logged_in');
+
         $this->CI->session->set_flashdata('sukses','Anda berhasil logout');
         redirect(site_url('login'));
     }

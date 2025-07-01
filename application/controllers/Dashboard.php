@@ -14,6 +14,11 @@ class Dashboard extends CI_Controller {
         $data['formkontak_count'] = $this->M_account->getFormKontakCount();
         $data['subscribe_count'] = $this->M_account->getSubscribeCount();
 
+        // Ambil data statistik
+        $data['booking_per_month'] = $this->M_account->getBookingPerMonth();
+        $data['servis_distribusi'] = $this->M_account->getServisDistribusi();
+        $data['status_pembayaran'] = $this->M_account->getStatusPembayaran();
+
         $this->load->view('v_dashboard', $data); // Load view with data
     }
 
@@ -24,6 +29,31 @@ class Dashboard extends CI_Controller {
         $data['admin'] = $this->db->get('users')->result_array(); 
         
         $this->load->view('v_dashboard5', $data); // memuat view profile
+    }
+
+    public function profile2() {
+        $this->load->model('M_account');
+        $data['judul'] = 'Data Pelanggan';
+
+        // ambil data user login
+        $data['users'] = $this->M_account->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+        // ambil data pelanggan dari tabel customer
+        $data['customer'] = $this->db->get('customer')->result_array();
+
+        $this->load->view('v_dashboard7', $data);
+    }
+
+    public function profiladmin() {
+        $this->simple_login->cek_admin(); // pastikan admin login
+
+        $this->load->model('M_account');
+        $data['judul'] = 'Profil Admin';
+
+        $email = $this->session->userdata('email');
+        $data['admin'] = $this->M_account->cekData(['email' => $email])->row_array();
+
+        $this->load->view('content/v_headerprofil', $data);
     }
 
     public function form() {
@@ -51,6 +81,29 @@ class Dashboard extends CI_Controller {
     public function subscribe() {
         $data['judul'] = "Detail Subscriber";
         $this->load->view('v_dashboard4', $data);
+    }
+
+    // fungsi update password
+    public function updatepassword() {
+        $this->load->model('M_account');
+
+        $id_user = $this->session->userdata('id_user');
+        $user = $this->M_account->cekData(['id_user' => $id_user])->row_array();
+
+        $password_lama = $this->input->post('password_lama');
+        $password_baru = $this->input->post('password_baru');
+        $konfirmasi = $this->input->post('konfirmasi_password');
+
+        if (md5($password_lama) != $user['password']) {
+            $this->session->set_flashdata('password_error', 'Password lama salah.');
+        } elseif ($password_baru !== $konfirmasi) {
+            $this->session->set_flashdata('password_error', 'Konfirmasi password tidak cocok.');
+        } else {
+            $this->M_account->update_data(['id_user' => $id_user], ['password' => md5($password_baru)], 'users');
+            $this->session->set_flashdata('password_success', 'Password berhasil diubah.');
+        }
+
+        redirect('dashboard/profiladmin');
     }
 
     // fungsi pembayaran

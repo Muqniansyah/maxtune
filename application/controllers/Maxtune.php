@@ -84,6 +84,7 @@ class Maxtune extends CI_Controller {
         // render halaman view
         $this->load->view('v_header', $data);
         $this->load->view('pages/v_contact', $data);
+        $this->load->view('pages/v_contact2', $data);
         $this->load->view('v_footer', $data);
     }
 
@@ -349,7 +350,6 @@ class Maxtune extends CI_Controller {
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
-
 
     public function cetakform() {
         // Cek apakah user sudah login
